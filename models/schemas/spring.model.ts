@@ -114,7 +114,7 @@ const springSchema = new Schema<ISpring>({
 springSchema.index({ mainRegion: 1, subRegion: 1 });
 springSchema.index({ name: 'text', fullDescription: 'text' });
 
-const SpringModel = mongoose.models.Spring || mongoose.model<ISpring>('Spring', springSchema);
+const SpringModel = mongoose.models.Spring || mongoose.model<ISpring>('Spring', springSchema, 'springs');
 
 export { SpringModel };
 
