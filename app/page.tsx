@@ -1,3 +1,7 @@
+import { redirect } from 'next/navigation';
+import router from '../routes';
+
 export default function Home() {
-  return <main></main>;
+  // Server-side redirect to login page
+  redirect(router.dashboard.p);
 }
