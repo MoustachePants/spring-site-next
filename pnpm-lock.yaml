@@ -17,6 +17,12 @@ importers:
       bcryptjs:
         specifier: ^2.4.3
         version: 2.4.3
+      iconoir:
+        specifier: ^7.11.0
+        version: 7.11.0
+      iconoir-react:
+        specifier: ^7.11.0
+        version: 7.11.0(react@19.2.0)
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
@@ -539,6 +545,14 @@ packages:
 
   hoist-non-react-statics@3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
+
+  iconoir-react@7.11.0:
+    resolution: {integrity: sha512-uvTKtnHYwbbTsmQ6HCcliYd50WK0GbjP497RwdISxKzfS01x4cK1Mn/F2mT/t2roSaJQ0I+KnHxMcyvmNMXWsQ==}
+    peerDependencies:
+      react: 18 || 19
+
+  iconoir@7.11.0:
+    resolution: {integrity: sha512-F9T/E08aJBaQ+VOBjn+ChWKn3hFwsaK5VZ024OFMxdDaxKjLGDpU/OsU7MO9wXM+mDs4ZImypdXIn0fFZAXKmA==}
 
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
@@ -1325,6 +1339,12 @@ snapshots:
   hoist-non-react-statics@3.3.2:
     dependencies:
       react-is: 16.13.1
+
+  iconoir-react@7.11.0(react@19.2.0):
+    dependencies:
+      react: 19.2.0
+
+  iconoir@7.11.0: {}
 
   import-fresh@3.3.1:
     dependencies:
