@@ -1,3 +1,5 @@
+import type { SpringUpdate } from './springUpdate';
+
 export interface Spring {
   _id: string;
   name: string;
@@ -14,6 +16,7 @@ export interface Spring {
   categories: SpringCategories;
   fullDescription: string;
   lastUpdate: Date | string;
+  updates?: SpringUpdate[];
   __v?: number;
 }
 

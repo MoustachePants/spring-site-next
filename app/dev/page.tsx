@@ -2,11 +2,14 @@ import type { ReactNode } from "react";
 
 import listSprings from "@/app/actions/listSprings";
 import { Spring } from "@/models/types/spring";
+import getSpring from "@/app/actions/getSpring";
 
 export const dynamic = "force-dynamic";
 
 const DevPage = async () => {
   const response = await listSprings();
+  const spring = await getSpring("62b6fd3a5b0f3213b08f6899");
+  console.log("single spring", spring);
 
   if (response.status === "error") {
     return (
