@@ -1,10 +1,11 @@
-import mongoose from 'mongoose';
+import mongoose, {Mongoose} from 'mongoose';
 
 // Import all models to ensure they are registered
 import  "../models/schemas/spring.model"
+import  "../models/schemas/springUpdate.model"
 
 // MongoDB connection configuration
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/flowresources';
+const mongodbUri = process.env.MONGODB_URI as string;
 
 // Global cached connection
 let cached = (global as any).mongoose;
@@ -19,21 +20,27 @@ if (!cached) {
  * - Handles development vs production environments
  * - Provides detailed error handling
  */
-export async function connectDB() {
+export async function connectDB(dbName: string) {
   // Return existing connection if available
   if (cached.conn) {
     return cached.conn;
+  }
+
+  if (mongodbUri === '') {
+      return
   }
 
   // Create new connection promise if none exists
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
+      dbName: dbName,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts)
+    cached.promise = mongoose.connect(mongodbUri, opts)
       .then((mongoose) => {
-        console.log('Connected to MongoDB');
+        const connectedDbName = mongoose.connection.db?.databaseName;
+        console.log(`Connected to MongoDB${connectedDbName ? ` (database: ${connectedDbName})` : ''}`);
         return mongoose;
       });
   }
