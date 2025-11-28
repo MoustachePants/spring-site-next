@@ -1,6 +1,8 @@
 .category-selector {
+    width: 100%;
     display: flex;
-    gap: 0.5rem;
+    flex-wrap: nowrap;
+    gap: 5px;
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none;
@@ -17,17 +19,13 @@
 }
 
 .category-chip {
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
+    padding: 10px 20px;
+    height: var(--input-height);
+    border-radius: 50px;
     border: 1px solid #e5e7eb;
     background-color: white;
     color: #374151;
-    font-size: 0.75rem;
-    font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
-    text-transform: capitalize;
-    flex-shrink: 0;
 }
 
 .category-chip:hover {
