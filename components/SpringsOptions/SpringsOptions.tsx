@@ -5,7 +5,10 @@ import Grid from '../ui/Grid/Grid';
 import Card from '../ui/Card/Card';
 import { Spring } from '@/models/types/spring';
 
-const SpringsOptions: React.FC<{ springs: Spring[] }> = ({ springs }) => {
+const SpringsOptions: React.FC<{ springs: Spring[]; setSelectedSpring: (spring: Spring) => void }> = ({
+  springs,
+  setSelectedSpring,
+}) => {
   return (
     <div className="springs-options-container">
       <h2 className="springs-options-title">Explore Springs ({springs.length})</h2>
@@ -16,6 +19,7 @@ const SpringsOptions: React.FC<{ springs: Spring[] }> = ({ springs }) => {
             key={spring._id}
             title={spring.name}
             description={spring.fullDescription}
+            onClick={() => setSelectedSpring(spring)}
           />
         ))}
       </Grid>
