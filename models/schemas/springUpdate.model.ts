@@ -12,7 +12,7 @@ const springUpdateSchema = new Schema<ISpringUpdate>(
     cleanliness: { type: Number, required: true, min: 0 },
     spring: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Spring',
+      ref: 'Spring-Refactored',
       required: true,
     } as mongoose.SchemaDefinitionProperty,
   },
