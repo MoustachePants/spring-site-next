@@ -6,16 +6,10 @@ export interface Spring {
   mainRegion: string;
   subRegion: string;
   springDetails: SpringDetails;
-  costInShekels: CostInShekels;
   images: SpringImage[];
-  imagesCredit: SpringImageCredit[];
-  extraLinks: SpringExtraLink[];
-  location: SpringLocation[];
-  directions: string;
-  accessibility: SpringAccessibility;
-  categories: SpringCategories;
-  fullDescription: string;
-  lastUpdate: Date | string;
+  location: SpringLocation;
+  description: string;
+  lastUpdate: string | Date;
   updates?: SpringUpdate[];
   __v?: number;
 }
@@ -26,8 +20,14 @@ export interface SpringDetails {
   howDeep: number;
   temperature: number;
   size: number;
-  shadow: boolean;
-  sitingSpots: boolean;
+  hasShadow: boolean;
+  hasSitingSpots: boolean;
+  IsAccessible: boolean;
+  isShallow: boolean;
+  isDeep: boolean;
+  isHotSpring: boolean;
+  hasClearWater: boolean;
+  hasView: boolean;
 }
 
 export interface SpringReserveDetails {
@@ -35,44 +35,22 @@ export interface SpringReserveDetails {
   nameOfReserve?: string;
 }
 
-export interface CostInShekels {
-  ifCost: boolean;
-  howMuch: number;
-}
-
 export interface SpringImage {
-  _id: string;
   image: string;
-  name?: string;
+  credit?: string;
   link?: string;
-}
-
-export interface SpringImageCredit {
-  name: string;
-  link?: string;
-}
-
-export interface SpringExtraLink {
-  label: string;
-  url: string;
 }
 
 export interface SpringLocation {
-  _id: string;
-  type: 'water' | 'parking' | 'trail' | 'viewpoint' | string;
-  coordinates: [number, number];
-}
-
-export interface SpringAccessibility {
+  region: {
+    main: string;
+    sub: string;
+  };
+  directions: string;
+  wazeLink: string;
   minutesByFoot: number;
-  disabled: boolean;
-  wazeLink?: string;
-}
-
-export interface SpringCategories {
-  onlyFeet: boolean;
-  swim: boolean;
-  hotSprings: boolean;
-  clearWater: boolean;
-  view: boolean;
+  coordinates: {
+    pool: number[];
+    parking: number[];
+  };
 }

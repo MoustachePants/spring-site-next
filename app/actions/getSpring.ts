@@ -1,17 +1,17 @@
 'use server';
 
-import {Spring} from "@/models/types/spring";
-import {connectDB} from "@/lib/mongoConnection";
-import {SpringModel} from "@/models/schemas/spring.model";
-import {ActionResponse} from "@/models/types/actionResponse";
-import {SpringUpdateModel} from "@/models/schemas/springUpdate.model";
+import { Spring } from '@/models/types/spring';
+import { connectDB } from '@/lib/mongoConnection';
+import { SpringModel } from '@/models/schemas/spring.model';
+import { ActionResponse } from '@/models/types/actionResponse';
+import { SpringUpdateModel } from '@/models/schemas/springUpdate.model';
 
-const getSpring = async (id:string): Promise<ActionResponse<Spring>> => {
+const getSpring = async (id: string): Promise<ActionResponse<Spring>> => {
   try {
-    await connectDB("Springs");
-    const spring = await SpringModel.findById(id).lean() as any;
+    await connectDB('Springs-Refactored');
+    const spring = (await SpringModel.findById(id).lean()) as any;
 
-    if (!spring || !spring.name || spring.name === "") {
+    if (!spring || !spring.name || spring.name === '') {
       console.error(`Spring with id ${id} was not found`);
       return { status: 'error', error: new Error(`Spring with id ${id} was not found`) };
     }

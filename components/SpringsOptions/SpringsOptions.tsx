@@ -18,7 +18,7 @@ const SpringsOptions: React.FC<{ springs: Spring[]; setSelectedSpring: (spring: 
             id={spring._id}
             key={spring._id}
             title={spring.name}
-            description={spring.fullDescription}
+            description={spring.description}
             onClick={() => setSelectedSpring(spring)}
           />
         ))}
