@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
-import { Toaster } from 'react-hot-toast';
 import { DataContextProvider } from '@/context/DataContext';
+import { Toaster } from 'react-hot-toast';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
