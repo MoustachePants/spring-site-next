@@ -1,3 +1,18 @@
+:root {
+  --background-color: #FCEDD6;
+  --primary-color: #97C6E0;
+  --primary-color-hover: #CAE8F2;
+  --dark-text-color: #223F43;
+  --dark-text-color-hover: #223F4360;
+  --bright-text-color: #FFFFFF;
+  --bright-text-color-hover: #FFFFFF60;
+
+  --border-radius: 10px;
+
+  --font-family: 'Noto Sans Hebrew', system-ui, -apple-system, sans-serif;
+}
+
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -6,4 +21,13 @@
 
 html {
   height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: var(--background-color);
+  color: var(--dark-text-color);
+  font-family: var(--font-family);
+  line-height: 1.5;
+  font-size: 16px;
 }
