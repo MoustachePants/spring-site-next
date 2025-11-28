@@ -1,10 +1,7 @@
 import mongoose from 'mongoose';
 
 // Import all models to ensure they are registered
-import '../models/schemas/project.model';
-import '../models/schemas/category.model';
-import '../models/schemas/website.model';
-import '../models/schemas/user.model';
+import  "../models/schemas/spring.model"
 
 // MongoDB connection configuration
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/flowresources';
