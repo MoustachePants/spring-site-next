@@ -43,7 +43,7 @@ const DashboardPage: NextPage = () => {
         onOpen={() => setIsPanelOpen(true)}
         title="Springs Options"
       >
-        <Header/>
+        <Header onCloseSlidePanel={() => setIsPanelOpen(false)} />
         <SpringsOptions springs={springs} setSelectedSpring={setSelectedSpring} />
       </SlidePanel>
     </div>
