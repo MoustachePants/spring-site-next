@@ -3,13 +3,13 @@
 import React, { ReactNode, useRef, useCallback } from 'react';
 import './Grid.css';
 
-interface GridProps {
+type GridProps = {
   children: ReactNode;
   className?: string;
   onEndReached?: () => void;
   isLoading?: boolean;
   hasMore?: boolean;
-}
+};
 
 const Grid: React.FC<GridProps> = ({
   children,

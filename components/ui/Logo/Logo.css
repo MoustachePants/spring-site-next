@@ -1,0 +1,23 @@
+.logo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.logo-image {
+    object-fit: contain;
+}
+
+.logo-container.S {
+    width: 100px;
+    height: 32px;
+}
+
+.logo-container.M {
+    width: 150px;
+    height: 48px;
+}
+
+.logo-container.L {
+    width: 200px;
+    height: 64px;
+}

@@ -15,6 +15,7 @@
     "jsonwebtoken": "^9.0.2",
     "leaflet": "^1.9.4",
     "mongoose": "^8.20.1",
+    "motion": "^12.23.24",
     "next": "^16.0.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

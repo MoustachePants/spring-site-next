@@ -5,11 +5,11 @@ import Grid from '../ui/Grid/Grid';
 import Card from '../ui/Card/Card';
 import './SpringsOptions.css';
 
-interface Spring {
+type Spring = {
   id: number;
   title: string;
   description: string;
-}
+};
 
 // Mock async fetch function (simulating DB call)
 const fetchSprings = async (page: number, limit: number): Promise<Spring[]> => {
