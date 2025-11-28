@@ -25,6 +25,7 @@ const DashboardPage: NextPage = () => {
         return;
       }
 
+      console.log(springResponse.data);
       setSprings(springResponse.data || []);
     };
 
@@ -51,7 +52,7 @@ const DashboardPage: NextPage = () => {
   return (
     <div className="dashboard-container">
       <div className="side-panel">
-        <Header/>
+        <Header />
         <SpringsOptions springs={springs} setSelectedSpring={setSelectedSpring} />
       </div>
       <div className="map-wrapper">
