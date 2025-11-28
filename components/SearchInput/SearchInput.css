@@ -1,0 +1,25 @@
+.search-input-container {
+    width: 100%;
+    position: relative;
+}
+
+.search-input-container svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.search-input {
+    width: 100%;
+    height: var(--input-height);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    padding-left: 40px;
+    border: 1px solid var(--dark-text-color);
+    border-radius: 50px;
+}
