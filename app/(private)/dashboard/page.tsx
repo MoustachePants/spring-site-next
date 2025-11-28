@@ -9,6 +9,7 @@ import SlidePanel from '@/components/ui/SlidePanel/SlidePanel';
 import './dashboard.css';
 import { Spring } from '@/models/types/spring';
 import listSprings from '@/app/actions/listSprings';
+import Header from '@/components/Header/Header';
 
 const Map = dynamic(() => import('@/components/Map/Map'), { ssr: false });
 
@@ -41,6 +42,7 @@ const DashboardPage: NextPage = () => {
         onOpen={() => setIsPanelOpen(true)}
         title="Springs Options"
       >
+        <Header/>
         <SpringsOptions springs={springs} />
       </SlidePanel>
     </div>

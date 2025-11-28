@@ -71,37 +71,10 @@
     transform: rotate(180deg);
 }
 
-.slide-panel-header {
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #e5e7eb;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    touch-action: none;
-    cursor: grab;
-}
-
-.slide-panel-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #111827;
-}
-
-.slide-panel-close {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    line-height: 1;
-    cursor: pointer;
-    color: #6b7280;
-}
-
-.slide-panel-close:hover {
-    color: #111827;
-}
-
 .slide-panel-content {
     flex: 1;
     overflow-y: auto;
-    padding: 1.5rem;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }

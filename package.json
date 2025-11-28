@@ -12,6 +12,8 @@
     "@heroicons/react": "^2.2.0",
     "@types/validator": "^13.15.2",
     "bcryptjs": "^2.4.3",
+    "iconoir": "^7.11.0",
+    "iconoir-react": "^7.11.0",
     "jsonwebtoken": "^9.0.2",
     "leaflet": "^1.9.4",
     "mongodb": "^7.0.0",
