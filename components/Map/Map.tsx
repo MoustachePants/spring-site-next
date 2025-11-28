@@ -13,10 +13,11 @@ const Map: React.FC = () => {
   useEffect(() => {
     if (mapContainerRef.current && !mapInstanceRef.current) {
       // Initialize map
-      const map = L.map(mapContainerRef.current).setView(
-        MAP_CONSTANTS.DEFAULT_CENTER,
-        MAP_CONSTANTS.DEFAULT_ZOOM
-      );
+      const map = L.map(mapContainerRef.current, {
+        maxBounds: MAP_CONSTANTS.ISRAEL_BOUNDS,
+        maxBoundsViscosity: MAP_CONSTANTS.MAX_BOUNDS_VISCOSITY,
+        minZoom: MAP_CONSTANTS.MIN_ZOOM,
+      }).setView(MAP_CONSTANTS.DEFAULT_CENTER, MAP_CONSTANTS.DEFAULT_ZOOM);
 
       // Add OpenStreetMap tile layer
       L.tileLayer(MAP_CONSTANTS.TILE_LAYER_URL, {
