@@ -9,21 +9,24 @@ import {SpringUpdateModel} from "@/models/schemas/springUpdate.model";
 const getSpring = async (id:string): Promise<ActionResponse<Spring>> => {
   try {
     await connectDB("Springs");
-    const spring = await SpringModel.findById(id) as Spring;
+    const spring = await SpringModel.findById(id).lean() as any;
 
-    if (!spring || spring.name === "") {
+    if (!spring || !spring.name || spring.name === "") {
       console.error(`Spring with id ${id} was not found`);
       return { status: 'error', error: new Error(`Spring with id ${id} was not found`) };
     }
 
     // TODO
-    // const updates = await SpringUpdateModel.find();
+    // const updates = await SpringUpdateModel.find().lean();
     // console.log(updates);
-    // spring.updates = updates.map(update => update.toObject());
+    // spring.updates = updates.map(update => update);
+
+    // Convert to plain object (handles ObjectIds, Dates, etc.)
+    const plainSpring = JSON.parse(JSON.stringify(spring)) as Spring;
 
     return {
       status: 'success',
-      data: spring,
+      data: plainSpring,
     };
   } catch (error) {
     return { status: 'error', error: error as Error };
