@@ -67,12 +67,6 @@ const SlidePanel: React.FC<SlidePanelProps> = ({ isOpen, onClose, onOpen, childr
             <ChevronLeftIcon className={`handle-icon ${isOpen ? 'rotate-180' : ''}`} />
           )}
         </div>
-        <div className="slide-panel-header" onPointerDown={(e) => dragControls.start(e)}>
-          {title && <h2 className="slide-panel-title">{title}</h2>}
-          <button className="slide-panel-close" onClick={onClose}>
-            &times;
-          </button>
-        </div>
         <div className="slide-panel-content">{children}</div>
       </motion.div>
     </div>

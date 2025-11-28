@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { DataContextProvider } from '@/context/DataContext';
-import { Toaster } from 'react-hot-toast';
+import { Noto_Sans_Hebrew } from 'next/font/google';
 import './globals.css';
+import { Toaster } from 'react-hot-toast';
+import { DataContextProvider } from '@/context/DataContext';
 
-const inter = Inter({ subsets: ['latin'] });
+const notoSansHebrew = Noto_Sans_Hebrew({ subsets: ['hebrew'] });
 
 export const metadata: Metadata = {
   title: 'המעיין הנובע',
@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" suppressHydrationWarning={true}>
-      <body className={inter.className}>
+    <html lang="he" dir="rtl" suppressHydrationWarning={true}>
+      <body className={notoSansHebrew.className}>
         <DataContextProvider>
           {children}
           <Toaster />
