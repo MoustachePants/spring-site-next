@@ -1,42 +1,54 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import L from 'leaflet';
+import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import { MAP_CONSTANTS } from '@/models/constant/map';
+import { Spring } from '@/models/types/spring';
+import L from 'leaflet';
 
-const Map: React.FC = () => {
-  const mapContainerRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<L.Map | null>(null);
+// Fix for default marker icons in React Leaflet
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+});
 
-  useEffect(() => {
-    if (mapContainerRef.current && !mapInstanceRef.current) {
-      // Initialize map
-      const map = L.map(mapContainerRef.current, {
-        maxBounds: MAP_CONSTANTS.ISRAEL_BOUNDS,
-        maxBoundsViscosity: MAP_CONSTANTS.MAX_BOUNDS_VISCOSITY,
-        minZoom: MAP_CONSTANTS.MIN_ZOOM,
-      }).setView(MAP_CONSTANTS.DEFAULT_CENTER, MAP_CONSTANTS.DEFAULT_ZOOM);
+const Map: React.FC<{ springs?: Spring[] }> = ({ springs = [] }) => {
+  return (
+    <MapContainer
+      center={MAP_CONSTANTS.DEFAULT_CENTER}
+      zoom={MAP_CONSTANTS.DEFAULT_ZOOM}
+      minZoom={MAP_CONSTANTS.MIN_ZOOM}
+      maxBounds={MAP_CONSTANTS.ISRAEL_BOUNDS}
+      maxBoundsViscosity={MAP_CONSTANTS.MAX_BOUNDS_VISCOSITY}
+      className="map-container"
+      scrollWheelZoom={true}
+    >
+      <TileLayer
+        url={MAP_CONSTANTS.TILE_LAYER_URL}
+        attribution={MAP_CONSTANTS.ATTRIBUTION}
+      />
+      {springs.map((spring) => {
+        if (spring.location && spring.location.length > 0) {
+          // Use the first location (or you could add markers for all locations)
+          const location = spring.location[0];
+          const [lat, lng] = location.coordinates;
 
-      // Add OpenStreetMap tile layer
-      L.tileLayer(MAP_CONSTANTS.TILE_LAYER_URL, {
-        attribution: MAP_CONSTANTS.ATTRIBUTION,
-      }).addTo(map);
-
-      mapInstanceRef.current = map;
-    }
-
-    // Cleanup function
-    return () => {
-      if (mapInstanceRef.current) {
-        mapInstanceRef.current.remove();
-        mapInstanceRef.current = null;
-      }
-    };
-  }, []);
-
-  return <div ref={mapContainerRef} className="map-container" />;
+          return (
+            <Marker key={spring._id} position={[lat, lng]}>
+              <Popup>
+                <b>{spring.name}</b>
+              </Popup>
+            </Marker>
+          );
+        }
+        return null;
+      })}
+    </MapContainer>
+  );
 };
 
 export default Map;
