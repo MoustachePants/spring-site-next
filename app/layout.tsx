@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
+import { DataContextProvider } from '@/context/DataContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="he" suppressHydrationWarning={true}>
       <body className={inter.className}>
-        {children}
-        <Toaster />
+        <DataContextProvider>
+          {children}
+          <Toaster />
+        </DataContextProvider>
       </body>
     </html>
   );
