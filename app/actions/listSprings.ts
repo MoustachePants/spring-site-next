@@ -8,16 +8,19 @@ import {ActionResponse} from "@/models/types/actionResponse";
 const listSprings = async (): Promise<ActionResponse<Spring[]>> => {
   try {
     await connectDB("Springs");
-    const springs = await SpringModel.find();
+    const springs = await SpringModel.find().lean();
 
     if (springs.length === 0) {
       console.error("No springs found");
       return { status: 'error', error: new Error("No springs found") };
     }
 
+    // Convert to plain objects (handles ObjectIds, Dates, etc.)
+    const plainSprings = JSON.parse(JSON.stringify(springs)) as Spring[];
+
     return {
       status: 'success',
-      data: springs as Spring[],
+      data: plainSprings,
     };
   } catch (error) {
     return { status: 'error', error: error as Error };
