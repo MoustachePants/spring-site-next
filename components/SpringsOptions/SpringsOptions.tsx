@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import Grid from '../ui/Grid/Grid';
 import Card from '../ui/Card/Card';
+import listSprings from "@/app/actions/listSprings";
 import './SpringsOptions.css';
 import {Spring} from "@/models/types/spring"
-import listSprings from "@/app/actions/listSprings";
 
 
 const SpringsOptions: React.FC = () => {

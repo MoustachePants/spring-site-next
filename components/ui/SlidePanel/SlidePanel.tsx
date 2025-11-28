@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion, AnimatePresence, PanInfo, useDragControls } from 'motion/react';
+import { motion, PanInfo, useDragControls } from 'motion/react';
 import { useMobileSize } from '@/hooks/useMobileSize';
 import { ChevronLeftIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 import './SlidePanel.css';
@@ -41,18 +41,7 @@ const SlidePanel: React.FC<SlidePanelProps> = ({ isOpen, onClose, onOpen, childr
   };
 
   return (
-    <>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="slide-panel-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-          />
-        )}
-      </AnimatePresence>
+    <div className="slide-panel-wrapper">
       <motion.div
         key={isMobile ? 'mobile' : 'desktop'}
         className={`slide-panel ${isMobile ? 'mobile' : 'desktop'}`}
@@ -86,7 +75,7 @@ const SlidePanel: React.FC<SlidePanelProps> = ({ isOpen, onClose, onOpen, childr
         </div>
         <div className="slide-panel-content">{children}</div>
       </motion.div>
-    </>
+    </div>
   );
 };
 
