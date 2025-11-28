@@ -5,18 +5,18 @@ import { NextPage } from 'next';
 
 import dynamic from 'next/dynamic';
 import SpringsOptions from '@/components/SpringsOptions/SpringsOptions';
-import SlidePanel from '@/components/ui/SlidePanel/SlidePanel';
 import './dashboard.css';
 import { Spring } from '@/models/types/spring';
+import { UserLocation } from '@/models/types/userLocation';
 import listSprings from '@/app/actions/listSprings';
 import Header from '@/components/Header/Header';
 
 const Map = dynamic(() => import('@/components/Map/Map'), { ssr: false });
 
 const DashboardPage: NextPage = () => {
-  const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [springs, setSprings] = useState<Spring[]>([]);
   const [selectedSpring, setSelectedSpring] = useState<Spring>();
+  const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
 
   useEffect(() => {
     const fetchSprings = async () => {
@@ -31,21 +31,32 @@ const DashboardPage: NextPage = () => {
     fetchSprings();
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && 'geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error('Error getting user location:', error);
+          // Optionally handle error (e.g., show a toast notification)
+        }
+      );
+    }
+  }, []);
+
   return (
     <div className="dashboard-container">
-      <div className="map-wrapper">
-        <Map springs={springs} selectedSpring={selectedSpring} />
-      </div>
-
-      <SlidePanel
-        isOpen={isPanelOpen}
-        onClose={() => setIsPanelOpen(false)}
-        onOpen={() => setIsPanelOpen(true)}
-        title="Springs Options"
-      >
+      <div className="side-panel">
         <Header/>
         <SpringsOptions springs={springs} setSelectedSpring={setSelectedSpring} />
-      </SlidePanel>
+      </div>
+      <div className="map-wrapper">
+        <Map springs={springs} selectedSpring={selectedSpring} userLocation={userLocation} />
+      </div>
     </div>
   );
 };
