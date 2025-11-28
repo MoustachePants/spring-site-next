@@ -2,6 +2,7 @@ import mongoose, {Mongoose} from 'mongoose';
 
 // Import all models to ensure they are registered
 import  "../models/schemas/spring.model"
+import  "../models/schemas/springUpdate.model"
 
 // MongoDB connection configuration
 const mongodbUri = process.env.MONGODB_URI as string;
