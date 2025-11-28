@@ -87,7 +87,7 @@ springSchema.index({ mainRegion: 1, subRegion: 1 });
 springSchema.index({ name: 'text', description: 'text' });
 
 const SpringModel =
-  (mongoose.models.Spring as Model<ISpring>) ||
+  (mongoose.models['Spring-Refactored'] as Model<ISpring>) ||
   mongoose.model<ISpring>('Spring-Refactored', springSchema, 'springs');
 
 export { SpringModel };

@@ -10,6 +10,7 @@ import { Spring } from '@/models/types/spring';
 import { UserLocation } from '@/models/types/userLocation';
 import listSprings from '@/app/actions/listSprings';
 import Header from '@/components/Header/Header';
+import getSpring from '@/app/actions/getSpring';
 
 const Map = dynamic(() => import('@/components/Map/Map'), { ssr: false });
 
@@ -17,6 +18,17 @@ const DashboardPage: NextPage = () => {
   const [springs, setSprings] = useState<Spring[]>([]);
   const [selectedSpring, setSelectedSpring] = useState<Spring>();
   const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
+
+  useEffect(() => {
+    const fetchSpring = async () => {
+      if (selectedSpring?._id) {
+        const spring = await getSpring(selectedSpring?._id);
+        console.log('spring:', spring);
+      }
+    };
+
+    fetchSpring();
+  }, [selectedSpring]);
 
   useEffect(() => {
     const fetchSprings = async () => {
