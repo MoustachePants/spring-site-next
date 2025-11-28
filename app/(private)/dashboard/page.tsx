@@ -1,22 +1,40 @@
 'use client';
 
+import { useState } from 'react';
 import { NextPage } from 'next';
 
 import dynamic from 'next/dynamic';
 import SpringsOptions from '@/components/SpringsOptions/SpringsOptions';
+import SlidePanel from '@/components/ui/SlidePanel/SlidePanel';
 
 const Map = dynamic(() => import('@/components/Map/Map'), { ssr: false });
 
 const DashboardPage: NextPage = () => {
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
+
   return (
-    <div className="h-screen w-full p-4 flex flex-col gap-8">
-      <div>
-        <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-        <div className="h-[600px] w-full border rounded-lg overflow-hidden">
-          <Map />
-        </div>
+    <div className="h-screen w-full relative">
+      {/* <div className="h-full w-full">
+        <Map />
+      </div> */}
+
+      <div className="absolute top-4 left-4 z-[1000]">
+        <button
+          onClick={() => setIsPanelOpen(true)}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors"
+        >
+          Open Springs Options
+        </button>
       </div>
-      <SpringsOptions />
+
+      <SlidePanel
+        isOpen={isPanelOpen}
+        onClose={() => setIsPanelOpen(false)}
+        onOpen={() => setIsPanelOpen(true)}
+        title="Springs Options"
+      >
+        <SpringsOptions />
+      </SlidePanel>
     </div>
   );
 };
