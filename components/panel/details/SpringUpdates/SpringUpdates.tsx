@@ -52,7 +52,7 @@ const SpringUpdates: React.FC<SpringUpdateProps> = ({ updates }) => {
             </>
           )}
           <button className={`action-button ${hasUpdates ? 'small' : 'full-width'}`}>
-            {hasUpdates ? 'הוסף עדכון' : 'ביקרת פה? נשמח לעדכון מהשטח :)'}
+            ביקרת פה? נשמח לעדכון מהשטח :)
           </button>
         </div>
 
