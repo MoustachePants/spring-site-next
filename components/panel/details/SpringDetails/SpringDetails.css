@@ -140,4 +140,8 @@
         padding-bottom: 100px;
     }
 
+    .spring-details-header {
+        position: relative;
+    }
+
 }
