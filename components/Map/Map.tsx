@@ -19,9 +19,8 @@ const MapController: React.FC<{ selectedSpring?: Spring }> = ({ selectedSpring }
   const map = useMap();
 
   useEffect(() => {
-    if (selectedSpring && selectedSpring.location) {
-      const location = selectedSpring.location[0];
-      const [lat, lng] = location.coordinates;
+    if (selectedSpring && selectedSpring.location && selectedSpring.location.coordinates) {
+      const [lat, lng] = selectedSpring.location.coordinates.pool;
       map.setView([lat, lng], MAP_CONSTANTS.DEFAULT_ZOOM, {
         animate: true,
         duration: 0.7,
@@ -32,18 +31,15 @@ const MapController: React.FC<{ selectedSpring?: Spring }> = ({ selectedSpring }
   return null;
 };
 
-const Map: React.FC<{ 
-  springs?: Spring[]; 
+const Map: React.FC<{
+  springs?: Spring[];
   selectedSpring?: Spring;
   userLocation?: UserLocation | null;
-}> = ({
-  springs = [],
-  selectedSpring,
-  userLocation,
-}) => {
+}> = ({ springs, selectedSpring, userLocation }) => {
   // Create a custom icon for user location (blue marker)
   const userLocationIcon = L.icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+    iconUrl:
+      'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
     iconSize: [25, 41],
     iconAnchor: [12, 41],
@@ -64,20 +60,15 @@ const Map: React.FC<{
       <TileLayer url={MAP_CONSTANTS.TILE_LAYER_URL} attribution={MAP_CONSTANTS.ATTRIBUTION} />
       <MapController selectedSpring={selectedSpring} />
       {userLocation && (
-        <Marker 
-          position={[userLocation.latitude, userLocation.longitude]} 
-          icon={userLocationIcon}
-        >
+        <Marker position={[userLocation.latitude, userLocation.longitude]} icon={userLocationIcon}>
           <Popup>
             <b>Your Location</b>
           </Popup>
         </Marker>
       )}
-      {springs.map((spring) => {
-        if (spring.location && spring.location.length > 0) {
-          // Use the first location (or you could add markers for all locations)
-          const location = spring.location[0];
-          const [lat, lng] = location.coordinates;
+      {springs &&
+        springs.map((spring) => {
+          const [lat, lng] = spring.location.coordinates.pool;
 
           return (
             <Marker key={spring._id} position={[lat, lng]}>
@@ -86,9 +77,7 @@ const Map: React.FC<{
               </Popup>
             </Marker>
           );
-        }
-        return null;
-      })}
+        })}
     </MapContainer>
   );
 };
