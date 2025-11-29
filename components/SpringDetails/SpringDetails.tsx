@@ -8,6 +8,7 @@ import SpringPositionTag from '../SpringPositionTag/SpringPositionTag';
 import NearbySprings from '../NearbySprings/NearbySprings';
 import { useDataContext } from '@/context/DataContext';
 import TopDetailsActions from '../TopDetailsActions/TopDetailsActions';
+import Link from 'next/link';
 
 type SpringDetailsProps = {
   spring: Spring;
@@ -48,10 +49,14 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
   return (
     <section className="spring-details">
       <header className="spring-details-header">
-        <div className="spring-details-back">
+        <Link
+          href="/"
+          className="spring-details-back"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
           <Icons.arrowRight />
           <span>לדף הראשי</span>
-        </div>
+        </Link>
         <TopDetailsActions />
       </header>
       <section className="spring-details-top-details">

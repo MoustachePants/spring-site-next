@@ -10,28 +10,28 @@ type DataContextType = {
   springsList: Spring[];
   filteredSpringsList: Spring[];
   isSpringsListLoading: boolean;
-  selectedSpring: Spring | undefined;
   selectedCategories: Category[];
   selectedPlaces: Place[];
   searchTerm: string;
-  getSpringById: (springId: string) => Promise<void>;
+  mapState: { center: [number, number]; zoom: number } | null;
   setSelectedCategories: (categories: Category[]) => void;
   setSelectedPlaces: (places: Place[]) => void;
   setSearchTerm: (term: string) => void;
+  setMapState: (state: { center: [number, number]; zoom: number }) => void;
 };
 
 export const DataContext = createContext<DataContextType>({
   springsList: [],
   filteredSpringsList: [],
   isSpringsListLoading: true,
-  selectedSpring: undefined,
   selectedCategories: [],
   selectedPlaces: [],
   searchTerm: '',
-  getSpringById: async () => {},
+  mapState: null,
   setSelectedCategories: () => {},
   setSelectedPlaces: () => {},
   setSearchTerm: () => {},
+  setMapState: () => {},
 });
 
 export function useDataContext() {
@@ -45,12 +45,12 @@ export function useDataContext() {
 export function DataContextProvider({ children }: { children: ReactNode }) {
   const [springsList, setSpringsList] = useState<Spring[]>([]);
   const [isSpringsListLoading, setIsSpringsListLoading] = useState<boolean>(true);
-  const [selectedSpring, setSelectedSpring] = useState<Spring | undefined>();
 
   // Filter states
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
   const [selectedPlaces, setSelectedPlaces] = useState<Place[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [mapState, setMapState] = useState<{ center: [number, number]; zoom: number } | null>(null);
 
   const blockRef = useRef<boolean>(true);
   useEffect(() => {
@@ -70,23 +70,6 @@ export function DataContextProvider({ children }: { children: ReactNode }) {
     };
     if (blockRef.current) loadSpringsList();
   }, []);
-
-  const getSpringById = async (springId: string) => {
-    setIsSpringsListLoading(true);
-    try {
-      if (springId) {
-        const response = await getSpring(springId);
-        if (!response.data) {
-          return;
-        }
-        setSelectedSpring(response.data);
-      }
-    } catch (error) {
-      console.error('Error loading springs list:', error);
-    } finally {
-      setIsSpringsListLoading(false);
-    }
-  };
 
   const filteredSpringsList = useMemo(() => {
     return springsList.filter((spring) => {
@@ -139,14 +122,14 @@ export function DataContextProvider({ children }: { children: ReactNode }) {
         springsList,
         filteredSpringsList,
         isSpringsListLoading,
-        selectedSpring,
         selectedCategories,
         selectedPlaces,
         searchTerm,
-        getSpringById,
+        mapState,
         setSelectedCategories,
         setSelectedPlaces,
         setSearchTerm,
+        setMapState,
       }}
     >
       {children}
