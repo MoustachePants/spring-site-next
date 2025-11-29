@@ -1,20 +1,25 @@
 .spring-details {
     position: relative;
     top: 0;
-    padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 20px;
     height: 100%;
+    width: 100%;
     color: var(--dark-text-color);
 }
 
 .spring-details-header {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    background-color: var(--background-color);
+    z-index: 1;
+    padding: 20px 0 10px 0;
 }
 
 .spring-details-back {
@@ -30,7 +35,8 @@
 
 .spring-details-header-actions {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 25px;
 }
 
 .spring-details-header-action {
@@ -39,6 +45,7 @@
     align-items: center;
     gap: 4px;
     width: 30px;
+    cursor: pointer;
 }
 
 .spring-details-header-action span {
@@ -65,8 +72,11 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 16px;
     font-weight: 600;
+    cursor: pointer;
+}
+
+.spring-details-subregion svg {
     color: var(--secondary-color);
 }
 
@@ -76,53 +86,57 @@
     gap: 10px;
 }
 
-.spring-details-tag {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    border: 1px solid var(--secondary-color-hover);
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 14px;
-    color: var(--primary-color);
-}
-
-.spring-details-tag svg {
-    color: var(--secondary-color-hover);
-}
-
 .spring-details-description {
     font-size: 16px;
     line-height: 1.6;
+    font-weight: 500;
 }
+
+.spring-details-separator {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--secondary-color-hover);
+    color: transparent;
+    margin: 20px 0;
+}
+
+/* --- */
+
+
+
+.spring-details-bottom-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 
 .spring-details-section {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
 }
 
 .spring-details-section-title {
-    font-size: 20px;
-    font-weight: 700;
-    border-bottom: 1px solid var(--secondary-color-hover);
-    padding-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .spring-details-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    background-color: #f9f9f9;
+    row-gap: 15px;
+    column-gap: 15px;
     padding: 15px;
-    border-radius: var(--border-radius);
+    padding-right: 0;
+    box-sizing: border-box;
 }
 
 .spring-detail-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    font-size: 15px;
+    gap: 15px;
 }
 
 .spring-detail-label {
