@@ -16,12 +16,12 @@ const getSpring = async (id: string): Promise<ActionResponse<Spring>> => {
       return { status: 'error', error: new Error(`Spring with id ${id} was not found`) };
     }
 
-    // TODO
-    // const updates = await SpringUpdateModel.find().lean();
-    // console.log(updates);
-    // spring.updates = updates.map(update => update);
+    const updates = await SpringUpdateModel.find().lean();
 
-    // Convert to plain object (handles ObjectIds, Dates, etc.)
+    if (updates && updates.length > 0) {
+      spring.updates = updates;
+    }
+
     const plainSpring = JSON.parse(JSON.stringify(spring)) as Spring;
 
     return {
@@ -29,7 +29,8 @@ const getSpring = async (id: string): Promise<ActionResponse<Spring>> => {
       data: plainSpring,
     };
   } catch (error) {
-    return { status: 'error', error: error as Error };
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    return { status: 'error', error: new Error(message) };
   }
 };
 

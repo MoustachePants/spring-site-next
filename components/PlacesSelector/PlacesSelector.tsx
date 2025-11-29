@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Place, PLACES, mapPlaces } from '@/models/types/category';
+import { useDataContext } from '@/context/DataContext';
 import './PlacesSelector.css';
 
 const PlacesSelector: React.FC = () => {
-  const [selectedPlaces, setSelectedPlaces] = useState<Place[]>([]);
+  const { selectedPlaces, setSelectedPlaces } = useDataContext();
 
   const handleOnChange = (place: Place) => {
     let newSelectedPlaces: Place[];
@@ -16,7 +17,6 @@ const PlacesSelector: React.FC = () => {
     }
 
     setSelectedPlaces(newSelectedPlaces);
-    console.log('Selected Places:', newSelectedPlaces);
   };
 
   return (

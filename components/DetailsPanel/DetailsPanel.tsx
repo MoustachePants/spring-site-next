@@ -8,7 +8,8 @@ import ImageHeader from '../ImageHeader/ImageHeader';
 import SpringDetails from '../SpringDetails/SpringDetails';
 
 const DetailsPanel: React.FC = () => {
-  const { springsList, selectedSpring, getSpringById, isSpringsListLoading } = useDataContext();
+  const { filteredSpringsList, selectedSpring, getSpringById, isSpringsListLoading } =
+    useDataContext();
 
   if (selectedSpring) {
     return (
@@ -32,7 +33,7 @@ const DetailsPanel: React.FC = () => {
         {isSpringsListLoading ? (
           <Loading />
         ) : (
-          <SpringsList springs={springsList} onClickSpring={getSpringById} />
+          <SpringsList springs={filteredSpringsList} onClickSpring={getSpringById} />
         )}
       </div>
     </section>
