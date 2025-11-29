@@ -3,12 +3,12 @@ import './SpringDetails.css';
 import { Spring } from '@/models/types/spring';
 import Icons from '@/style/icons';
 import Tag from '../../../ui/Tag/Tag';
-import NewsBox from '../NewsBox/NewsBox';
 import SpringPositionTag from '../../../SpringPositionTag/SpringPositionTag';
 import { useDataContext } from '@/context/DataContext';
 import TopDetailsActions from '../TopDetailsActions/TopDetailsActions';
 import Link from 'next/link';
 import NearbySprings from '../NearbySprings/NearbySprings';
+import SpringUpdates from '@/components/panel/details/SpringUpdates/SpringUpdates';
 
 type SpringDetailsProps = {
   spring: Spring;
@@ -16,6 +16,7 @@ type SpringDetailsProps = {
 
 const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
   const { springsList } = useDataContext();
+  console.log(spring);
 
   const detailsMapping: { [key: string]: string } = {
     reserve: 'שמורה',
@@ -98,7 +99,7 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
           <h2 className="spring-details-section-title">דרכי הגעה:</h2>
           <div className="spring-details-arrival">{spring.location.directions}</div>
         </section>
-        <NewsBox />
+        <SpringUpdates updates={spring.updates} />
         <NearbySprings
           springs={springsList
             .filter((nearbySpring) => nearbySpring.subRegion === spring.subRegion)
