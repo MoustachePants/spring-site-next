@@ -3,17 +3,18 @@ import Image from 'next/image';
 import './ImageHeader.css';
 
 type ImageHeaderProps = {
-  src?: string;
-  alt?: string;
+  imageSrc?: string;
+  imageAlt?: string;
 };
 
 const ImageHeader: React.FC<ImageHeaderProps> = ({
-  src = '/mock_image.jpeg',
-  alt = 'Header Image',
+  imageSrc = '/mock_image.jpeg', //TODO add the default image
+  imageAlt = 'Header Image',
 }) => {
+  console.log(imageSrc);
   return (
     <header className="image-header">
-      <Image src={'/mock_image.jpeg'} alt={alt} fill className="image-header-img" priority />
+      <Image src={imageSrc} alt={imageAlt} fill className="image-header-img" priority />
     </header>
   );
 };
