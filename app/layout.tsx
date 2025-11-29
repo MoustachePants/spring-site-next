@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from 'next';
 import { Noto_Sans_Hebrew } from 'next/font/google';
 import './globals.css';
+import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { DataContextProvider } from '@/context/DataContext';
+import Loading from '@/components/loading/Loading/Loading';
 
 const notoSansHebrew = Noto_Sans_Hebrew({ subsets: ['hebrew'] });
 
@@ -27,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning={true}>
       <body className={notoSansHebrew.className}>
-        <DataContextProvider>
-          {children}
-          <Toaster />
-        </DataContextProvider>
+        <Suspense fallback={<Loading />}>
+          <DataContextProvider>
+            {children}
+            <Toaster />
+          </DataContextProvider>
+        </Suspense>
       </body>
     </html>
   );
