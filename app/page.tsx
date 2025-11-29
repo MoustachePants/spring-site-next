@@ -35,7 +35,6 @@ const Home: NextPage = () => {
         return;
       }
 
-      console.log(springResponse.data);
       setSprings(springResponse.data || []);
     };
 
