@@ -34,29 +34,6 @@
     color: var(--dark-text-color-hover);
 }
 
-.spring-details-header-actions {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-}
-
-.spring-details-header-action {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    width: 30px;
-    cursor: pointer;
-}
-
-.spring-details-header-action span {
-    font-size: 12px;
-    line-height: 1.2;
-}
-
-.spring-details-header-action:hover {
-    color: var(--dark-text-color-hover);
-}
 
 .spring-details-top-details {
     display: flex;
