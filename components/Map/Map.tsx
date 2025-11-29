@@ -1,19 +1,33 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import { MAP_CONSTANTS } from '@/models/constant/map';
 import { Spring } from '@/models/types/spring';
 import L from 'leaflet';
 import { useCurrentPosition } from '@/hooks/useCurrentPosition';
+import { useDataContext } from '@/context/DataContext';
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
 });
+
+const MapStateUpdater = () => {
+  const { setMapState } = useDataContext();
+  useMapEvents({
+    moveend: (e) => {
+      setMapState({
+        center: [e.target.getCenter().lat, e.target.getCenter().lng],
+        zoom: e.target.getZoom(),
+      });
+    },
+  });
+  return null;
+};
 
 const MapController: React.FC<{ selectedSpring?: Spring }> = ({ selectedSpring }) => {
   const map = useMap();
@@ -35,6 +49,7 @@ const Map: React.FC<{
   springs?: Spring[];
   selectedSpring?: Spring;
 }> = ({ springs, selectedSpring }) => {
+  const { mapState } = useDataContext();
   const userLocation = useCurrentPosition();
   // Create a custom icon for user location (blue marker)
   const userLocationIcon = L.icon({
@@ -49,8 +64,8 @@ const Map: React.FC<{
 
   return (
     <MapContainer
-      center={MAP_CONSTANTS.DEFAULT_CENTER}
-      zoom={MAP_CONSTANTS.DEFAULT_ZOOM}
+      center={mapState?.center || MAP_CONSTANTS.DEFAULT_CENTER}
+      zoom={mapState?.zoom || MAP_CONSTANTS.DEFAULT_ZOOM}
       minZoom={MAP_CONSTANTS.MIN_ZOOM}
       // maxBounds={MAP_CONSTANTS.ISRAEL_BOUNDS}
       // maxBoundsViscosity={MAP_CONSTANTS.MAX_BOUNDS_VISCOSITY}
@@ -58,6 +73,7 @@ const Map: React.FC<{
       scrollWheelZoom={true}
     >
       <TileLayer url={MAP_CONSTANTS.TILE_LAYER_URL} attribution={MAP_CONSTANTS.ATTRIBUTION} />
+      <MapStateUpdater />
       <MapController selectedSpring={selectedSpring} />
       {userLocation && (
         <Marker position={[userLocation.latitude, userLocation.longitude]} icon={userLocationIcon}>

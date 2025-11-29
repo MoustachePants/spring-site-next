@@ -4,15 +4,15 @@ import { Spring } from '@/models/types/spring';
 import Image from 'next/image';
 import Icons from '@/style/icons';
 import Tag from '../ui/Tag/Tag';
+import Link from 'next/link';
 
 type PreviewCardProps = {
   spring: Spring;
-  onClick: (springId: string) => Promise<void>;
 };
 
-const PreviewCard: React.FC<PreviewCardProps> = ({ spring, onClick }) => {
+const PreviewCard: React.FC<PreviewCardProps> = ({ spring }) => {
   return (
-    <section className="preview-card" onClick={() => onClick(spring._id)}>
+    <Link href={`/spring/${spring._id}`} className="preview-card">
       <Image
         className="preview-card-image"
         width={346}
@@ -31,7 +31,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ spring, onClick }) => {
           <Tag icon={<Icons.clock />} label="להכנס כולי" />
         </section>
       </section>
-    </section>
+    </Link>
   );
 };
 
