@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Panel from '@/components/ui/Panel/Panel';
-import ImageHeader from '@/components/ImageHeader/ImageHeader';
-import SpringDetails from '@/components/SpringDetails/SpringDetails';
+import ImageHeader from '@/components/panel/ImageHeader/ImageHeader';
+import SpringDetails from '@/components/panel/details/SpringDetails/SpringDetails';
 import Loading from '@/components/loading/Loading/Loading';
 import { useDataContext } from '@/context/DataContext';
 import dynamic from 'next/dynamic';
@@ -49,11 +49,8 @@ const SpringPage = () => {
     <main className="dashboard-container">
       <Panel
         header={
-          spring ? (
-            <ImageHeader src={spring.images[0]?.image} alt={spring.name} />
-          ) : undefined
+          spring ? <ImageHeader src={spring.images[0]?.image} alt={spring.name} /> : undefined
         }
-        isDraggable={false}
       >
         {spring ? <SpringDetails spring={spring} /> : <Loading />}
       </Panel>

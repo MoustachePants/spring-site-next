@@ -4,8 +4,8 @@ import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import './home.css';
 import Panel from '@/components/ui/Panel/Panel';
-import Header from '@/components/Header/Header';
-import SpringsList from '@/components/SpringsList/SpringsList';
+import Header from '@/components/panel/Header/Header';
+import SpringsList from '@/components/panel/SpringsList/SpringsList';
 import Loading from '@/components/loading/Loading/Loading';
 import { useDataContext } from '@/context/DataContext';
 
