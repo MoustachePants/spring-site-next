@@ -1,24 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import Logo from '../../ui/Logo/Logo';
 import SearchInput from '../../SearchInput/SearchInput';
 import Filters from '../../panel/Filters/Filters';
 import Icons from '@/style/icons';
+import { motion, AnimatePresence } from 'motion/react';
 
 const Header: React.FC = () => {
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+
   return (
     <header className="header">
       <Logo size="L" />
       <section className="header-filters-search">
         <div className="header-filters-and-search">
           <SearchInput />
-          <div className="filter-button">
+          <div className="filter-button" onClick={() => setIsFiltersOpen(!isFiltersOpen)}>
             <Icons.filter />
             <span>מתקדם</span>
           </div>
         </div>
 
-        {/* <Filters /> */}
+        <AnimatePresence>
+          {isFiltersOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              style={{ overflow: 'hidden', width: '100%' }}
+            >
+              <Filters />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
     </header>
   );

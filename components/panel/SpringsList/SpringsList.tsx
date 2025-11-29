@@ -7,11 +7,13 @@ const SpringsList: React.FC<{
   springs: Spring[];
 }> = ({ springs }) => {
   return (
-    <div className="springs-options-container">
-      {springs.map((spring) => (
-        <PreviewCard spring={spring} key={spring._id} />
-      ))}
-    </div>
+    <section className="springs-options-scroll">
+      <div className="springs-options-container">
+        {springs.map((spring) => (
+          <PreviewCard spring={spring} key={spring._id} />
+        ))}
+      </div>
+    </section>
   );
 };
 

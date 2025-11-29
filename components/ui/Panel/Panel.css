@@ -11,7 +11,15 @@
     z-index: 20;
 }
 
-.side-panel-header {
+.side-panel-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+}
+
+/* .side-panel-header {
     position: sticky;
     top: 0;
     z-index: 1;
@@ -25,22 +33,12 @@
     display: flex;
     align-items: center;
     padding: 0 2em 20px 2em;
-}
+} */
 
+/* Desktop */
 @media (max-width: 768px) {
     .side-panel {
         position: fixed;
-        /*top: 10rem*/
-        /*bottom: 0;*/
-        /*left: 0;*/
-        /*right: 0;*/
-        /*width: 100%;*/
-        /*min-width: unset;*/
-        /*height: 10rem;*/
-        /*border-radius: 24px 24px 0 0;*/
-        /*box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);*/
-        /*z-index: 1000;*/
-        /*transition: height 0.3s ease-in-out;*/
     }
 
     .side-panel-content {
@@ -48,4 +46,3 @@
         box-sizing: border-box;
     }
 }
-
