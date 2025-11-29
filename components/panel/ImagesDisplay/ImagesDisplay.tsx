@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { createPortal } from 'react-dom';
 import './ImagesDisplay.css';
 import Icons from '@/style/icons';
 import { SpringImage } from '@/models/types/spring';
@@ -12,8 +13,10 @@ type ImagesDisplayProps = {
 
 const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     // Prevent scrolling when modal is open
     document.body.style.overflow = 'hidden';
     return () => {
@@ -31,9 +34,9 @@ const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0,
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  if (!images || images.length === 0) return null;
+  if (!mounted || !images || images.length === 0) return null;
 
-  return (
+  return createPortal(
     <div className="images-display-overlay">
       <button
         className="images-display-close"
@@ -68,7 +71,26 @@ const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0,
       <div className="images-display-counter">
         {currentIndex + 1} / {images.length}
       </div>
-    </div>
+
+      {images[currentIndex].credit && (
+        <div className="images-display-credit">
+          <span>צילום: </span>
+          {images[currentIndex].link ? (
+            <a
+              href={images[currentIndex].link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {images[currentIndex].credit}
+            </a>
+          ) : (
+            <span>{images[currentIndex].credit}</span>
+          )}
+        </div>
+      )}
+    </div>,
+    document.body
   );
 };
 

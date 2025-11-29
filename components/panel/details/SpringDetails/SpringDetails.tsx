@@ -2,7 +2,6 @@ import React from 'react';
 import './SpringDetails.css';
 import { Spring } from '@/models/types/spring';
 import Icons from '@/style/icons';
-import Tag from '../../../ui/Tag/Tag';
 import SpringPositionTag from '../../../SpringPositionTag/SpringPositionTag';
 import { useDataContext } from '@/context/DataContext';
 import TopDetailsActions from '../TopDetailsActions/TopDetailsActions';
@@ -17,7 +16,6 @@ type SpringDetailsProps = {
 
 const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
   const { springsList } = useDataContext();
-  console.log(spring);
 
   const detailsMapping: { [key: string]: string } = {
     reserve: 'שמורה',
