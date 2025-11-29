@@ -11,7 +11,6 @@ const ImageHeader: React.FC<ImageHeaderProps> = ({
   imageSrc = '/mock_image.jpeg', //TODO add the default image
   imageAlt = 'Header Image',
 }) => {
-  console.log(imageSrc);
   return (
     <header className="image-header">
       <Image src={imageSrc} alt={imageAlt} fill className="image-header-img" priority />

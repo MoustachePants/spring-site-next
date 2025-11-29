@@ -17,7 +17,11 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ spring }) => {
         className="preview-card-image"
         width={346}
         height={200}
-        src={'/mock_image.jpeg'}
+        src={
+          spring.images.length > 0
+            ? `/springImages/${spring.images[0].image}`
+            : '/water_texture.jpg'
+        }
         alt={spring.name}
       />
       <section className="preview-card-info">
