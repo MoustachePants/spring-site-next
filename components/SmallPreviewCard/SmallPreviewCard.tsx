@@ -13,7 +13,11 @@ const SmallPreviewCard: React.FC<SmallPreviewCardProps> = ({ spring }) => {
   return (
     <Link href={`/spring/${spring._id}`} key={spring._id} className="nearby-springs-card">
       <Image
-        src={`/springImages/${spring.images[0].image}`}
+        src={
+          spring.images.length > 0
+            ? `/springImages/${spring.images[0].image}`
+            : '/water_texture.jpg'
+        }
         className="nearby-springs-card-image"
         alt={spring.name}
         width={150}

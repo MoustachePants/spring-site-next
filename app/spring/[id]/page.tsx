@@ -51,7 +51,11 @@ const SpringPage = () => {
         header={
           spring && spring.images.length > 0 ? (
             <ImageHeader
-              imageSrc={`/springImages/${spring.images[0].image}`}
+              imageSrc={
+                spring.images[0].image
+                  ? `/springImages/${spring.images[0].image}`
+                  : '/water_texture.jpg'
+              }
               imageAlt={spring.name}
             />
           ) : undefined
