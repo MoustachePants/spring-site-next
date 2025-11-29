@@ -9,6 +9,13 @@
     cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    .preview-card {
+        width: 90%;
+        max-width: 346px;
+    }
+}
+
 .preview-card:hover {
     opacity: 0.9;
 }
