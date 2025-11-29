@@ -49,7 +49,12 @@ const SpringPage = () => {
     <main className="dashboard-container">
       <Panel
         header={
-          spring ? <ImageHeader src={spring.images[0]?.image} alt={spring.name} /> : undefined
+          spring && spring.images.length > 0 ? (
+            <ImageHeader
+              imageSrc={`/springImages/${spring.images[0].image}`}
+              imageAlt={spring.name}
+            />
+          ) : undefined
         }
       >
         {spring ? <SpringDetails spring={spring} /> : <Loading />}
