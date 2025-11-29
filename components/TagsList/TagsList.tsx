@@ -6,11 +6,12 @@ import { Spring } from '@/models/types/spring';
 
 type TagsListProps = {
   spring: Spring;
+  limit?: number;
 };
 
 type TagName = 'typeOf' | 'hasShadow' | 'IsAccessible' | 'isHotSpring' | 'hasView';
 
-const TagsList: React.FC<TagsListProps> = ({ spring }) => {
+const TagsList: React.FC<TagsListProps> = ({ spring, limit = 4 }) => {
   const [tags, setTags] = React.useState<TagName[]>([]);
 
   React.useEffect(() => {
@@ -20,7 +21,7 @@ const TagsList: React.FC<TagsListProps> = ({ spring }) => {
     if (spring.springDetails.IsAccessible) tags.push('IsAccessible');
     if (spring.springDetails.isHotSpring) tags.push('isHotSpring');
     if (spring.springDetails.hasView) tags.push('hasView');
-    setTags(tags);
+    setTags(tags.slice(0, limit));
   }, [spring]);
 
   const getIcon = (tag: TagName) => {
@@ -45,13 +46,13 @@ const TagsList: React.FC<TagsListProps> = ({ spring }) => {
       case 'typeOf':
         return spring.springDetails.typeOf;
       case 'hasShadow':
-        return spring.springDetails.hasShadow ? 'כן' : 'לא';
+        return 'מוצל';
       case 'IsAccessible':
-        return spring.springDetails.IsAccessible ? 'כן' : 'לא';
+        return 'נגיש';
       case 'isHotSpring':
-        return spring.springDetails.isHotSpring ? 'כן' : 'לא';
+        return 'מעיין חם';
       case 'hasView':
-        return spring.springDetails.hasView ? 'כן' : 'לא';
+        return 'נוף';
       default:
         return '';
     }

@@ -16,7 +16,7 @@
     top: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     background-color: var(--background-color);
     z-index: 1;

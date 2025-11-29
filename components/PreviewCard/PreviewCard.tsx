@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SpringPositionTag from '../SpringPositionTag/SpringPositionTag';
 import TagsList from '../TagsList/TagsList';
+import { getImage } from '@/utils/image';
 
 type PreviewCardProps = {
   spring: Spring;
@@ -17,17 +18,13 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ spring }) => {
         className="preview-card-image"
         width={346}
         height={200}
-        src={
-          spring.images.length > 0
-            ? `/springImages/${spring.images[0].image}`
-            : '/water_texture.jpg'
-        }
-        alt={spring.name}
+        src={getImage(spring)}
+        alt={spring?.name || 'מעיין'}
       />
       <section className="preview-card-info">
-        <h3>{spring.name}</h3>
+        <h3>{spring?.name || 'מעיין'}</h3>
         <SpringPositionTag position={spring.subRegion} />
-        <TagsList spring={spring} />
+        <TagsList spring={spring} limit={3} />
       </section>
     </Link>
   );

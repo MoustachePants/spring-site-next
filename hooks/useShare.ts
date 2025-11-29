@@ -19,14 +19,14 @@ export const useShare = () => {
       try {
         await navigator.share(shareData);
       } catch (error) {
-        console.error('Error sharing:', error);
+        console.log('Error sharing:', error);
       }
     } else {
       try {
         await navigator.clipboard.writeText(shareData.url);
         toast.success('הקישור הועתק ללוח');
       } catch (error) {
-        console.error('Error copying to clipboard:', error);
+        console.log('Error copying to clipboard:', error);
         toast.error('שגיאה בהעתקת הקישור');
       }
     }
