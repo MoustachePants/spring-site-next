@@ -9,6 +9,7 @@ import TopDetailsActions from '../TopDetailsActions/TopDetailsActions';
 import Link from 'next/link';
 import NearbySprings from '../NearbySprings/NearbySprings';
 import SpringUpdates from '@/components/panel/details/SpringUpdates/SpringUpdates';
+import TagsList from '@/components/TagsList/TagsList';
 
 type SpringDetailsProps = {
   spring: Spring;
@@ -63,11 +64,7 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
       <section className="spring-details-top-details">
         <h1 className="spring-details-title">{spring.name}</h1>
         <SpringPositionTag position={spring.subRegion} />
-        <div className="spring-details-tags">
-          {spring.springDetails.hasClearWater && <Tag icon={<Icons.water />} label="צלול" />}
-          {/* Add more tags based on properties if needed, similar to PreviewCard */}
-          <Tag icon={<Icons.clock />} label="להכנס כולי" />
-        </div>
+        <TagsList spring={spring} />
       </section>
 
       <div className="spring-details-description">{spring.description}</div>
