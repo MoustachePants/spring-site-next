@@ -1,7 +1,7 @@
 import React from 'react';
 import './Filters.css';
-import CategorySelector from '../CategorySelector/CategorySelector';
-import PlacesSelector from '../PlacesSelector/PlacesSelector';
+import PlacesSelector from '@/components/PlacesSelector/PlacesSelector';
+import CategorySelector from '@/components/CategorySelector/CategorySelector';
 
 const Filters: React.FC = () => {
   return (
