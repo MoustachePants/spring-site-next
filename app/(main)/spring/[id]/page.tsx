@@ -7,16 +7,13 @@ import ImageHeader from '@/components/panel/ImageHeader/ImageHeader';
 import SpringDetails from '@/components/panel/details/SpringDetails/SpringDetails';
 import Loading from '@/components/loading/Loading/Loading';
 import { useDataContext } from '@/context/DataContext';
-import dynamic from 'next/dynamic';
-import '../../home.css';
+import '../../../home.css';
 import { Spring } from '@/models/types/spring';
 import getSpring from '@/app/actions/getSpring';
 
-const Map = dynamic(() => import('@/components/Map/Map'), { ssr: false });
-
 const SpringPage: React.FC = () => {
   const params = useParams();
-  const { filteredSpringsList, springsList } = useDataContext();
+  const { filteredSpringsList, springsList, setSelectedSpring } = useDataContext();
   const id = params.id as string;
   const [spring, setSpring] = useState<Spring | undefined>(undefined);
 
@@ -36,6 +33,7 @@ const SpringPage: React.FC = () => {
         const response = await getSpring(id);
         if (response.data) {
           setSpring(response.data);
+          setSelectedSpring(response.data);
         }
       } catch (error) {
         console.error('Error fetching spring:', error);
@@ -43,19 +41,14 @@ const SpringPage: React.FC = () => {
     };
 
     fetchSpring();
-  }, [id, springsList]);
+  }, [id, springsList, setSelectedSpring]);
 
   return (
-    <main className="dashboard-container">
-      <Panel
-        header={spring && spring.images.length > 0 ? <ImageHeader spring={spring} /> : undefined}
-      >
-        {spring ? <SpringDetails spring={spring} /> : <Loading />}
-      </Panel>
-      <section className="map-wrapper">
-        <Map springs={filteredSpringsList} selectedSpring={spring} />
-      </section>
-    </main>
+    <Panel
+      header={spring && spring.images.length > 0 ? <ImageHeader spring={spring} /> : undefined}
+    >
+      {spring ? <SpringDetails spring={spring} /> : <Loading />}
+    </Panel>
   );
 };
 
