@@ -18,7 +18,7 @@ const NewsBox: React.FC = () => {
 
       <section className="news-content">
         <button className="nav-button prev">
-          <Icons.arrowRight />
+          <Icons.prev />
         </button>
 
         <div className="news-text-content">
@@ -29,7 +29,7 @@ const NewsBox: React.FC = () => {
         </div>
 
         <button className="nav-button next">
-          <Icons.arrowLeft />
+          <Icons.next />
         </button>
       </section>
     </section>

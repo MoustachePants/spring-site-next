@@ -1,0 +1,75 @@
+.nearby-springs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.spring-details-section-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.nearby-springs-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.nearby-springs-card {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.nearby-springs-card:hover {
+    opacity: 0.9;
+}
+
+.nearby-springs-card:active {
+    opacity: 0.8;
+}
+
+.nearby-springs-card-image {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.nearby-springs-card-info {
+    z-index: 1;
+    color: var(--bright-text-color);
+    width: 100%;
+    padding: 5px 10px 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: right;
+    position: absolute;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 10%, transparent 100%);
+}
+
+.nearby-springs-card-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

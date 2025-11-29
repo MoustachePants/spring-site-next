@@ -19,7 +19,8 @@
     width: 100%;
     background-color: var(--background-color);
     z-index: 1;
-    padding: 20px 0 10px 0;
+    padding: 25px 0 10px 0;
+    box-sizing: border-box;
 }
 
 .spring-details-back {
@@ -36,7 +37,7 @@
 .spring-details-header-actions {
     display: flex;
     align-items: flex-start;
-    gap: 25px;
+    gap: 30px;
 }
 
 .spring-details-header-action {
