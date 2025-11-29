@@ -24,12 +24,12 @@ const SpringPage = () => {
     const fetchSpring = async () => {
       if (!id) return;
 
-      // First try to find in loaded list
-      const found = springsList.find((s) => s._id === id);
-      if (found) {
-        setSpring(found);
-        return;
-      }
+      // // First try to find in loaded list
+      // const found = springsList.find((s) => s._id === id);
+      // if (found) {
+      //   setSpring(found);
+      //   return;
+      // }
 
       // If not found, fetch from API
       try {
