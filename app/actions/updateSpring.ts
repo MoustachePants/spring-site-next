@@ -34,7 +34,8 @@ const updateSpring = async (id: string, spring: Spring): Promise<ActionResponse<
     };
   } catch (error) {
     console.error('Error updating spring:', error);
-    return { status: 'error', error: error as Error };
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    return { status: 'error', error: new Error(message) };
   }
 };
 

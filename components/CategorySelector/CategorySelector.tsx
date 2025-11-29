@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Category, CATEGORIES, mapCategories } from '@/models/types/category';
+import { useDataContext } from '@/context/DataContext';
 import './CategorySelector.css';
 
 const CategorySelector: React.FC = () => {
-  const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
+  const { selectedCategories, setSelectedCategories } = useDataContext();
 
   const handleOnChange = (category: Category) => {
     let newSelectedCategories: Category[];
@@ -16,7 +17,6 @@ const CategorySelector: React.FC = () => {
     }
 
     setSelectedCategories(newSelectedCategories);
-    console.log('Selected Categories:', newSelectedCategories);
   };
 
   return (
