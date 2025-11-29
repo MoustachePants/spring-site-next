@@ -96,7 +96,7 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
           <h2 className="spring-details-section-title">דרכי הגעה:</h2>
           <div className="spring-details-arrival">{spring.location.directions}</div>
         </section>
-        <SpringUpdates updates={spring.updates} />
+        <SpringUpdates updates={spring.updates} springId={spring._id} />
         <NearbySprings
           springs={springsList
             .filter((nearbySpring) => nearbySpring.subRegion === spring.subRegion)
