@@ -4,6 +4,7 @@ import getSpring from '@/app/actions/getSpring';
 import listSprings from '@/app/actions/listSprings';
 import { Category, mapPlaces, Place } from '@/models/types/category';
 import { Spring } from '@/models/types/spring';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 type DataContextType = {
@@ -45,12 +46,47 @@ export function useDataContext() {
 export function DataContextProvider({ children }: { children: ReactNode }) {
   const [springsList, setSpringsList] = useState<Spring[]>([]);
   const [isSpringsListLoading, setIsSpringsListLoading] = useState<boolean>(true);
-
-  // Filter states
-  const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
-  const [selectedPlaces, setSelectedPlaces] = useState<Place[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>('');
   const [mapState, setMapState] = useState<{ center: [number, number]; zoom: number } | null>(null);
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const selectedCategories = useMemo(() => {
+    const param = searchParams.get('categories');
+    return param ? (param.split(',') as Category[]) : [];
+  }, [searchParams]);
+
+  const selectedPlaces = useMemo(() => {
+    const param = searchParams.get('places');
+    return param ? (param.split(',') as Place[]) : [];
+  }, [searchParams]);
+
+  const searchTerm = searchParams.get('search') || '';
+
+  const updateSearchParams = (key: string, value: string | null) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value) {
+      params.set(key, value);
+    } else {
+      params.delete(key);
+    }
+    const newUrl = `${pathname}?${params.toString()}`;
+    router.replace(newUrl, { scroll: false });
+  };
+
+  const setSelectedCategories = (categories: Category[]) => {
+    updateSearchParams('categories', categories.length > 0 ? categories.join(',') : null);
+  };
+
+  const setSelectedPlaces = (places: Place[]) => {
+    updateSearchParams('places', places.length > 0 ? places.join(',') : null);
+  };
+
+  const setSearchTerm = (term: string) => {
+    console.log('setSearchTerm called with:', term);
+    updateSearchParams('search', term || null);
+  };
 
   const blockRef = useRef<boolean>(true);
   useEffect(() => {
