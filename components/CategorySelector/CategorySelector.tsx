@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { Category, CATEGORIES, mapCategories } from '@/models/types/category';
 import './CategorySelector.css';
-import { section } from 'motion/react-client';
 
 const CategorySelector: React.FC = () => {
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);

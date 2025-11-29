@@ -1,0 +1,14 @@
+.dashboard-container {
+    height: 100dvh;
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.map-wrapper {
+    flex: 1;
+    height: 100dvh;
+    position: relative;
+    min-width: 0;
+    z-index: 1;
+}
