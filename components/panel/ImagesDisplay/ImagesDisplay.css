@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 1000;
     display: flex;
@@ -20,7 +20,6 @@
     border: none;
     color: white;
     cursor: pointer;
-    z-index: 1001;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -98,6 +97,29 @@
     font-weight: 500;
 }
 
+.images-display-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    gap: 5px;
+    z-index: 1002;
+}
+
+.images-display-credit a {
+    color: white;
+    text-decoration: underline;
+}
+
+.images-display-credit a:hover {
+    color: #ddd;
+}
+
 @media (max-width: 768px) {
     .images-display-image-container {
         width: 100%;
@@ -109,5 +131,13 @@
 
     .images-display-nav.next {
         left: 10px;
+    }
+
+    .images-display-credit {
+        bottom: 60px;
+        /* Move up on mobile to avoid overlap with counter if needed, or just keep it */
+        right: 50%;
+        transform: translateX(50%);
+        width: max-content;
     }
 }
