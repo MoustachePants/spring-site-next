@@ -56,19 +56,6 @@
     font-weight: 600;
 }
 
-.preview-card-subregion {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.preview-card-subregion svg {
-    color: var(--secondary-color);
-}
-
 .preview-card-tags {
     display: flex;
     flex-direction: row;
