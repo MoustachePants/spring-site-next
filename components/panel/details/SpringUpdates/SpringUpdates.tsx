@@ -54,10 +54,7 @@ const SpringUpdates: React.FC<SpringUpdateProps> = ({ updates, springId }) => {
                   {currentUpdate.user && <p className="author">{currentUpdate.user}</p>}
                 </>
               )}
-              <button
-                className={`action-button ${hasUpdates ? 'small' : 'full-width'}`}
-                onClick={() => setShowAddUpdate(true)}
-              >
+              <button className={`action-button`} onClick={() => setShowAddUpdate(true)}>
                 ביקרת פה? נשמח לעדכון מהשטח :)
               </button>
             </div>
