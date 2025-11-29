@@ -10,6 +10,7 @@ import {
   NavigatorAlt,
   ShareAndroid,
   Group,
+  ArrowLeft,
 } from 'iconoir-react';
 
 const Icons = {
@@ -21,6 +22,7 @@ const Icons = {
   clock: Clock,
   water: SeaWaves,
   arrowRight: ArrowRight,
+  arrowLeft: ArrowLeft,
   share: ShareAndroid,
   wase: NavigatorAlt,
   updates: Group,
