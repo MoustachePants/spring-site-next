@@ -9,6 +9,7 @@ import { Spring } from '@/models/types/spring';
 import L from 'leaflet';
 import { useCurrentPosition } from '@/hooks/useCurrentPosition';
 import { useDataContext } from '@/context/DataContext';
+import SmallPreviewCard from '@/components/SmallPreviewCard/SmallPreviewCard';
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
@@ -71,6 +72,7 @@ const Map: React.FC<{
       // maxBoundsViscosity={MAP_CONSTANTS.MAX_BOUNDS_VISCOSITY}
       className="map-container"
       scrollWheelZoom={true}
+      zoomControl={false}
     >
       <TileLayer url={MAP_CONSTANTS.TILE_LAYER_URL} attribution={MAP_CONSTANTS.ATTRIBUTION} />
       <MapStateUpdater />
@@ -88,8 +90,8 @@ const Map: React.FC<{
 
           return (
             <Marker key={spring._id} position={[lat, lng]}>
-              <Popup>
-                <b>{spring.name}</b>
+              <Popup className="leaflet-popup-reset">
+                <SmallPreviewCard key={spring._id} spring={spring} />
               </Popup>
             </Marker>
           );
