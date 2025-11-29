@@ -3,6 +3,7 @@ import './SmallPreviewCard.css';
 import Image from 'next/image';
 import { Spring } from '@/models/types/spring';
 import SpringPositionTag from '../SpringPositionTag/SpringPositionTag';
+import Link from 'next/link';
 
 type SmallPreviewCardProps = {
   spring: Spring;
@@ -10,7 +11,7 @@ type SmallPreviewCardProps = {
 
 const SmallPreviewCard: React.FC<SmallPreviewCardProps> = ({ spring }) => {
   return (
-    <div key={spring._id} className="nearby-springs-card">
+    <Link href={`/spring/${spring._id}`} key={spring._id} className="nearby-springs-card">
       <Image
         src={'/mock_image.jpeg'}
         className="nearby-springs-card-image"
@@ -22,7 +23,7 @@ const SmallPreviewCard: React.FC<SmallPreviewCardProps> = ({ spring }) => {
         <h3>{spring.name}</h3>
         <SpringPositionTag position={spring.subRegion} />
       </div>
-    </div>
+    </Link>
   );
 };
 
