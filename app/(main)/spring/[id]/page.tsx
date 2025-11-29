@@ -5,11 +5,11 @@ import { useParams } from 'next/navigation';
 import Panel from '@/components/ui/Panel/Panel';
 import ImageHeader from '@/components/panel/ImageHeader/ImageHeader';
 import SpringDetails from '@/components/panel/details/SpringDetails/SpringDetails';
-import Loading from '@/components/loading/Loading/Loading';
 import { useDataContext } from '@/context/DataContext';
 import '../../../home.css';
 import { Spring } from '@/models/types/spring';
 import getSpring from '@/app/actions/getSpring';
+import LoadingPanel from '@/components/loading/LoadingPanel/LoadingPanel';
 
 const SpringPage: React.FC = () => {
   const params = useParams();
@@ -47,7 +47,7 @@ const SpringPage: React.FC = () => {
     <Panel
       header={spring && spring.images.length > 0 ? <ImageHeader spring={spring} /> : undefined}
     >
-      {spring ? <SpringDetails spring={spring} /> : <Loading />}
+      {spring ? <SpringDetails spring={spring} /> : <LoadingPanel />}
     </Panel>
   );
 };
