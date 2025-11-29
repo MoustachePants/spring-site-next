@@ -6,8 +6,8 @@ import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import { MAP_CONSTANTS } from '@/models/constant/map';
 import { Spring } from '@/models/types/spring';
-import { UserLocation } from '@/models/types/userLocation';
 import L from 'leaflet';
+import { useCurrentPosition } from '@/hooks/useCurrentPosition';
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
@@ -34,8 +34,8 @@ const MapController: React.FC<{ selectedSpring?: Spring }> = ({ selectedSpring }
 const Map: React.FC<{
   springs?: Spring[];
   selectedSpring?: Spring;
-  userLocation?: UserLocation | null;
-}> = ({ springs, selectedSpring, userLocation }) => {
+}> = ({ springs, selectedSpring }) => {
+  const userLocation = useCurrentPosition();
   // Create a custom icon for user location (blue marker)
   const userLocationIcon = L.icon({
     iconUrl:

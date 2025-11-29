@@ -6,17 +6,18 @@ import { Spring } from '@/models/types/spring';
 
 type DetailsPanelProps = {
   springs: Spring[];
-  setSelectedSpring: (spring: Spring) => void;
+  isLoading: boolean;
+  onClickSpring: (springId: string) => Promise<void>;
 };
 
-const DetailsPanel: React.FC<DetailsPanelProps> = ({ springs, setSelectedSpring }) => {
+const DetailsPanel: React.FC<DetailsPanelProps> = ({ springs, isLoading, onClickSpring }) => {
   return (
     <section className="side-panel">
       <div className="side-panel-header">
         <Header />
       </div>
       <div className="side-panel-content">
-        <SpringsList springs={springs} setSelectedSpring={setSelectedSpring} />
+        <SpringsList springs={springs} onClickSpring={onClickSpring} />
       </div>
     </section>
   );
