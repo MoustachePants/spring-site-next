@@ -1,9 +1,8 @@
 import React from 'react';
 import './Header.css';
-import Logo from '../ui/Logo/Logo';
-import SearchInput from '../SearchInput/SearchInput';
-import CategorySelector from '../CategorySelector/CategorySelector';
-import Filters from '../Filters/Filters';
+import Logo from '../../ui/Logo/Logo';
+import SearchInput from '../../SearchInput/SearchInput';
+import Filters from '../../panel/Filters/Filters';
 
 const Header: React.FC = () => {
   return (

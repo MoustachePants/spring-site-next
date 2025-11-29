@@ -2,13 +2,13 @@ import React from 'react';
 import './SpringDetails.css';
 import { Spring } from '@/models/types/spring';
 import Icons from '@/style/icons';
-import Tag from '../ui/Tag/Tag';
+import Tag from '../../../ui/Tag/Tag';
 import NewsBox from '../NewsBox/NewsBox';
-import SpringPositionTag from '../SpringPositionTag/SpringPositionTag';
-import NearbySprings from '../NearbySprings/NearbySprings';
+import SpringPositionTag from '../../../SpringPositionTag/SpringPositionTag';
 import { useDataContext } from '@/context/DataContext';
 import TopDetailsActions from '../TopDetailsActions/TopDetailsActions';
 import Link from 'next/link';
+import NearbySprings from '../NearbySprings/NearbySprings';
 
 type SpringDetailsProps = {
   spring: Spring;
