@@ -1,0 +1,14 @@
+.image-header {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    height: 200px;
+    /* Fixed height to match Header's min-height or fit design */
+    overflow: hidden;
+}
+
+.image-header-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

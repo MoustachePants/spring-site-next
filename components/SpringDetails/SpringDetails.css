@@ -1,0 +1,140 @@
+.spring-details {
+    position: relative;
+    top: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    color: var(--dark-text-color);
+}
+
+.spring-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.spring-details-back {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.spring-details-back:hover {
+    color: var(--dark-text-color-hover);
+}
+
+.spring-details-header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.spring-details-header-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 30px;
+}
+
+.spring-details-header-action span {
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.spring-details-header-action:hover {
+    color: var(--dark-text-color-hover);
+}
+
+.spring-details-top-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.spring-details-title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.spring-details-subregion {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.spring-details-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.spring-details-tag {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--secondary-color-hover);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.spring-details-tag svg {
+    color: var(--secondary-color-hover);
+}
+
+.spring-details-description {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.spring-details-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.spring-details-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--secondary-color-hover);
+    padding-bottom: 10px;
+}
+
+.spring-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: var(--border-radius);
+}
+
+.spring-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+
+.spring-detail-label {
+    font-weight: 600;
+    color: #666;
+}
+
+.spring-detail-value {
+    font-weight: 500;
+}
+
+.spring-details-arrival {
+    font-size: 16px;
+    line-height: 1.6;
+}

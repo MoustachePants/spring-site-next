@@ -9,15 +9,11 @@ import { useDataContext } from '@/context/DataContext';
 const Map = dynamic(() => import('@/components/Map/Map'), { ssr: false });
 
 const Home: NextPage = () => {
-  const { springsList, selectedSpring, getSpringById, isSpringsListLoading } = useDataContext();
+  const { springsList, selectedSpring } = useDataContext();
 
   return (
     <main className="dashboard-container">
-      <DetailsPanel
-        springs={springsList}
-        onClickSpring={getSpringById}
-        isLoading={isSpringsListLoading}
-      />
+      <DetailsPanel />
       <section className="map-wrapper">
         <Map springs={springsList} selectedSpring={selectedSpring} />
       </section>

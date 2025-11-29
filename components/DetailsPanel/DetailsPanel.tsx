@@ -2,22 +2,38 @@ import React from 'react';
 import './DetailsPanel.css';
 import Header from '../Header/Header';
 import SpringsList from '../SpringsList/SpringsList';
-import { Spring } from '@/models/types/spring';
+import Loading from '../loading/Loading/Loading';
+import { useDataContext } from '@/context/DataContext';
+import ImageHeader from '../ImageHeader/ImageHeader';
+import SpringDetails from '../SpringDetails/SpringDetails';
 
-type DetailsPanelProps = {
-  springs: Spring[];
-  isLoading: boolean;
-  onClickSpring: (springId: string) => Promise<void>;
-};
+const DetailsPanel: React.FC = () => {
+  const { springsList, selectedSpring, getSpringById, isSpringsListLoading } = useDataContext();
 
-const DetailsPanel: React.FC<DetailsPanelProps> = ({ springs, isLoading, onClickSpring }) => {
+  if (selectedSpring) {
+    return (
+      <section className="side-panel">
+        <div className="side-panel-header">
+          <ImageHeader src={selectedSpring.images[0].image} alt={selectedSpring.name} />
+        </div>
+        <div className="side-panel-content">
+          <SpringDetails spring={selectedSpring} />
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="side-panel">
       <div className="side-panel-header">
         <Header />
       </div>
       <div className="side-panel-content">
-        <SpringsList springs={springs} onClickSpring={onClickSpring} />
+        {isSpringsListLoading ? (
+          <Loading />
+        ) : (
+          <SpringsList springs={springsList} onClickSpring={getSpringById} />
+        )}
       </div>
     </section>
   );

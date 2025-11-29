@@ -3,6 +3,7 @@ import './PreviewCard.css';
 import { Spring } from '@/models/types/spring';
 import Image from 'next/image';
 import Icons from '@/style/icons';
+import Tag from '../ui/Tag/Tag';
 
 type PreviewCardProps = {
   spring: Spring;
@@ -26,14 +27,8 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ spring, onClick }) => {
           {spring.subRegion}
         </div>
         <section className="preview-card-tags">
-          <div className="preview-card-tag">
-            <Icons.water />
-            צלול
-          </div>
-          <div className="preview-card-tag">
-            <Icons.clock />
-            להכנס כולי
-          </div>
+          <Tag icon={<Icons.water />} label="צלול" />
+          <Tag icon={<Icons.clock />} label="להכנס כולי" />
         </section>
       </section>
     </section>

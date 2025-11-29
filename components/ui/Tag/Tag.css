@@ -1,0 +1,12 @@
+.preview-card-tag {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--secondary-color-hover);
+    padding: 5px 15px;
+    border-radius: 50px;
+}
+
+.preview-card-tag svg {
+    color: var(--secondary-color-hover);
+}
