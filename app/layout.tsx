@@ -30,6 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning={true}>
+      <link rel="icon" href="/icons/favicon_bright.svg" sizes="any" />
       <body className={notoSansHebrew.className}>
         <Suspense fallback={<Loading />}>
           <DataContextProvider>
