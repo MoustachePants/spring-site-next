@@ -4,6 +4,7 @@ import { Spring } from '@/models/types/spring';
 import Icons from '@/style/icons';
 import Tag from '../ui/Tag/Tag';
 import NewsBox from '../NewsBox/NewsBox';
+import Link from 'next/link';
 
 type SpringDetailsProps = {
   spring: Spring;
@@ -42,10 +43,14 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
   return (
     <section className="spring-details">
       <header className="spring-details-header">
-        <div className="spring-details-back">
+        <Link
+          href="/"
+          className="spring-details-back"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
           <Icons.arrowRight />
           <span>לדף הראשי</span>
-        </div>
+        </Link>
         <div className="spring-details-header-actions">
           <div className="spring-details-header-action">
             <Icons.updates />

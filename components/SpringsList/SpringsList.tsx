@@ -5,12 +5,11 @@ import './SpringsList.css';
 
 const SpringsList: React.FC<{
   springs: Spring[];
-  onClickSpring: (springId: string) => Promise<void>;
-}> = ({ springs, onClickSpring }) => {
+}> = ({ springs }) => {
   return (
     <div className="springs-options-container">
       {springs.map((spring) => (
-        <PreviewCard spring={spring} key={spring._id} onClick={onClickSpring} />
+        <PreviewCard spring={spring} key={spring._id} />
       ))}
     </div>
   );
