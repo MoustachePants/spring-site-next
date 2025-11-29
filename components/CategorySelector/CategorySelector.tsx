@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Category, CATEGORIES } from '@/models/types/category';
+import { Category, CATEGORIES, mapCategories } from '@/models/types/category';
 import './CategorySelector.css';
+import { section } from 'motion/react-client';
 
 const CategorySelector: React.FC = () => {
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
@@ -20,17 +21,24 @@ const CategorySelector: React.FC = () => {
   };
 
   return (
-    <div className="category-selector">
-      {CATEGORIES.map((category) => (
-        <button
-          key={category}
-          className={`category-chip ${selectedCategories.includes(category) ? 'active' : ''}`}
-          onClick={() => handleOnChange(category)}
-        >
-          {category}
-        </button>
-      ))}
-    </div>
+    <section id="categorySelector" className="category-selector-section">
+      <label htmlFor="categorySelector">קטגוריות</label>
+      <div className="category-selector">
+        {CATEGORIES.map((category) => {
+          const isSelected = selectedCategories.includes(category);
+          return (
+            <button
+              key={category}
+              className={`category-chip ${isSelected ? 'active' : ''}`}
+              onClick={() => handleOnChange(category)}
+            >
+              {isSelected && <span className="remove-icon">✕</span>}
+              {mapCategories[category]}
+            </button>
+          );
+        })}
+      </div>
+    </section>
   );
 };
 

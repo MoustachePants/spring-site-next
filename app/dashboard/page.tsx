@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { NextPage } from 'next';
-
 import dynamic from 'next/dynamic';
-import SpringsOptions from '@/components/SpringsOptions/SpringsOptions';
+import SpringsList from '@/components/SpringsList/SpringsList';
 import './dashboard.css';
 import { Spring } from '@/models/types/spring';
 import { UserLocation } from '@/models/types/userLocation';
@@ -49,15 +48,19 @@ const DashboardPage: NextPage = () => {
   }, []);
 
   return (
-    <div className="dashboard-container">
-      <div className="side-panel">
-        <Header/>
-        <SpringsOptions springs={springs} setSelectedSpring={setSelectedSpring} />
-      </div>
-      <div className="map-wrapper">
+    <main className="dashboard-container">
+      <section className="side-panel">
+        <div className="side-panel-header">
+          <Header />
+        </div>
+        <div className="side-panel-content">
+          <SpringsList springs={springs} setSelectedSpring={setSelectedSpring} />
+        </div>
+      </section>
+      <section className="map-wrapper">
         <Map springs={springs} selectedSpring={selectedSpring} userLocation={userLocation} />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

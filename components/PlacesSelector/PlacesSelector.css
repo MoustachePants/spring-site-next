@@ -1,15 +1,15 @@
-.category-selector-section {
+.places-selector-section {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.category-selector-section label {
+.places-selector-section label {
     font-size: 16px;
     color: var(--tag-color);
 }
 
-.category-selector {
+.places-selector {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -25,11 +25,11 @@
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-.category-selector::-webkit-scrollbar {
+.places-selector::-webkit-scrollbar {
     display: none;
 }
 
-.category-chip {
+.place-chip {
     width: 110px;
     height: var(--tag-height);
     border-radius: 50px;
@@ -48,12 +48,12 @@
     cursor: pointer;
 }
 
-.category-chip:hover {
+.place-chip:hover {
     background-color: rgba(252, 237, 214, 0.1);
     cursor: pointer;
 }
 
-.category-chip.active {
+.place-chip.active {
     background-color: var(--tag-color);
     color: var(--primary-color);
     border-color: var(--tag-color);
