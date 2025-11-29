@@ -10,7 +10,6 @@ const SearchInput: React.FC = () => {
 
   return (
     <div className="search-input-container">
-      <Icons.search />
       <input
         type="text"
         className="search-input"
@@ -18,6 +17,7 @@ const SearchInput: React.FC = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      <Icons.search />
     </div>
   );
 };
