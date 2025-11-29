@@ -29,7 +29,8 @@ const getSpring = async (id: string): Promise<ActionResponse<Spring>> => {
       data: plainSpring,
     };
   } catch (error) {
-    return { status: 'error', error: error as Error };
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    return { status: 'error', error: new Error(message) };
   }
 };
 

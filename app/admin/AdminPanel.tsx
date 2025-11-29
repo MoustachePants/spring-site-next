@@ -20,7 +20,7 @@ export default function AdminPanel({ initialSprings }: AdminPanelProps) {
 
   // -- Derivations --
   const filteredSprings = useMemo(() => {
-    return springs.filter((s) => s.name.toLowerCase().includes(filter.toLowerCase()));
+    return springs.filter((s) => s.name.includes(filter));
   }, [springs, filter]);
 
   // -- Handlers --
@@ -29,8 +29,23 @@ export default function AdminPanel({ initialSprings }: AdminPanelProps) {
     const s = springs.find((item) => item._id === id);
     if (!s) return;
 
+    const deepCopy = JSON.parse(JSON.stringify(s));
+
+    if (!deepCopy.location.coordinates) {
+      deepCopy.location.coordinates = { pool: [0, 0], parking: [0, 0] };
+    }
+    if (!deepCopy.location.coordinates.pool || deepCopy.location.coordinates.pool.length < 2) {
+      deepCopy.location.coordinates.pool = [0, 0];
+    }
+    if (
+      !deepCopy.location.coordinates.parking ||
+      deepCopy.location.coordinates.parking.length < 2
+    ) {
+      deepCopy.location.coordinates.parking = [0, 0];
+    }
+
     setSelectedSpringId(id);
-    setFormData(JSON.parse(JSON.stringify(s)));
+    setFormData(deepCopy);
     setStatus('idle');
     setErrorMessage('');
   };
@@ -140,6 +155,40 @@ export default function AdminPanel({ initialSprings }: AdminPanelProps) {
       <span className="text-sm font-medium">{label}</span>
     </label>
   );
+
+  const renderCoordinatePair = (label: string, pathPrefix: string, values: number[]) => {
+    const lat = values?.[0] ?? 0;
+    const lng = values?.[1] ?? 0;
+    return (
+      <div className="form-group">
+        <label className="form-label">{label}</label>
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <div style={{ flex: 1 }}>
+            <span className="text-xs text-gray-500">Lat</span>
+            <input
+              type="number"
+              name={`${pathPrefix}.0`}
+              value={lat}
+              onChange={handleChange}
+              className="form-input"
+              step="any"
+            />
+          </div>
+          <div style={{ flex: 1 }}>
+            <span className="text-xs text-gray-500">Lng</span>
+            <input
+              type="number"
+              name={`${pathPrefix}.1`}
+              value={lng}
+              onChange={handleChange}
+              className="form-input"
+              step="any"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="admin-container">
@@ -288,6 +337,16 @@ export default function AdminPanel({ initialSprings }: AdminPanelProps) {
                       'Minutes Walk',
                       'location.minutesByFoot',
                       formData.location.minutesByFoot
+                    )}
+                    {renderCoordinatePair(
+                      'Pool Coordinates',
+                      'location.coordinates.pool',
+                      formData.location.coordinates.pool
+                    )}
+                    {renderCoordinatePair(
+                      'Parking Coordinates',
+                      'location.coordinates.parking',
+                      formData.location.coordinates.parking
                     )}
                     <div className="full-width form-group">
                       <label className="form-label">Directions</label>

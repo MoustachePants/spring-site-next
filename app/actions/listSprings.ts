@@ -24,7 +24,8 @@ const listSprings = async (): Promise<ActionResponse<Spring[]>> => {
       data: plainSprings,
     };
   } catch (error) {
-    return { status: 'error', error: error as Error };
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    return { status: 'error', error: new Error(message) };
   }
 };
 
