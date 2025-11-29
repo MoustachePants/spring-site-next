@@ -6,12 +6,12 @@ import Icons from '@/style/icons';
 
 type PreviewCardProps = {
   spring: Spring;
-  onClick: (spring: Spring) => void;
+  onClick: (springId: string) => Promise<void>;
 };
 
 const PreviewCard: React.FC<PreviewCardProps> = ({ spring, onClick }) => {
   return (
-    <section className="preview-card" onClick={() => onClick(spring)}>
+    <section className="preview-card" onClick={() => onClick(spring._id)}>
       <Image
         className="preview-card-image"
         width={346}
