@@ -12,13 +12,11 @@
 }
 
 .side-panel-wrapper {
-    /*position: relative;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*min-height: 100%;*/
-    /*width: 100%;*/
-    /*overflow-y: auto;*/
-    /*padding-bottom: 1rem;*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
 }
 
 /* Desktop */
