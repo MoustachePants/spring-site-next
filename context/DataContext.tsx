@@ -15,10 +15,12 @@ type DataContextType = {
   selectedPlaces: Place[];
   searchTerm: string;
   mapState: { center: [number, number]; zoom: number } | null;
+  selectedSpring: Spring | undefined;
   setSelectedCategories: (categories: Category[]) => void;
   setSelectedPlaces: (places: Place[]) => void;
   setSearchTerm: (term: string) => void;
   setMapState: (state: { center: [number, number]; zoom: number }) => void;
+  setSelectedSpring: (spring: Spring | undefined) => void;
 };
 
 export const DataContext = createContext<DataContextType>({
@@ -29,10 +31,12 @@ export const DataContext = createContext<DataContextType>({
   selectedPlaces: [],
   searchTerm: '',
   mapState: null,
+  selectedSpring: undefined,
   setSelectedCategories: () => {},
   setSelectedPlaces: () => {},
   setSearchTerm: () => {},
   setMapState: () => {},
+  setSelectedSpring: () => {},
 });
 
 export function useDataContext() {
@@ -47,6 +51,7 @@ export function DataContextProvider({ children }: { children: ReactNode }) {
   const [springsList, setSpringsList] = useState<Spring[]>([]);
   const [isSpringsListLoading, setIsSpringsListLoading] = useState<boolean>(true);
   const [mapState, setMapState] = useState<{ center: [number, number]; zoom: number } | null>(null);
+  const [selectedSpring, setSelectedSpring] = useState<Spring | undefined>(undefined);
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -162,10 +167,12 @@ export function DataContextProvider({ children }: { children: ReactNode }) {
         selectedPlaces,
         searchTerm,
         mapState,
+        selectedSpring,
         setSelectedCategories,
         setSelectedPlaces,
         setSearchTerm,
         setMapState,
+        setSelectedSpring,
       }}
     >
       {children}

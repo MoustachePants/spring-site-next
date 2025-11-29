@@ -30,8 +30,9 @@ const MapStateUpdater = () => {
   return null;
 };
 
-const MapController: React.FC<{ selectedSpring?: Spring }> = ({ selectedSpring }) => {
+const MapController: React.FC = () => {
   const map = useMap();
+  const { selectedSpring } = useDataContext();
 
   useEffect(() => {
     if (selectedSpring && selectedSpring.location && selectedSpring.location.coordinates) {
@@ -46,11 +47,8 @@ const MapController: React.FC<{ selectedSpring?: Spring }> = ({ selectedSpring }
   return null;
 };
 
-const Map: React.FC<{
-  springs?: Spring[];
-  selectedSpring?: Spring;
-}> = ({ springs, selectedSpring }) => {
-  const { mapState } = useDataContext();
+const Map: React.FC = () => {
+  const { mapState, filteredSpringsList } = useDataContext();
   const userLocation = useCurrentPosition();
   // Create a custom icon for user location (blue marker)
   const userLocationIcon = L.icon({
@@ -76,7 +74,7 @@ const Map: React.FC<{
     >
       <TileLayer url={MAP_CONSTANTS.TILE_LAYER_URL} attribution={MAP_CONSTANTS.ATTRIBUTION} />
       <MapStateUpdater />
-      <MapController selectedSpring={selectedSpring} />
+      <MapController />
       {userLocation && (
         <Marker position={[userLocation.latitude, userLocation.longitude]} icon={userLocationIcon}>
           <Popup>
@@ -84,8 +82,8 @@ const Map: React.FC<{
           </Popup>
         </Marker>
       )}
-      {springs &&
-        springs.map((spring) => {
+      {filteredSpringsList &&
+        filteredSpringsList.map((spring) => {
           const [lat, lng] = spring.location.coordinates.pool;
 
           return (
