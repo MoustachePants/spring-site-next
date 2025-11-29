@@ -6,10 +6,13 @@ import Loading from '../loading/Loading/Loading';
 import { useDataContext } from '@/context/DataContext';
 import ImageHeader from '../ImageHeader/ImageHeader';
 import SpringDetails from '../SpringDetails/SpringDetails';
+import { motion } from 'motion/react';
+import { useMobileSize } from '../../hooks/useMobileSize';
 
 const DetailsPanel: React.FC = () => {
   const { filteredSpringsList, selectedSpring, getSpringById, isSpringsListLoading } =
     useDataContext();
+  const isMobile = useMobileSize();
 
   if (selectedSpring) {
     return (
@@ -25,7 +28,18 @@ const DetailsPanel: React.FC = () => {
   }
 
   return (
-    <section className="side-panel">
+    <motion.div
+      key={isMobile ? 'mobile' : 'desktop'}
+      initial={{ y: isMobile ? 400 : 0 }}
+      drag={isMobile ? 'y' : false}
+      dragMomentum={false}
+      dragElastic={0}
+      dragConstraints={{
+        top: 40,
+        bottom: 580,
+      }}
+      className="side-panel"
+    >
       <div className="side-panel-header">
         <Header />
       </div>
@@ -36,7 +50,7 @@ const DetailsPanel: React.FC = () => {
           <SpringsList springs={filteredSpringsList} onClickSpring={getSpringById} />
         )}
       </div>
-    </section>
+    </motion.div>
   );
 };
 
