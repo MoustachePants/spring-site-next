@@ -3,6 +3,7 @@ import './SpringDetails.css';
 import { Spring } from '@/models/types/spring';
 import Icons from '@/style/icons';
 import Tag from '../ui/Tag/Tag';
+import NewsBox from '../NewsBox/NewsBox';
 
 type SpringDetailsProps = {
   spring: Spring;
@@ -47,16 +48,16 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
         </div>
         <div className="spring-details-header-actions">
           <div className="spring-details-header-action">
-            <Icons.share />
-            <span>שתף</span>
+            <Icons.updates />
+            <span>עדכונים מהשטח</span>
           </div>
           <div className="spring-details-header-action">
             <Icons.wase />
             <span>ניווט</span>
           </div>
           <div className="spring-details-header-action">
-            <Icons.updates />
-            <span>עדכונים מהשטח</span>
+            <Icons.share />
+            <span>שתף</span>
           </div>
         </div>
       </header>
@@ -75,30 +76,34 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
 
       <div className="spring-details-description">{spring.description}</div>
 
-      <section className="spring-details-section">
-        <h2 className="spring-details-section-title">עוד פרטים:</h2>
-        <div className="spring-details-grid">
-          {renderDetailItem(
-            detailsMapping.reserve,
-            formatValue('reserve', spring.springDetails.reserve)
-          )}
-          {renderDetailItem(detailsMapping.size, spring.springDetails.size)}
-          {renderDetailItem(detailsMapping.howDeep, spring.springDetails.howDeep)}
-          {renderDetailItem(
-            detailsMapping.hasSitingSpots,
-            formatValue('hasSitingSpots', spring.springDetails.hasSitingSpots)
-          )}
-          {renderDetailItem(detailsMapping.temperature, spring.springDetails.temperature)}
-          {renderDetailItem(
-            detailsMapping.hasClearWater,
-            formatValue('hasClearWater', spring.springDetails.hasClearWater)
-          )}
-        </div>
-      </section>
+      <div className="spring-details-separator">--</div>
 
-      <section className="spring-details-section">
-        <h2 className="spring-details-section-title">דרכי הגעה:</h2>
-        <div className="spring-details-arrival">{spring.location.directions}</div>
+      <section className="spring-details-bottom-sections">
+        <section className="spring-details-section">
+          <h2 className="spring-details-section-title">עוד פרטים:</h2>
+          <div className="spring-details-grid">
+            {renderDetailItem(
+              detailsMapping.reserve,
+              formatValue('reserve', spring.springDetails.reserve)
+            )}
+            {renderDetailItem(detailsMapping.size, spring.springDetails.size)}
+            {renderDetailItem(detailsMapping.howDeep, spring.springDetails.howDeep)}
+            {renderDetailItem(
+              detailsMapping.hasSitingSpots,
+              formatValue('hasSitingSpots', spring.springDetails.hasSitingSpots)
+            )}
+            {renderDetailItem(detailsMapping.temperature, spring.springDetails.temperature)}
+            {renderDetailItem(
+              detailsMapping.hasClearWater,
+              formatValue('hasClearWater', spring.springDetails.hasClearWater)
+            )}
+          </div>
+        </section>
+        <section className="spring-details-section">
+          <h2 className="spring-details-section-title">דרכי הגעה:</h2>
+          <div className="spring-details-arrival">{spring.location.directions}</div>
+        </section>
+        <NewsBox />
       </section>
     </section>
   );
