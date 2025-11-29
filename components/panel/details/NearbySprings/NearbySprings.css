@@ -15,4 +15,9 @@
     flex-direction: row;
     justify-content: flex-start;
     gap: 10px;
+    overflow-x: scroll;
+}
+
+.nearby-springs-cards-container .nearby-springs-card {
+    flex-shrink: 0;
 }
