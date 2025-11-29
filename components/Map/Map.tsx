@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
@@ -10,6 +10,7 @@ import L from 'leaflet';
 import { useCurrentPosition } from '@/hooks/useCurrentPosition';
 import { useDataContext } from '@/context/DataContext';
 import SmallPreviewCard from '@/components/SmallPreviewCard/SmallPreviewCard';
+import { UserLocation } from '@/models/types/userLocation';
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
@@ -47,9 +48,51 @@ const MapController: React.FC = () => {
   return null;
 };
 
+import Icons from '@/style/icons';
+
+// ...
+
+const UserLocationControl = ({
+  userLocation,
+  getLocation,
+}: {
+  userLocation: UserLocation | null;
+  getLocation: () => void;
+}) => {
+  const map = useMap();
+  const [isWaitingForLocation, setIsWaitingForLocation] = useState(false);
+
+  useEffect(() => {
+    if (isWaitingForLocation && userLocation) {
+      map.setView([userLocation.latitude, userLocation.longitude], MAP_CONSTANTS.DEFAULT_ZOOM);
+      setIsWaitingForLocation(false);
+    }
+  }, [userLocation, isWaitingForLocation, map]);
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (userLocation) {
+      map.setView([userLocation.latitude, userLocation.longitude], MAP_CONSTANTS.DEFAULT_ZOOM);
+    } else {
+      setIsWaitingForLocation(true);
+      getLocation();
+    }
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className="user-location-btn"
+      title="Show my location"
+    >
+      <Icons.position width={20} height={20} />
+    </button>
+  );
+};
+
 const Map: React.FC = () => {
   const { mapState, filteredSpringsList } = useDataContext();
-  const userLocation = useCurrentPosition();
+  const { userLocation, getLocation } = useCurrentPosition();
   // Create a custom icon for user location (blue marker)
   const userLocationIcon = L.icon({
     iconUrl:
@@ -75,6 +118,7 @@ const Map: React.FC = () => {
       <TileLayer url={MAP_CONSTANTS.TILE_LAYER_URL} attribution={MAP_CONSTANTS.ATTRIBUTION} />
       <MapStateUpdater />
       <MapController />
+      <UserLocationControl userLocation={userLocation} getLocation={getLocation} />
       {userLocation && (
         <Marker position={[userLocation.latitude, userLocation.longitude]} icon={userLocationIcon}>
           <Popup>

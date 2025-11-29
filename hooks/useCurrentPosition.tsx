@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 export const useCurrentPosition = () => {
   const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
 
-  useEffect(() => {
+  const getLocation = () => {
     if (typeof window !== 'undefined' && 'geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -21,6 +21,11 @@ export const useCurrentPosition = () => {
         }
       );
     }
+  };
+
+  useEffect(() => {
+    getLocation();
   }, []);
-  return userLocation;
+
+  return { userLocation, getLocation };
 };

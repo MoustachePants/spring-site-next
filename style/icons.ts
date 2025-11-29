@@ -12,7 +12,7 @@ import {
   ArrowLeft,
   NavArrowRight,
   NavArrowLeft,
-  Filter,
+  Position,
 } from 'iconoir-react';
 import FilterIcon from '@/components/ui/icons/FilterIcon';
 import AccessibleIcon from '@/components/ui/icons/AccessibleIcon';
@@ -39,6 +39,7 @@ const Icons = {
   flower: FlowerIcon,
   shadow: ShadowIcon,
   waves: WavesIcon,
+  position: Position,
 };
 
 export default Icons;

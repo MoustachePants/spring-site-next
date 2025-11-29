@@ -21,6 +21,20 @@ export const metadata: Metadata = {
   title: 'המעיין הנובע',
   description:
     'מחפשים מקום לטבול? לשכשך רגליים? עדכונים שוטפים על מאות מעיינות, מאגרי מים ונחלים בסידור שמותאם למיקום שלכם!',
+  icons: {
+    icon: [
+      {
+        media: '(prefers-color-scheme: light)',
+        url: '/icons/favicon_dark.svg',
+        href: '/icons/favicon_dark.svg',
+      },
+      {
+        media: '(prefers-color-scheme: dark)',
+        url: '/icons/favicon_bright.svg',
+        href: '/icons/favicon_bright.svg',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +44,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning={true}>
-      <link rel="icon" href="/icons/favicon_bright.svg" sizes="any" />
       <body className={notoSansHebrew.className}>
         <Suspense fallback={<Loading />}>
           <DataContextProvider>
