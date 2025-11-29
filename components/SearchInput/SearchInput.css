@@ -5,7 +5,7 @@
 
 .search-input-container svg {
     position: absolute;
-    left: 10px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
@@ -14,13 +14,13 @@
 .search-input {
     width: 100%;
     height: var(--input-height);
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     outline: none;
     box-sizing: border-box;
     padding-left: 40px;
-    padding-right: 20px;
+    padding-right: 40px;
     border: 1px solid var(--dark-text-color);
     border-radius: 50px;
     font-size: 16px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spring } from '@/models/types/spring';
-import PreviewCard from '../PreviewCard/PreviewCard';
 import './SpringsList.css';
+import PreviewCard from '@/components/PreviewCard/PreviewCard';
 
 const SpringsList: React.FC<{
   springs: Spring[];

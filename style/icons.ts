@@ -1,7 +1,6 @@
 import {
   Menu,
   Search,
-  FilterList,
   Xmark,
   Map,
   Clock,
@@ -13,12 +12,13 @@ import {
   ArrowLeft,
   NavArrowRight,
   NavArrowLeft,
+  Filter,
 } from 'iconoir-react';
+import FilterIcon from '@/public/filterIcon.svg';
 
 const Icons = {
   hamburger: Menu,
   search: Search,
-  filter: FilterList,
   close: Xmark,
   map: Map,
   clock: Clock,
@@ -30,6 +30,7 @@ const Icons = {
   updates: Group,
   prev: NavArrowRight,
   next: NavArrowLeft,
+  filter: Filter,
 };
 
 export default Icons;
