@@ -15,6 +15,10 @@ import {
   Filter,
 } from 'iconoir-react';
 import FilterIcon from '@/components/ui/icons/FilterIcon';
+import AccessibleIcon from '@/components/ui/icons/AccessibleIcon';
+import FlowerIcon from '@/components/ui/icons/FlowerIcon';
+import ShadowIcon from '@/components/ui/icons/ShadowIcon';
+import WavesIcon from '@/components/ui/icons/WavesIcon';
 
 const Icons = {
   hamburger: Menu,
@@ -31,6 +35,10 @@ const Icons = {
   prev: NavArrowRight,
   next: NavArrowLeft,
   filter: FilterIcon,
+  accessible: AccessibleIcon,
+  flower: FlowerIcon,
+  shadow: ShadowIcon,
+  waves: WavesIcon,
 };
 
 export default Icons;

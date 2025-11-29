@@ -15,19 +15,20 @@ export interface Spring {
 }
 
 export interface SpringDetails {
+  typeOf: string; //
+  hasShadow: boolean; //
+  IsAccessible: boolean; //
+  isHotSpring: boolean; //
+  hasView: boolean; //
+
   reserve: SpringReserveDetails;
-  typeOf: string;
   howDeep: number;
   temperature: number;
   size: number;
-  hasShadow: boolean;
   hasSitingSpots: boolean;
-  IsAccessible: boolean;
   isShallow: boolean;
   isDeep: boolean;
-  isHotSpring: boolean;
   hasClearWater: boolean;
-  hasView: boolean;
 }
 
 export interface SpringReserveDetails {
