@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import './Footer.css';
+import './MapFooter.css';
 
 const MapFooter: React.FC = () => {
   return (
