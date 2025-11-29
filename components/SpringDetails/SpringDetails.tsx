@@ -4,6 +4,10 @@ import { Spring } from '@/models/types/spring';
 import Icons from '@/style/icons';
 import Tag from '../ui/Tag/Tag';
 import NewsBox from '../NewsBox/NewsBox';
+import SpringPositionTag from '../SpringPositionTag/SpringPositionTag';
+import NearbySprings from '../NearbySprings/NearbySprings';
+import { useDataContext } from '@/context/DataContext';
+import TopDetailsActions from '../TopDetailsActions/TopDetailsActions';
 import Link from 'next/link';
 
 type SpringDetailsProps = {
@@ -11,6 +15,8 @@ type SpringDetailsProps = {
 };
 
 const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
+  const { springsList } = useDataContext();
+
   const detailsMapping: { [key: string]: string } = {
     reserve: 'שמורה',
     howDeep: 'עומק',
@@ -51,27 +57,11 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
           <Icons.arrowRight />
           <span>לדף הראשי</span>
         </Link>
-        <div className="spring-details-header-actions">
-          <div className="spring-details-header-action">
-            <Icons.updates />
-            <span>עדכונים מהשטח</span>
-          </div>
-          <div className="spring-details-header-action">
-            <Icons.wase />
-            <span>ניווט</span>
-          </div>
-          <div className="spring-details-header-action">
-            <Icons.share />
-            <span>שתף</span>
-          </div>
-        </div>
+        <TopDetailsActions />
       </header>
       <section className="spring-details-top-details">
         <h1 className="spring-details-title">{spring.name}</h1>
-        <div className="spring-details-subregion">
-          <Icons.map />
-          {spring.subRegion}
-        </div>
+        <SpringPositionTag position={spring.subRegion} />
         <div className="spring-details-tags">
           {spring.springDetails.hasClearWater && <Tag icon={<Icons.water />} label="צלול" />}
           {/* Add more tags based on properties if needed, similar to PreviewCard */}
@@ -109,6 +99,11 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
           <div className="spring-details-arrival">{spring.location.directions}</div>
         </section>
         <NewsBox />
+        <NearbySprings
+          springs={springsList
+            .filter((nearbySpring) => nearbySpring.subRegion === spring.subRegion)
+            .slice(0, 5)}
+        />
       </section>
     </section>
   );

@@ -11,6 +11,8 @@ import {
   ShareAndroid,
   Group,
   ArrowLeft,
+  NavArrowRight,
+  NavArrowLeft,
 } from 'iconoir-react';
 
 const Icons = {
@@ -26,6 +28,8 @@ const Icons = {
   share: ShareAndroid,
   wase: NavigatorAlt,
   updates: Group,
+  prev: NavArrowRight,
+  next: NavArrowLeft,
 };
 
 export default Icons;

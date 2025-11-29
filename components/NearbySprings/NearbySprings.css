@@ -1,0 +1,18 @@
+.nearby-springs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.spring-details-section-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.nearby-springs-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+}
