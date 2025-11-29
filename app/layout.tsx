@@ -1,10 +1,17 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Noto_Sans_Hebrew } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
 import { DataContextProvider } from '@/context/DataContext';
 
 const notoSansHebrew = Noto_Sans_Hebrew({ subsets: ['hebrew'] });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: 'המעיין הנובע',
