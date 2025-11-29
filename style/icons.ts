@@ -14,7 +14,7 @@ import {
   NavArrowLeft,
   Filter,
 } from 'iconoir-react';
-import FilterIcon from '@/public/filterIcon.svg';
+import FilterIcon from '@/components/ui/icons/FilterIcon';
 
 const Icons = {
   hamburger: Menu,
@@ -30,7 +30,7 @@ const Icons = {
   updates: Group,
   prev: NavArrowRight,
   next: NavArrowLeft,
-  filter: Filter,
+  filter: FilterIcon,
 };
 
 export default Icons;

@@ -25,7 +25,7 @@
 .header-filters-and-search {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     width: 100%;
 }
@@ -39,6 +39,11 @@
     cursor: pointer;
     color: var(--bright-text-color);
     transition: all 0.3s ease-in-out;
+}
+
+.filter-button svg {
+    width: 24px;
+    height: 24px;
 }
 
 .filter-button:hover {
