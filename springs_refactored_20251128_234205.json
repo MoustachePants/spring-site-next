@@ -1,0 +1,2774 @@
+[
+  {
+    "_id": "62b7550fc52923097c037d4f",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 3,
+      "temperature": 3,
+      "size": 2,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 00:47:18.000000",
+    "name": "עין דולב (עין מזור)",
+    "mainRegion": "מרכז",
+    "subRegion": "שומרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "שומרון"
+      },
+      "directions": "המעיין בצמוד לחנייה, ירידה קצרה בשביל.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%93%D7%95%D7%9C%D7%91/%D7%A2%D7%99%D7%9F-%D7%93%D7%95%D7%9C%D7%91?to=place.ChIJW4MzlcstHRURtBOuaxepCec",
+      "minutesByFoot": 2,
+      "coordinates": {
+        "pool": [
+          31.925612229702345,
+          35.12149139843079
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "נקרא גם עין מזור. בריכה מרובעת ויפה בעומק של כ-1.2 מטר, המים מגיעים מניקבה בסלע. המקום מטופח עם פינות ישיבה וצל."
+  },
+  {
+    "_id": "62b7550fc52923097c037d28",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "שמורת טבע נחל ייטב"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 3,
+      "size": 4,
+      "hasShadow": false,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d28-1657308502549-1.jpeg",
+        "credit": "galtwig",
+        "link": "https://www.instagram.com/p/CFXgu4En42T/"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d28-1657308509925-1.jpeg",
+        "credit": "galtwig",
+        "link": "https://www.instagram.com/p/CFXgu4En42T/"
+      }
+    ],
+    "lastUpdate": "2025-11-29 00:47:18.000000",
+    "name": "עין עוג'ה (שמורת ייטב)",
+    "mainRegion": "מרכז",
+    "subRegion": "שומרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "שומרון"
+      },
+      "directions": "הבריכה והמגלשה נמצאות בהמשך לחנייה. יש לשים לב שהמקום עמוס בחגים.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%99%D7%99%D7%98%D7%91/%D7%A2%D7%99%D7%9F-%D7%A2%D7%95%D7%92%D7%94-(%D7%A2%D7%99%D7%9F-%D7%99%D7%99%D7%98%D7%91)?to=place.ChIJNTUj5eTPHBURErqNZ1bTWLg",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          31.948075072106356,
+          35.408565603859294
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "עין עוג'ה הוא מעיין שופע בנחל ייטב. האטרקציה המרכזית היא 'המגלשה' - אמת מים תלולה שניתן לגלוש בה לבריכה (יש להיזהר!). המקום הוא שמורת טבע."
+  },
+  {
+    "_id": "62b7550fc52923097c037d34",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 1,
+      "temperature": 3,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d34-1657110266650-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid0uc63g8Ca4WGu9TSZy8xrhAhGZYKaKCXELJqNa1JmdyzQpfqoGaE9bvp6ZKCnkjjxl&id=1467863004&__tn__=*F"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d34-1657111775575-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid02Hjxjvgs5yMSZ2tEait7yuNtB596uwwAzTReSX5PpEn2EvBeeWmkWvrJvJd8a8rKrl&id=1467863004&__tn__=*F"
+      }
+    ],
+    "lastUpdate": "2025-11-29 00:47:18.000000",
+    "name": "בריכות גידי",
+    "mainRegion": "מרכז",
+    "subRegion": "שומרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "שומרון"
+      },
+      "directions": "המעיין נמצא לפני הכניסה לחוות יאיר, ישנה ירידה קלה בדרך עפר.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%A0%D7%95%D7%A4%D7%99%D7%9D/%D7%9E%D7%A2%D7%99%D7%99%D7%9F-%D7%97%D7%95%D7%95%D7%AA-%D7%99%D7%90%D7%99%D7%A8?to=place.ChIJYaIqCAMlHRURxdwszUUxxBs",
+      "minutesByFoot": 3,
+      "coordinates": {
+        "pool": [
+          32.15143021969508,
+          35.10477955519579
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "מתחם של 4 בריכות מלאכותיות מדורגות בסמוך לחוות יאיר. הבריכות רדודות (כחצי מטר עומק) ומתאימות בעיקר לשכשוך וילדים. נקראות ע\"ש גדעון יחזקאל ז\"ל."
+  },
+  {
+    "_id": "62b7550fc52923097c037d40",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 4,
+      "temperature": 3,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 00:47:18.000000",
+    "name": "עין טלמון (עין האוכף)",
+    "mainRegion": "מרכז",
+    "subRegion": "שומרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "שומרון"
+      },
+      "directions": "החנייה בצמוד למעיין, הליכה קצרה ונוחה.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.31.93969896%2C35.14224887",
+      "minutesByFoot": 1,
+      "coordinates": {
+        "pool": [
+          31.93951771668753,
+          35.14261640986337
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "נקרא גם עין האוכף. מעיין יפהפה ומשופץ עם בריכה עמוקה (כ-1.6 מ') המאפשרת שחייה. במקום פרגולה, דק עץ ובוסתן עצים."
+  },
+  {
+    "_id": "62b7550fc52923097c037d49",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 3,
+      "size": 2,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 00:47:18.000000",
+    "name": "עין צוף (שביל הצפרים)",
+    "mainRegion": "מרכז",
+    "subRegion": "שומרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "שומרון"
+      },
+      "directions": "יש ללכת עם סימון \"שביל הצפרים\" בתוך היער.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%A9%D7%91%D7%99%D7%9C-%D7%94%D7%A6%D7%A4%D7%A8%D7%99%D7%9D-%D7%97%D7%A0%D7%99%D7%94-%D7%97%D7%9C%D7%9E%D7%99%D7%A9?to=place.w.23003456.230231169.566810",
+      "minutesByFoot": 20,
+      "coordinates": {
+        "pool": [
+          32.00332194780456,
+          35.133123266723366
+        ],
+        "parking": [
+          32.005114272891504,
+          35.12973726891369
+        ]
+      }
+    },
+    "description": "פינת חמד בתוך יער שביל הצפרים למרגלות נווה צוף. המים לרוב רדודים ומתאימים לשכשוך."
+  },
+  {
+    "_id": "62b7550fc52923097c037d58",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "שמורת מדבר יהודה"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 4,
+      "temperature": 3,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 12:42:00.000000",
+    "name": "עין נמר",
+    "mainRegion": "דרום",
+    "subRegion": "מדבר יהודה",
+    "location": {
+      "region": {
+        "main": "דרום",
+        "sub": "מדבר יהודה"
+      },
+      "directions": "מחניון נחל צאלים יש ללכת מערבה בתוואי נחל הרדוף בשביל השחור, שמתחלף לשביל ירוק, ולבסוף אדום (כ-4.5 ק\"מ).",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%94%D7%93%D7%A8%D7%95%D7%9D/%D7%97%D7%A0%D7%99%D7%95%D7%9F-%D7%A0%D7%97%D7%9C-%D7%A6%D7%90%D7%9C%D7%99%D7%9D?to=place.ChIJ71a9wBgFAxURceamqGz2m-E",
+      "minutesByFoot": 180,
+      "coordinates": {
+        "pool": [
+          31.356495091464986,
+          35.3150208568314
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "מעיין עמוק וצלול הנובע מתחת לסלעי ענק המצלים עליו. ממוקם בלב המדבר ודורש הליכה מאומצת."
+  },
+  {
+    "_id": "62b7550fc52923097c037d5b",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "שמורת טבע עינות צוקים"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 3,
+      "temperature": 4,
+      "size": 5,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": true,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d5b-1657317830268-1.jpeg",
+        "credit": "tomer_nature",
+        "link": "https://www.instagram.com/p/CDEnMPLA4lp/"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d5b-1657317835632-1.jpeg",
+        "credit": "tomer_nature",
+        "link": "https://www.instagram.com/p/CDEnMPLA4lp/"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d5b-1657317842094-1.jpeg",
+        "credit": "tomer_nature",
+        "link": "https://www.instagram.com/p/CDEnMPLA4lp/"
+      }
+    ],
+    "lastUpdate": "2025-11-29 12:42:00.000000",
+    "name": "עינות צוקים",
+    "mainRegion": "מרכז",
+    "subRegion": "ים המלח",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "ים המלח"
+      },
+      "directions": "הליכה לפי השילוט באתר.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%A2%D7%99%D7%A0%D7%95%D7%AA-%D7%A6%D7%95%D7%A7%D7%99%D7%9D-%D7%A2%D7%99%D7%9F-%D7%A4%D7%A9%D7%97%D7%94?to=place.ChIJ19hUPhQxAxURPJvPZU-3jJA",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          31.71559095010573,
+          35.453065887845064
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "נווה מדבר הנמוך בעולם. כולל בריכות שכשוך ובריכות עמוקות יותר. שימו לב: חובה להזמין מקום מראש באתר רשות הטבע והגנים."
+  },
+  {
+    "_id": "62b7550fc52923097c037d61",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "שמורת מצוק הצינים"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 5,
+      "temperature": 3,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d61-1657112495736-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid033NU9TUBsPTFe6hf5aYUL7wTZQ35MtjDVWHe8wVVYSpQtTo1VdTfuutYEaSjXWFr1l&id=1467863004&__tn__=*F"
+      }
+    ],
+    "lastUpdate": "2025-11-29 12:42:00.000000",
+    "name": "עין עקב",
+    "mainRegion": "דרום",
+    "subRegion": "הנגב",
+    "location": {
+      "region": {
+        "main": "דרום",
+        "sub": "הנגב"
+      },
+      "directions": "הליכה עם השביל הירוק או השביל האדום שמתחבר לכחול והגעה למעיין (יש להשתמש במפת סמ\"ש). נגיש לרכב 4X4.",
+      "wazeLink": "30.843339303214186, 34.780361827183036",
+      "minutesByFoot": 180,
+      "coordinates": {
+        "pool": [
+          30.814441546184437,
+          34.813439342718766
+        ],
+        "parking": [
+          30.843339303214186,
+          34.780361827183036
+        ]
+      }
+    },
+    "description": "מעיין שכבה הנובע אל בריכה עמוקה מאוד (כ-8 מטרים) וקרה בכל ימות השנה. מוקף בצמחיית נחלים וקירות מצוק."
+  },
+  {
+    "_id": "62b7550fc52923097c037d64",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "גן לאומי עין עבדת"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 3,
+      "size": 5,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": true,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d64-1657315610135-1.jpeg",
+        "credit": "tomer_nature",
+        "link": "https://www.instagram.com/p/CIsRwvvnKb9/"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d64-1657315615858-1.jpeg",
+        "credit": "tomer_nature",
+        "link": "https://www.instagram.com/p/CIsRwvvnKb9/"
+      }
+    ],
+    "lastUpdate": "2025-11-29 12:42:00.000000",
+    "name": "עין עבדת",
+    "mainRegion": "דרום",
+    "subRegion": "הנגב",
+    "location": {
+      "region": {
+        "main": "דרום",
+        "sub": "הנגב"
+      },
+      "directions": "הליכה עפ\"י השילוט באתר.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%92%D7%9F-%D7%9C%D7%90%D7%95%D7%9E%D7%99-%D7%A2%D7%99%D7%9F-%D7%A2%D7%91%D7%93%D7%AA?to=place.w.22806836.227871755.43445",
+      "minutesByFoot": 10,
+      "coordinates": {
+        "pool": [
+          30.824408158756253,
+          34.76337427860005
+        ],
+        "parking": [
+          30.83183663710138,
+          34.77066981055439
+        ]
+      }
+    },
+    "description": "גן לאומי מרשים הכולל קניון ומפלים. חשוב לדעת: הכניסה למים אסורה בהחלט לצורך שמירה על ערכי הטבע."
+  },
+  {
+    "_id": "62b7550fc52923097c037d2b",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "פארק אלונה"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 3,
+      "temperature": 3,
+      "size": 4,
+      "hasShadow": false,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 12:42:00.000000",
+    "name": "עין אביאל",
+    "mainRegion": "מרכז",
+    "subRegion": "רמות מנשה",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "רמות מנשה"
+      },
+      "directions": "מעבר הנחל לצדו השני והליכה עד למציאת נק' מועדפת על הנחל.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.53697288%2C34.99061823",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          32.537839151566175,
+          34.991145035424964
+        ],
+        "parking": [
+          32.53737301295912,
+          34.991242762244745
+        ]
+      }
+    },
+    "description": "מספר נביעות ובריכות לאורך נחל תנינים (פארק אלונה). המים צלולים ונעימים, ישנן פינות מוצלות תחת הקנים."
+  },
+  {
+    "_id": "62b7550fc52923097c037d37",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "גן לאומי ירקון"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 3,
+      "size": 5,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": true,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-05-22 10:00:00.000000",
+    "name": "מקורות הירקון",
+    "mainRegion": "מרכז",
+    "subRegion": "השרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "השרון"
+      },
+      "directions": "הליכה עפ\"י השילוט באתר",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%94%D7%9E%D7%A8%D7%9B%D7%96/%D7%A4%D7%AA/%D7%9E%D7%A7%D7%95%D7%A8%D7%95%D7%AA-%D7%94%D7%99%D7%A8%D7%A7%D7%95%D7%9F-%D7%92%D7%9F-%D7%9C%D7%90%D7%95%D7%9E%D7%99-%D7%99%D7%A8%D7%A7%D7%95%D7%9F?to=place.ChIJ4wwPYQM3HRURZjHpMeg5ics",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          32.10634183934087,
+          34.933073904373316
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "גן לאומי המכיל בריכות שכשוך ואגם גדול, לצד מבצר אנטיפטרוס וממצאים ארכיאולוגיים נוספים."
+  },
+  {
+    "_id": "62b7550fc52923097c037d3a",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 4,
+      "temperature": 3,
+      "size": 5,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": true,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d3a-1657112282599-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid018WarjrPVGRarYDCvSerRh66BKU3a5Pw1tFdFfU8VT8Tfc3NXLoxfCi6FVNCzMvul&id=1467863004&__tn__=*F"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d3a-1657112289219-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid018WarjrPVGRarYDCvSerRh66BKU3a5Pw1tFdFfU8VT8Tfc3NXLoxfCi6FVNCzMvul&id=1467863004&__tn__=*F"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d3a-1657112296833-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid018WarjrPVGRarYDCvSerRh66BKU3a5Pw1tFdFfU8VT8Tfc3NXLoxfCi6FVNCzMvul&id=1467863004&__tn__=*F"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d3a-1657112303156-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid018WarjrPVGRarYDCvSerRh66BKU3a5Pw1tFdFfU8VT8Tfc3NXLoxfCi6FVNCzMvul&id=1467863004&__tn__=*F"
+      }
+    ],
+    "lastUpdate": "2024-05-22 10:00:00.000000",
+    "name": "עיינות ענר",
+    "mainRegion": "מרכז",
+    "subRegion": "שומרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "שומרון"
+      },
+      "directions": "החנייה בצמוד למעיין הדרומי.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.31.95535745%2C35.1081419",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          31.955827159752275,
+          35.10765080495638
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "פארק מעיינות מטופח עם כ-8 בריכות בגדלים שונים, בוסתן עצי פרי ופינות ישיבה מוצלות."
+  },
+  {
+    "_id": "62b7550fc52923097c037d4c",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 3,
+      "size": 2,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-05-22 10:00:00.000000",
+    "name": "מעיין מאיר",
+    "mainRegion": "מרכז",
+    "subRegion": "שומרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "שומרון"
+      },
+      "directions": "הליכה עם השילוט באתר.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%9E%D7%A2%D7%99%D7%99%D7%9F-%D7%9E%D7%90%D7%99%D7%A8-%D7%97%D7%9C%D7%9E%D7%99%D7%A9?to=place.w.23003456.230165633.21866",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          32.009575840601656,
+          35.121988081386185
+        ],
+        "parking": [
+          32.01020299306462,
+          35.121865827157336
+        ]
+      }
+    },
+    "description": "מעיין בסמוך למערה קטנה בצורת קשת, על כן נקרא גם \"מעיין הקשת\"."
+  },
+  {
+    "_id": "62b7550fc52923097c037d52",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 4,
+      "temperature": 3,
+      "size": 4,
+      "hasShadow": false,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d52-1657111360156-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid0ewENouRMJ1ph3xEouvyC3tR5YaZTYATgnHvAHKrbXrrUXGDjwTtXzHbp5EhQHt5Wl&id=1467863004&__tn__=*F"
+      }
+    ],
+    "lastUpdate": "2024-05-22 10:00:00.000000",
+    "name": "מעיין דני (עין בובין)",
+    "mainRegion": "מרכז",
+    "subRegion": "שומרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "שומרון"
+      },
+      "directions": "הליכה עם השילוט באתר.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%93%D7%95%D7%9C%D7%91/%D7%9E%D7%A2%D7%99%D7%99%D7%9F-%D7%93%D7%A0%D7%99?to=place.ChIJdZvdNqTVAhUR23Nq7HWAEIU",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          31.916333559048116,
+          35.140047460166244
+        ],
+        "parking": [
+          31.915951571539384,
+          35.139170276320755
+        ]
+      }
+    },
+    "description": "נקרא גם מעיין דני לזכרו של דני גונן. מעיין נקבה הממלא בריכה המשמשת את חקלאי האזור, עומקה משתנה."
+  },
+  {
+    "_id": "62b7550fc52923097c037d3d",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 3,
+      "temperature": 3,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-05-22 10:00:00.000000",
+    "name": "מעיין הכרמים",
+    "mainRegion": "מרכז",
+    "subRegion": "שומרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "שומרון"
+      },
+      "directions": "החנייה בצמוד למעיין.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%9E%D7%A2%D7%99%D7%99%D7%9F-%D7%94%D7%9B%D7%A8%D7%9E%D7%99%D7%9D-%D7%9B%D7%95%D7%9B%D7%91-%D7%94%D7%A9%D7%97%D7%A8?to=place.w.23134528.231672956.276472",
+      "minutesByFoot": 1,
+      "coordinates": {
+        "pool": [
+          31.95429625784033,
+          35.348439368081536
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "2 בריכות מלאכותיות ביישוב כוכב השחר."
+  },
+  {
+    "_id": "62b7550fc52923097c037d43",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 4,
+      "temperature": 3,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2024-05-22 10:00:00.000000",
+    "name": "מעיין עטרת",
+    "mainRegion": "מרכז",
+    "subRegion": "שומרון",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "שומרון"
+      },
+      "directions": "החנייה בצמוד למעיין.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%9E%D7%A2%D7%99%D7%99%D7%9F-%D7%A2%D7%98%D7%A8%D7%AA?to=place.w.23068992.230558848.10479",
+      "minutesByFoot": 1,
+      "coordinates": {
+        "pool": [
+          31.998171467013943,
+          35.18399148231639
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "מעיין הנובע לתוך 2 בריכות גדולות באזור מושב עטרת."
+  },
+  {
+    "_id": "62b7550fc52923097c037d5e",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 3,
+      "temperature": 4,
+      "size": 2,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d5e-1657222831998-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid021meCQtqoPEshoLvzaWbgcqDrYAakXbXWNf7GaxKwhvTHEkSj5PLSko7RAk5NVUx9l&id=1467863004&__tn__=*F"
+      }
+    ],
+    "lastUpdate": "2024-05-21 10:00:00.000000",
+    "name": "עין פלוטית",
+    "mainRegion": "דרום",
+    "subRegion": "ים המלח",
+    "location": {
+      "region": {
+        "main": "דרום",
+        "sub": "ים המלח"
+      },
+      "directions": "המעיין צמוד לחנייה.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%94%D7%93%D7%A8%D7%95%D7%9D/%D7%A2%D7%99%D7%9F-%D7%A4%D7%9C%D7%95%D7%98%D7%99%D7%AA-%D7%94%D7%9E%D7%A2%D7%99%D7%99%D7%9F-%D7%94%D7%A0%D7%A1%D7%AA%D7%A8?to=place.ChIJV5kgrha3AxURGhosaGuDUJ0",
+      "minutesByFoot": 1,
+      "coordinates": {
+        "pool": [
+          30.95596454933158,
+          35.36392323912035
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "נקרא גם \"המעיין הנסתר\" או \"מעיין האהבה\". מעיין בנק' פסטורלית בלב המדבר, עם הרבה דגיגים קטנים. נובע בטמפ' קבועה של כ-28 מעלות."
+  },
+  {
+    "_id": "62b756c3b8f38a19c87f3e63",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 1,
+      "temperature": 5,
+      "size": 2,
+      "hasShadow": false,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": true,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-62b756c3b8f38a19c87f3e63-1657312563790-1.jpeg",
+        "credit": "יואב בן דרור, מתוך אתר פיקיויקי",
+        "link": ""
+      },
+      {
+        "image": "spring-62b756c3b8f38a19c87f3e63-1657312687516-1.jpeg",
+        "credit": "leen.mashiah",
+        "link": "https://www.instagram.com/p/Cb8CH9hAS5_/"
+      }
+    ],
+    "lastUpdate": "2024-05-21 10:00:00.000000",
+    "name": "עינות קדם",
+    "mainRegion": "מרכז",
+    "subRegion": "ים המלח",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "ים המלח"
+      },
+      "directions": "מרחבת העפר לצד הכביש יש לרדת בזהירות לכיוון ים המלח ולחפש נביעת מים חמים מועדפת.",
+      "wazeLink": "31.512183539270794, 35.3955613676798",
+      "minutesByFoot": 20,
+      "coordinates": {
+        "pool": [
+          31.514600546337594,
+          35.39709414030783
+        ],
+        "parking": [
+          31.512183539270794,
+          35.3955613676798
+        ]
+      }
+    },
+    "description": "מעיינות חמים לחופו של ים המלח. זהירות: האזור מועד לבולענים והגישה אליו מסוכנת מאוד."
+  },
+  {
+    "_id": "62bf283b4c6c8b1ff0b30509",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 2,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [
+      {
+        "image": "spring-62bf283b4c6c8b1ff0b30509-1664985817781-1.jpeg",
+        "credit": "אלעד לאור",
+        "link": ""
+      },
+      {
+        "image": "spring-62bf283b4c6c8b1ff0b30509-1664985823183-1.jpeg",
+        "credit": "אלעד לאור",
+        "link": ""
+      }
+    ],
+    "lastUpdate": "2024-05-21 10:00:00.000000",
+    "name": "עין סוף",
+    "mainRegion": "מרכז",
+    "subRegion": "ירושלים",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "ירושלים"
+      },
+      "directions": "יש להחנות בסביבה, ולרדת ברגל בזהירות למעיין.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.31.7697242%2C35.16853452",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          31.769881289671254,
+          35.167791548869744
+        ],
+        "parking": [
+          31.769738146982565,
+          35.16845815100038
+        ]
+      }
+    },
+    "description": "מעיין הנובע מתוך מערה בקרבת עין כרם. גובה המים משתנה ועשוי להיות נמוך."
+  },
+  {
+    "_id": "62bf283b4c6c8b1ff0b3050c",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 5,
+      "temperature": 3,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-62bf283b4c6c8b1ff0b3050c-1656695045115-1.jpeg",
+        "credit": "נדב פולק",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid0huTDSsAETQDFLCWiwoyXque7SpJU3yZrvkvogynZRHpjdAi4jYqP82WCQCkiHC2Pl&id=100037949139095&__tn__=*F"
+      },
+      {
+        "image": "spring-62bf283b4c6c8b1ff0b3050c-1656695072816-1.jpeg",
+        "credit": "נדב פולק",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid0huTDSsAETQDFLCWiwoyXque7SpJU3yZrvkvogynZRHpjdAi4jYqP82WCQCkiHC2Pl&id=100037949139095&__tn__=*F"
+      }
+    ],
+    "lastUpdate": "2022-07-01 17:00:42.116000",
+    "name": "בריכת האירוסים",
+    "mainRegion": "צפון",
+    "subRegion": "מרכז רמת הגולן",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "מרכז רמת הגולן"
+      },
+      "directions": "מצומת המפלים ממשיכים על השביל הפונה צפונה (808) כ-1.7 ק\"מ עד פיצול Y, ממשיכים בשביל השמאלי. יש להצטייד במפת סמ\"ש.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%A6%D7%95%D7%9E%D7%AA-%D7%94%D7%9E%D7%A4%D7%9C%D7%99%D7%9D-87?to=place.w.23462218.234294499.11865",
+      "minutesByFoot": 30,
+      "coordinates": {
+        "pool": [
+          32.99948659428076,
+          35.739346988998165
+        ],
+        "parking": [
+          32.986281399518816,
+          35.75051204302524
+        ]
+      }
+    },
+    "description": "בריכה הניזונה ממפל במיקום פסטורלי במעלה נחל זוויתן. הבריכה מוקפת בפריחה מרשימה בעונת האביב."
+  },
+  {
+    "_id": "62c02aff3a523b1f14f2bc99",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 3,
+      "temperature": 4,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [
+      {
+        "image": "spring-62c02aff3a523b1f14f2bc99-1656761331094-1.jpeg",
+        "credit": "גיא ברודו",
+        "link": "https://www.facebook.com/brudo.guy/posts/pfbid02VB5mhsn1zjgELMMLWFShfxLxtN56wt7WjojA28ofP8M5Y3KWo43WXHbLaLnAg7GWl?__tn__=*F"
+      }
+    ],
+    "lastUpdate": "2022-07-02 11:24:46.614000",
+    "name": "בוסתן כיאט",
+    "mainRegion": "צפון",
+    "subRegion": "כרמל",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "כרמל"
+      },
+      "directions": "הליכה עם השביל השחור במעלה הנחל, כ-250 מ'.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.80224579%2C34.96736884",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          32.80260019509841,
+          34.969880554753864
+        ],
+        "parking": [
+          32.802323037624355,
+          34.96750296410291
+        ]
+      }
+    },
+    "description": "בוסתן עתיק אשר הוקם ע\"י משפחת כיאט טרם קום המדינה וכיום מנוהל ע\"י עיריית חיפה. בבוסתן בריכות מים ושרידי מזרקות."
+  },
+  {
+    "_id": "62c02aff3a523b1f14f2bc96",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 1,
+      "temperature": 2,
+      "size": 2,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [
+      {
+        "image": "spring-62c02aff3a523b1f14f2bc96-1657221987438-1.jpeg",
+        "credit": "אבי ענתבי",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid02aXThgWDDJJqhRLwvaMwwbE5TeYiQjAWTAR32h4Xqtme27PwCeqnyw9tbVwTuLjYml&id=1819584841&__tn__=*F"
+      },
+      {
+        "image": "spring-62c02aff3a523b1f14f2bc96-1657223226311-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid05Z3dwH1BukQooGLW6UXCG9r1mXNgWTSkhUy4i1tRxS6qYjg7Wn8FqqDvLwrnZi4Yl&id=1467863004"
+      }
+    ],
+    "lastUpdate": "2024-05-21 10:00:00.000000",
+    "name": "עין משוטטים",
+    "mainRegion": "צפון",
+    "subRegion": "כרמל",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "כרמל"
+      },
+      "directions": "ירידה לנחל עם השילוט. הליכה של כק\"מ בירידה.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%A0%D7%97%D7%9C-%D7%A9%D7%99%D7%97-,-%D7%9B%D7%A0%D7%99%D7%A1%D7%94-%D7%A2%D7%9C%D7%99%D7%95%D7%A0%D7%94-,-%D7%9C%D7%95%D7%98%D7%95%D7%A1-12-%D7%97%D7%99%D7%A4%D7%94?to=place.w.22937928.229248208.533977",
+      "minutesByFoot": 20,
+      "coordinates": {
+        "pool": [
+          32.800931351104126,
+          34.97377610338626
+        ],
+        "parking": [
+          32.8001727513277,
+          34.98237510311636
+        ]
+      }
+    },
+    "description": "מעיין הנובע בתוך מערה מלאכותית בנחל שיח. המים רדודים מאוד וזורמים לשוקת."
+  },
+  {
+    "_id": "62c59251d83e4b1c340630cb",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 5,
+      "temperature": 2,
+      "size": 5,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": true,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [
+      {
+        "image": "spring-62c59251d83e4b1c340630cb-1657115381954-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid02XUsGpKXSSw9y2GbtL7sjBy7s8xyCk3dEbt7zKpZH89EZL5EhvuyGoyHHtAGKNv9il&id=1467863004&__tn__=*F"
+      }
+    ],
+    "lastUpdate": "2024-05-21 10:00:00.000000",
+    "name": "בריכת אבוקה",
+    "mainRegion": "צפון",
+    "subRegion": "עמק בית שאן",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "עמק בית שאן"
+      },
+      "directions": "החנייה צמודה לבריכה (דרך עפר כבושה).",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.4654627%2C35.53800344",
+      "minutesByFoot": 1,
+      "coordinates": {
+        "pool": [
+          32.465871960345865,
+          35.538099385455574
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "אחד ממעיינות עמק בית שאן, הנשפך לנחל אבוקה ומזמין לבריכה גדולה ועמוקה מוקפת באקליפטוסים וצמחייה. נקרא גם בריכת עין צמד. המים עשויים להיות עכורים."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134a0",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 4,
+      "temperature": 1,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2024-05-21 10:00:00.000000",
+    "name": "עין טורבינה",
+    "mainRegion": "צפון",
+    "subRegion": "מרכז רמת הגולן",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "מרכז רמת הגולן"
+      },
+      "directions": "הליכה על השביל הפונה מערבה ומתעקל דרומה כ-200 מ' עד הגעה למעיין.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.33.0793072%2C35.82774639",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          33.07821256126258,
+          35.82618810936879
+        ],
+        "parking": [
+          33.0792985153686,
+          35.827749310761405
+        ]
+      }
+    },
+    "description": "נביעה לבריכה מבוטנת ועמוקה (כ-1.8 מטר) ששופצה בשנים האחרונות. נקראת גם \"בריכת הצ'רקסים\" או \"עין ג'ויזה\". המים קרים מאוד גם בקיץ."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134a9",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 2,
+      "size": 2,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-05-21 10:00:00.000000",
+    "name": "מעיין התאנה",
+    "mainRegion": "צפון",
+    "subRegion": "כרמל",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "כרמל"
+      },
+      "directions": "ירידה בשביל הירוק בתוך הוואדי עד הגעה למעיין.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%97%D7%99%D7%A4%D7%94?to=place.ws.il.24503.48",
+      "minutesByFoot": 15,
+      "coordinates": {
+        "pool": [
+          32.78165105654202,
+          34.986194369547356
+        ],
+        "parking": [
+          32.78263474071836,
+          34.98715280662157
+        ]
+      }
+    },
+    "description": "אחד משני המעיינות הנחבאים בנחל אחוזה בחיפה. הבריכה לרוב רדודות ומוצלת על ידי עץ תאנה גדול."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134af",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 2,
+      "temperature": 2,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-05-21 10:00:00.000000",
+    "name": "עין תרמילאים",
+    "mainRegion": "צפון",
+    "subRegion": "כרמל",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "כרמל"
+      },
+      "directions": "מהחנייה ליד מתקן מקורות הולכים עם השביל לכיוון דרום עד שמגיעים לנחל, כ-200 מ'.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.57781933%2C34.96534109",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          32.57623016794105,
+          34.96584990630117
+        ],
+        "parking": [
+          32.57782810990035,
+          34.965414477770196
+        ]
+      }
+    },
+    "description": "מספר בריכות לאורך נחל זכרונה. שימו לב: המקום עונתי ולרוב יבש בקיץ ובסתיו. מלא במים בעיקר בחורף ובאביב."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134b2",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 3,
+      "temperature": 2,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-05-21 10:00:00.000000",
+    "name": "עין כובס",
+    "mainRegion": "צפון",
+    "subRegion": "גליל עליון",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "גליל עליון"
+      },
+      "directions": "הליכה לכיוון המעיין (כ-100 מ'). ישנה ירידה מתונה.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.94967696%2C35.48048615",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          32.9503246162407,
+          35.48102781484933
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "מעיין משופץ ויפה על הגדה של נחל עמוד, בסמוך לצפת. המים צלולים ומשמשים גם כמקווה טהרה. קרוי ע\"ש קבר שייח' כוואייס הסמוך. יש ספסלים למנוחה."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134b5",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 4,
+      "temperature": 2,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2024-05-21 10:00:00.000000",
+    "name": "הבריכה הנסתרת (כפר סאלד)",
+    "mainRegion": "צפון",
+    "subRegion": "צפון רמת הגולן",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "צפון רמת הגולן"
+      },
+      "directions": "החנייה בסמוך לבריכה, דרך עפר נוחה.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%94%D7%A6%D7%A4%D7%95%D7%9F/%D7%9B%D7%A4%D7%A8-%D7%A1%D7%90%D7%9C%D7%93/%D7%90%D7%92%D7%9D-%D7%A7%D7%A8%D7%A2%D7%95%D7%9F-%D7%9B%D7%A4%D7%A8-%D7%A1%D7%90%D7%9C%D7%93?to=place.ChIJy9fQLxG7HhURdbjBSpqnYhI",
+      "minutesByFoot": 2,
+      "coordinates": {
+        "pool": [
+          33.19829773316167,
+          35.65839073960535
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "בריכה גדולה (מאגר) שנוצרה מסכירת הנחל מצפון לכפר סאלד. מוכרת לעיתים בטעות כ'אגם קרעון' אך זהו שם של אגם בלבנון. מקום שקט עם נוף לרמת הגולן."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134b8",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 3,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין רועים",
+    "mainRegion": "צפון",
+    "subRegion": "אצבע הגליל",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "אצבע הגליל"
+      },
+      "directions": "החנייה בצמוד למעיין (רכס רמים).",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%94%D7%A6%D7%A4%D7%95%D7%9F/%D7%A7%D7%A9/%D7%A2%D7%99%D7%9F-%D7%A8%D7%95%D7%A2%D7%99%D7%9D?to=place.ChIJAX2oguCXHhURrF_9tmol9wE",
+      "minutesByFoot": 2,
+      "coordinates": {
+        "pool": [
+          33.225886040121104,
+          35.56245643240172
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "מעיין הנובע ברכס רמים. נכון ל-2024/5 האזור מוגדר כקו עימות/שטח צבאי סגור והגישה למקום מסוכנת ואסורה לרוב. בימי שגרה המעיין זורם לבריכה רדודה תחת עץ תאנה."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134c1",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 4,
+      "temperature": 3,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין גמלא (מעיין מעלה גמלא)",
+    "mainRegion": "צפון",
+    "subRegion": "מרכז רמת הגולן",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "מרכז רמת הגולן"
+      },
+      "directions": "הגעה מכיוון מעלה גמלא. מעבר שער בקר והליכה קצרה למעיין.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.89501133%2C35.69084644",
+      "minutesByFoot": 10,
+      "coordinates": {
+        "pool": [
+          32.89379752703734,
+          35.693314364269206
+        ],
+        "parking": [
+          32.89491719601455,
+          35.690866730422194
+        ]
+      }
+    },
+    "description": "מעיין משופץ המוקף בדק (deck) עץ וספסלים, תחת סכך גפנים וצמחייה, סמוך למושב מעלה גמלא. נמצא בתוך שטח מרעה."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134c4",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 2,
+      "temperature": 3,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין ערבות",
+    "mainRegion": "צפון",
+    "subRegion": "גליל עליון",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "גליל עליון"
+      },
+      "directions": "ירידה לשביל ישראל בנחל דישון, חציית הכביש (899) במעבר התת קרקעי והגעה לבריכה.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.33.05263023%2C35.44252753",
+      "minutesByFoot": 10,
+      "coordinates": {
+        "pool": [
+          33.053094231045726,
+          35.44230365837977
+        ],
+        "parking": [
+          33.05270313927518,
+          35.44246311454807
+        ]
+      }
+    },
+    "description": "בריכה רדודה וצלולה בנחל דישון, המוזנת מצינור עודפים של חברת 'מקורות', ולכן יש בה מים כל השנה."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134c7",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 3,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין עמוד",
+    "mainRegion": "צפון",
+    "subRegion": "גליל עליון",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "גליל עליון"
+      },
+      "directions": "ירידה לנחל עמוד (משטרת א-טינה) והליכה על השביל השחור.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.86875623%2C35.50229788",
+      "minutesByFoot": 15,
+      "coordinates": {
+        "pool": [
+          32.872689631889706,
+          35.50205774512988
+        ],
+        "parking": [
+          32.86863888637894,
+          35.50260905476142
+        ]
+      }
+    },
+    "description": "המעיין המרכזי בנחל עמוד עליון. נביעה עונתית המתמלאת בחורף ובאביב. בקיץ ובסתיו המעיין לרוב יבש או דליל מאוד."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c71349d",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 3,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין אלון",
+    "mainRegion": "צפון",
+    "subRegion": "כרמל",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "כרמל"
+      },
+      "directions": "הליכה מחניון האגם (שביל אדום ואז ירוק) או ממשמר הכרמל.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.72717474%2C35.01523018",
+      "minutesByFoot": 15,
+      "coordinates": {
+        "pool": [
+          32.72688795817853,
+          35.02291071119067
+        ],
+        "parking": [
+          32.727066800027714,
+          35.01518599949992
+        ]
+      }
+    },
+    "description": "בריכת בטון גדולה (5X5) בערוץ נחל אורן, לצד מבנה משאבות עתיק. המים מוזרמים לרוב מצינור וזורמים כל השנה."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134bb",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 3,
+      "temperature": 3,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין הדייג",
+    "mainRegion": "צפון",
+    "subRegion": "עמק החולה",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "עמק החולה"
+      },
+      "directions": "הליכה קצרה מהחנייה ביסוד המעלה, לכיוון חורשת האיקליפטוסים.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/il/north-district/yesud-hamaala/%D7%A2%D7%99%D7%9F-%D7%94%D7%93%D7%99%D7%99%D7%92?to=place.ChIJ0_yTaVihHhURH0kwZx0Y3hc",
+      "minutesByFoot": 2,
+      "coordinates": {
+        "pool": [
+          33.0734607821673,
+          35.588280696973186
+        ],
+        "parking": [
+          33.072923085085904,
+          35.58773331760231
+        ]
+      }
+    },
+    "description": "פינת חמד רדודה (עד מטר עומק) ומוצלת תחת איקליפטוסים. מים צלולים, קרקעית חולית ושפמנונים במים."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c713491",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 2,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-62c9abdc9a70090f8c713491-1657880289701-1.jpeg",
+        "credit": "אביתר ליכטמן",
+        "link": "https://www.facebook.com/moriyad/posts/pfbid02wNe4So2tbxBXmPFbu3CzsRiJrEHBctvkZna97Gx8NzGwS8z8ZZ8iw2PZ5pgTf1eNl"
+      }
+    ],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין נוטרה (מעיין הבוקרים)",
+    "mainRegion": "צפון",
+    "subRegion": "עמק החולה",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "עמק החולה"
+      },
+      "directions": "טיפוס בשביל הכחול כ-ק\"מ עד הגעה לעיקול U בולט הפונה צפונה, משם ירידה מהשביל לכיוון המעיין (כ-50 מ').",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.97817614%2C35.62292218",
+      "minutesByFoot": 20,
+      "coordinates": {
+        "pool": [
+          32.96989189433991,
+          35.61876137265377
+        ],
+        "parking": [
+          32.97812154900495,
+          35.622833026059105
+        ]
+      }
+    },
+    "description": "המעיין מוכר גם בשם עין נוטרה. מים המוזרמים מצינור (עודפים מחקלאות) ולכן הזרימה עשויה להשתנות. מסלול הליכה קצר ורטוב בין שיחי פטל ועצי איקליפטוס מוביל לבריכה."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c713494",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 4,
+      "temperature": 4,
+      "size": 4,
+      "hasShadow": false,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין ימק\"א",
+    "mainRegion": "צפון",
+    "subRegion": "כנרת",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "כנרת"
+      },
+      "directions": "חנייה על הכביש והליכה לכיוון המעיין, הדרכים חסומות ומגודרות.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%A2%D7%99%D7%99%D7%9F-%D7%99%D7%9E%D7%A7%D7%90?to=place.ChIJVdzSeKQ_HBURnieBDJ0kkV4",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          32.80753642426336,
+          35.52726724368991
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "נביעה בחוף הכנרת, בשטח הכנסייה הרוסית. הגישה למקום לרוב חסומה ומגודרת והכניסה אסורה."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c713497",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 5,
+      "temperature": 4,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין רקת",
+    "mainRegion": "צפון",
+    "subRegion": "כנרת",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "כנרת"
+      },
+      "directions": "חנייה על הכביש בקרבת המעיין והליכה לכיוונו. הדרכים חסומות.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%A2%D7%99%D7%9F-%D7%A8%D7%A7%D7%AA-%D7%98%D7%91%D7%A8%D7%99%D7%94?to=place.w.23265608.232852689.26955",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          32.80951901017928,
+          35.52588545928091
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "קבוצת נביעות (חלקן חמימות/מלוחות). הבריכה המרכזית נמצאת בתוך מתחם הכנסייה הרוסית ומגודרת (נכון ל-2024/5), הגישה לרוב חסומה לציבור."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c71349a",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 2,
+      "size": 2,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין אוראי (נחל מירון עליון)",
+    "mainRegion": "צפון",
+    "subRegion": "גליל עליון",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "גליל עליון"
+      },
+      "directions": "מחניון העיקול, עוברים במעבר התת קרקעי מתחת לכביש עם הסימון השחור/שביל ישראל. הליכה של כ-200 מ' עד לצינור ולבריכות.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%97%D7%A0%D7%99%D7%95%D7%9F-%D7%94%D7%A2%D7%99%D7%A7%D7%95%D7%9C-%D7%9E%D7%99%D7%A8%D7%95%D7%9F?to=place.w.23200074.232262882.319998",
+      "minutesByFoot": 7,
+      "coordinates": {
+        "pool": [
+          32.97984086372488,
+          35.445651654729325
+        ],
+        "parking": [
+          32.979237129175765,
+          35.442798308661885
+        ]
+      }
+    },
+    "description": "בריכות שכשוך בנחל מירון המוזנות מצינור של 'מקורות' (זרימה כל השנה). המקום משמש גם כמקווה וכולל דק עץ קטן. מוצל ונעים."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134a6",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 3,
+      "temperature": 2,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": true,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 10:00:00.000000",
+    "name": "עין אל בלד",
+    "mainRegion": "צפון",
+    "subRegion": "כרמל",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "כרמל"
+      },
+      "directions": "החנייה בסמוך למעיין, הגעה מכיוון עוספיא.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%A2%D7%99%D7%9F-%D7%90%D7%9C-%D7%91%D7%9C%D7%93-%D7%A2%D7%95%D7%A1%D7%A4%D7%99%D7%90-%D7%97%D7%9C%D7%AA-%D7%A1%D7%99%D7%A0%D7%92%D7%90%D7%91-49-%D7%A2%D7%A1%D7%A4%D7%99%D7%90?to=place.w.23003463.229838024.471506",
+      "minutesByFoot": 1,
+      "coordinates": {
+        "pool": [
+          32.71954845976185,
+          35.071578954391896
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "מעיין הכפר עוספיא. בריכת בטון משופצת וגדולה (5X5 מ') המוקפת עצי בוסתן. המפלס משתנה ועשוי להיות נמוך בקיץ."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134ac",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 3,
+      "size": 2,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-11-29 10:00:00.000000",
+    "name": "עין אחוזה",
+    "mainRegion": "צפון",
+    "subRegion": "כנרת",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "כנרת"
+      },
+      "directions": "ירידה בשביל הירוק עד הגעה למעיין.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%97%D7%99%D7%A4%D7%94?to=place.ws.il.24503.48",
+      "minutesByFoot": 25,
+      "coordinates": {
+        "pool": [
+          32.78149002328802,
+          34.98474114208432
+        ],
+        "parking": [
+          32.78259638440567,
+          34.98716662920346
+        ]
+      }
+    },
+    "description": "אחד משני המעיינות בנחל אחוזה שבלב הנוף האורבני של חיפה. המעיין עונתי ולעיתים יבש בחודשי הקיץ."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134be",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 2,
+      "temperature": 5,
+      "size": 3,
+      "hasShadow": false,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": true,
+      "hasClearWater": true,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2024-11-29 10:00:00.000000",
+    "name": "הגייזר בבנטל",
+    "mainRegion": "צפון",
+    "subRegion": "צפון רמת הגולן",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "צפון רמת הגולן"
+      },
+      "directions": "מחנייה יש לרדת מעט לכיוון המאגר ושם נמצאים הצינורות.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.33.14075839%2C35.77790022",
+      "minutesByFoot": 1,
+      "coordinates": {
+        "pool": [
+          33.140737543619885,
+          35.7781891173382
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "צינורות המזרימים מים מקידוחים בעמק החולה. בעבר זרמו כאן מים חמים, אך כיום הצינורות לעיתים קרובות יבשים או סגורים."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134ca",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 1,
+      "temperature": 4,
+      "size": 2,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-11-29 10:00:00.000000",
+    "name": "חמאם בנות יעקב",
+    "mainRegion": "צפון",
+    "subRegion": "אצבע הגליל",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "אצבע הגליל"
+      },
+      "directions": "החנייה בסמוך למעיין.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.33.02482076%2C35.62735319",
+      "minutesByFoot": 1,
+      "coordinates": {
+        "pool": [
+          33.024753803529634,
+          35.62746870118506
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "שרידי בית מרחץ עתיק. המים נובעים בטמפ' נעימה אך המפלס רדוד מאוד (קרסוליים) ולעיתים זורמים ישר לירדן ללא היקוות בבריכה."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134d0",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "נחל",
+      "howDeep": 2,
+      "temperature": 4,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-11-29 10:00:00.000000",
+    "name": "עין עמיקם",
+    "mainRegion": "צפון",
+    "subRegion": "רמות מנשה",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "רמות מנשה"
+      },
+      "directions": "הנחל מדרום לחנייה.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%A2%D7%99%D7%9F-%D7%A2%D7%9E%D7%99%D7%A7%D7%9D-%D7%93%D7%A8%D7%9A-%D7%A0%D7%97%D7%9C-%D7%AA%D7%A0%D7%99%D7%A0%D7%99%D7%9D-%D7%A6%D7%A4%D7%95%D7%A0%D7%99%D7%AA?to=place.w.22937926.229510328.255117",
+      "minutesByFoot": 1,
+      "coordinates": {
+        "pool": [
+          32.55836638129287,
+          35.01826191251804
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "מקטע מוצף ופופולרי בנחל תנינים (ליד עמיקם). רוב ההליכה במים רדודים, אך ישנן מספר נקודות עמוקות יותר. המקום עמוס בסופי שבוע."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134d3",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 1,
+      "temperature": 3,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-11-29 10:00:00.000000",
+    "name": "עין געתון",
+    "mainRegion": "צפון",
+    "subRegion": "גליל עליון",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "גליל עליון"
+      },
+      "directions": "הליכה עפ\"י השילוט באתר.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.33.01300897%2C35.1928246",
+      "minutesByFoot": 2,
+      "coordinates": {
+        "pool": [
+          33.01262771788354,
+          35.19321076327642
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "אחד ממקורות נחל געתון. נמצא בתחום יער קק\"ל וכולל את חורבת געתון. המעיין עונתי ולעיתים יבש."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134a3",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 3,
+      "temperature": 2,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2024-05-22 10:00:00.000000",
+    "name": "עינות פחם",
+    "mainRegion": "צפון",
+    "subRegion": "מרכז רמת הגולן",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "מרכז רמת הגולן"
+      },
+      "directions": "נסיעה בציר הנפט עד שלא ניתן להמשיך בגלל שהכביש משובש (זהירות!). משם המשך הליכה לאורך הנחל שמצפון עד הגעה לבריכה (כ-ק\"מ).",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.96576401%2C35.81954956",
+      "minutesByFoot": 15,
+      "coordinates": {
+        "pool": [
+          32.97094265528573,
+          35.825508513640656
+        ],
+        "parking": [
+          32.96579648102332,
+          35.81948438627093
+        ]
+      }
+    },
+    "description": "מספר נביעות המזינות את נחל גמלא. המקום שופץ בעבר אך רמת המים תלויה מאוד בעונה (עלול להיות יבש או בוצי בקיץ). זהירות: האזור מוקף שדות מוקשים - אין לרדת מהשבילים!"
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134cd",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 4,
+      "temperature": 2,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2024-05-22 10:00:00.000000",
+    "name": "עין נוב (בריכת המלכה)",
+    "mainRegion": "צפון",
+    "subRegion": "דרום רמת הגולן",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "דרום רמת הגולן"
+      },
+      "directions": "מהחנייה נלך בטיילת מצוקי נחל אלעל לכיוון צפון-מזרח. לאחר כ-600 מ' ישנה פנייה ברורה ימינה. נפנה שם שמאלה ונלך עד למעיין.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%97%D7%A0%D7%99%D7%95%D7%9F-%D7%94%D7%9E%D7%A4%D7%9C%D7%99%D7%9D-%D7%90%D7%91%D7%A0%D7%99-%D7%90%D7%99%D7%AA%D7%9F?to=place.w.23462216.234360019.613114",
+      "minutesByFoot": 20,
+      "coordinates": {
+        "pool": [
+          32.83415127058743,
+          35.76744086942799
+        ],
+        "parking": [
+          32.8285404555106,
+          35.76471017487563
+        ]
+      }
+    },
+    "description": "בריכת בטון עגולה ויפה המזכירה את צריח המלכה בשחמט. המעיין עונתי - מלא ויפה בחורף ובאביב, אך נוטה להתייבש או להפוך לירוק בקיץ."
+  },
+  {
+    "_id": "62c9abdc9a70090f8c7134d6",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "נחל",
+      "howDeep": 2,
+      "temperature": 2,
+      "size": 3,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2024-05-22 10:00:00.000000",
+    "name": "עין אורי",
+    "mainRegion": "צפון",
+    "subRegion": "רמות מנשה",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "רמות מנשה"
+      },
+      "directions": "הנחל מצפון ובצמוד לחנייה. הליכה קצרה מאוד מהרכב.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.52661588%2C35.01448989",
+      "minutesByFoot": 2,
+      "coordinates": {
+        "pool": [
+          32.52673116924554,
+          35.014039686119645
+        ],
+        "parking": [
+          32.52661588,
+          35.01448989
+        ]
+      }
+    },
+    "description": "פינת חמד פסטורלית ומוצלת על תוואי נחל עדה. המים צלולים וזורמים כל השנה (פחות עמוקים בקיץ). מקום פופולרי מאוד בסופי שבוע."
+  },
+  {
+    "_id": "6325df23017f191d6479c762",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "בריכה",
+      "howDeep": 5,
+      "temperature": 2,
+      "size": 5,
+      "hasShadow": false,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [],
+    "lastUpdate": "2024-05-22 10:00:00.000000",
+    "name": "האגם הנסתר (אגמון מצפה יריחו)",
+    "mainRegion": "מרכז",
+    "subRegion": "מדבר יהודה",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "מדבר יהודה"
+      },
+      "directions": "מרחבת העפר ליד מתקן מקורות יש לרדת עם השביל לכיוון הבריכה. הירידה תלולה מעט.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.31.83090818%2C35.40219784",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          31.829831662095454,
+          35.4022190820437
+        ],
+        "parking": [
+          31.830792518496715,
+          35.4018804169164
+        ]
+      }
+    },
+    "description": "בריכה גדולה ועמוקה מאוד הנוצרת מעודפי מים של קידוח מקורות. המים קרירים ונעימים לרחצה. המקום אינו מוסדר והרחצה באחריות המטיילים בלבד."
+  },
+  {
+    "_id": "6325df23017f191d6479c765",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "רמת הנדיב"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 2,
+      "temperature": 2,
+      "size": 2,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [
+      {
+        "image": "spring-6325df23017f191d6479c765-1663427025689-1.jpeg",
+        "credit": "אלעד לאור",
+        "link": ""
+      },
+      {
+        "image": "spring-6325df23017f191d6479c765-1663427035364-1.jpeg",
+        "credit": "אלעד לאור",
+        "link": ""
+      },
+      {
+        "image": "spring-6325df23017f191d6479c765-1663427041072-1.jpeg",
+        "credit": "אלעד לאור",
+        "link": ""
+      },
+      {
+        "image": "spring-6325df23017f191d6479c765-1663427046892-1.jpeg",
+        "credit": "אלעד לאור",
+        "link": ""
+      }
+    ],
+    "lastUpdate": "2025-11-29 12:25:00.000000",
+    "name": "עין צור",
+    "mainRegion": "צפון",
+    "subRegion": "כרמל",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "כרמל"
+      },
+      "directions": "מהחנייה יש ללכת דרומה עד \"כיכר ראשית השבילים\", ומשם לפנות מזרחה על שביל ישראל (שחופף את השביל הכחול) כ-800 מ'.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%97%D7%99%D7%A4%D7%94/%D7%96%D7%9B%D7%A8%D7%95%D7%9F-%D7%99%D7%A2%D7%A7%D7%91/%D7%A8%D7%9E%D7%AA-%D7%94%D7%A0%D7%93%D7%99%D7%91-%D7%97%D7%A0%D7%99%D7%94?to=place.ChIJU6IVaxoLHRURQ4t1CDRacZY",
+      "minutesByFoot": 15,
+      "coordinates": {
+        "pool": [
+          32.550051981356965,
+          34.95188056168286
+        ],
+        "parking": [
+          32.55172221422018,
+          34.94704261803865
+        ]
+      }
+    },
+    "description": "מעיין נקבה יפהפה ברמת הנדיב הזורם דרך תעלה לשתי בריכות שכשוך קרירות ורדודות, לצד בית מרחץ קדום ושרידים ארכיאולוגיים."
+  },
+  {
+    "_id": "6325df23017f191d6479c759",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 5,
+      "temperature": 2,
+      "size": 1,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 12:25:00.000000",
+    "name": "עין זריק",
+    "mainRegion": "צפון",
+    "subRegion": "רמות מנשה",
+    "location": {
+      "region": {
+        "main": "צפון",
+        "sub": "רמות מנשה"
+      },
+      "directions": "יש להגיע דרך קיבוץ הזורע. המעיין נמצא תחת עצי התאנה הסמוכים לחנייה.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%94%D7%A6%D7%A4%D7%95%D7%9F/%D7%AA%D7%9C-%D7%96%D7%A8%D7%99%D7%A7?to=place.ChIJYQirhlWpHRURhQ69izwsuuo",
+      "minutesByFoot": 3,
+      "coordinates": {
+        "pool": [
+          32.634955519141414,
+          35.126473896433865
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "נקרא גם \"עין כניסה\". באר עמוקה המקורה במבנה בטון עגול עם פתח צדדי צר. המים עמוקים מאוד ומחייבים שחייה. המקום מוצל ומוקף עצי תאנה."
+  },
+  {
+    "_id": "6325df23017f191d6479c75c",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "no reserve"
+      },
+      "typeOf": "אגם",
+      "howDeep": 5,
+      "temperature": 3,
+      "size": 5,
+      "hasShadow": false,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-6325df23017f191d6479c75c-1664985859007-1.jpeg",
+        "credit": "אלעד לאור",
+        "link": ""
+      },
+      {
+        "image": "spring-6325df23017f191d6479c75c-1664985863570-1.jpeg",
+        "credit": "אלעד לאור",
+        "link": ""
+      },
+      {
+        "image": "spring-6325df23017f191d6479c75c-1664985867963-1.jpeg",
+        "credit": "אלעד לאור",
+        "link": ""
+      }
+    ],
+    "lastUpdate": "2025-11-29 12:25:00.000000",
+    "name": "האגם הנעלם",
+    "mainRegion": "דרום",
+    "subRegion": "ערבה",
+    "location": {
+      "region": {
+        "main": "דרום",
+        "sub": "ערבה"
+      },
+      "directions": "ירידה בציר המתפתל עד האגם (כ-600 מ').",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.29.77071962%2C35.00365376",
+      "minutesByFoot": 10,
+      "coordinates": {
+        "pool": [
+          29.766174875049774,
+          35.000034797223506
+        ],
+        "parking": [
+          29.770964972815452,
+          35.004370441793995
+        ]
+      }
+    },
+    "description": "אגם טורקיז בלב הערבה שנוצר מהצפת מי תהום במחצבת נחושת נטושה. שימו לב: הכניסה למים אסורה ומסוכנת מאוד עקב מים מליחים/רעילים ומדרונות תלולים."
+  },
+  {
+    "_id": "62b7550fc52923097c037d58",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "שמורת מדבר יהודה"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 4,
+      "temperature": 1,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 12:44:00.000000",
+    "name": "עין נמר",
+    "mainRegion": "דרום",
+    "subRegion": "מדבר יהודה",
+    "location": {
+      "region": {
+        "main": "דרום",
+        "sub": "מדבר יהודה"
+      },
+      "directions": "מחניון נחל צאלים יש ללכת מערבה בתוואי נחל הרדוף בשביל השחור, שמתחלף לשביל ירוק, ולבסוף אדום (כ-4.5 ק\"מ).",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%94%D7%93%D7%A8%D7%95%D7%9D/%D7%97%D7%A0%D7%99%D7%95%D7%9F-%D7%A0%D7%97%D7%9C-%D7%A6%D7%90%D7%9C%D7%99%D7%9D?to=place.ChIJ71a9wBgFAxURceamqGz2m-E",
+      "minutesByFoot": 180,
+      "coordinates": {
+        "pool": [
+          31.356495091464986,
+          35.3150208568314
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "מעיין עמוק וצלול הנובע מתחת לסלעי ענק המצלים עליו. ממוקם בלב המדבר ודורש הליכה מאומצת."
+  },
+  {
+    "_id": "62b7550fc52923097c037d5b",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "שמורת טבע עינות צוקים"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 3,
+      "temperature": 4,
+      "size": 5,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": true,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d5b-1657317830268-1.jpeg",
+        "credit": "tomer_nature",
+        "link": "https://www.instagram.com/p/CDEnMPLA4lp/"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d5b-1657317835632-1.jpeg",
+        "credit": "tomer_nature",
+        "link": "https://www.instagram.com/p/CDEnMPLA4lp/"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d5b-1657317842094-1.jpeg",
+        "credit": "tomer_nature",
+        "link": "https://www.instagram.com/p/CDEnMPLA4lp/"
+      }
+    ],
+    "lastUpdate": "2025-11-29 12:44:00.000000",
+    "name": "עינות צוקים",
+    "mainRegion": "מרכז",
+    "subRegion": "ים המלח",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "ים המלח"
+      },
+      "directions": "הליכה לפי השילוט באתר.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%A2%D7%99%D7%A0%D7%95%D7%AA-%D7%A6%D7%95%D7%A7%D7%99%D7%9D-%D7%A2%D7%99%D7%9F-%D7%A4%D7%A9%D7%97%D7%94?to=place.ChIJ19hUPhQxAxURPJvPZU-3jJA",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          31.71559095010573,
+          35.453065887845064
+        ],
+        "parking": [
+          null
+        ]
+      }
+    },
+    "description": "נווה מדבר הנמוך בעולם. כולל בריכות שכשוך ובריכות עמוקות יותר. שימו לב: חובה להזמין מקום מראש באתר רשות הטבע והגנים."
+  },
+  {
+    "_id": "62b7550fc52923097c037d61",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "שמורת מצוק הצינים"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 5,
+      "temperature": 1,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": false,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": true,
+      "isHotSpring": false,
+      "hasClearWater": false,
+      "hasView": false
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d61-1657112495736-1.jpeg",
+        "credit": "מתניה יוזביץ",
+        "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid033NU9TUBsPTFe6hf5aYUL7wTZQ35MtjDVWHe8wVVYSpQtTo1VdTfuutYEaSjXWFr1l&id=1467863004&__tn__=*F"
+      }
+    ],
+    "lastUpdate": "2025-11-29 12:44:00.000000",
+    "name": "עין עקב",
+    "mainRegion": "דרום",
+    "subRegion": "הנגב",
+    "location": {
+      "region": {
+        "main": "דרום",
+        "sub": "הנגב"
+      },
+      "directions": "הליכה עם השביל הירוק או השביל האדום שמתחבר לכחול והגעה למעיין (יש להשתמש במפת סמ\"ש). נגיש לרכב 4X4.",
+      "wazeLink": "30.843339303214186, 34.780361827183036",
+      "minutesByFoot": 180,
+      "coordinates": {
+        "pool": [
+          30.814441546184437,
+          34.813439342718766
+        ],
+        "parking": [
+          30.843339303214186,
+          34.780361827183036
+        ]
+      }
+    },
+    "description": "מעיין שכבה הנובע אל בריכה עמוקה מאוד (כ-8 מטרים) וקרה בכל ימות השנה. מוקף בצמחיית נחלים וקירות מצוק."
+  },
+  {
+    "_id": "62b7550fc52923097c037d64",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": true,
+        "nameOfReserve": "גן לאומי עין עבדת"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 5,
+      "temperature": 1,
+      "size": 5,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": true,
+      "isShallow": true,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": true
+    },
+    "images": [
+      {
+        "image": "spring-62b7550fc52923097c037d64-1657315610135-1.jpeg",
+        "credit": "tomer_nature",
+        "link": "https://www.instagram.com/p/CIsRwvvnKb9/"
+      },
+      {
+        "image": "spring-62b7550fc52923097c037d64-1657315615858-1.jpeg",
+        "credit": "tomer_nature",
+        "link": "https://www.instagram.com/p/CIsRwvvnKb9/"
+      }
+    ],
+    "lastUpdate": "2025-11-29 12:44:00.000000",
+    "name": "עין עבדת",
+    "mainRegion": "דרום",
+    "subRegion": "הנגב",
+    "location": {
+      "region": {
+        "main": "דרום",
+        "sub": "הנגב"
+      },
+      "directions": "הליכה עפ\"י השילוט באתר.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions/%D7%92%D7%9F-%D7%9C%D7%90%D7%95%D7%9E%D7%99-%D7%A2%D7%99%D7%9F-%D7%A2%D7%91%D7%93%D7%AA?to=place.w.22806836.227871755.43445",
+      "minutesByFoot": 10,
+      "coordinates": {
+        "pool": [
+          30.824408158756253,
+          34.76337427860005
+        ],
+        "parking": [
+          30.83183663710138,
+          34.77066981055439
+        ]
+      }
+    },
+    "description": "גן לאומי מרשים הכולל קניון ומפלים. חשוב לדעת: הכניסה למים אסורה בהחלט לצורך שמירה על ערכי הטבע."
+  },
+  {
+    "_id": "62b7550fc52923097c037d2b",
+    "springDetails": {
+      "reserve": {
+        "ifReserve": false,
+        "nameOfReserve": "פארק אלונה"
+      },
+      "typeOf": "מעיין",
+      "howDeep": 3,
+      "temperature": 2,
+      "size": 4,
+      "hasShadow": true,
+      "hasSitingSpots": true,
+      "IsAccessible": false,
+      "isShallow": false,
+      "isDeep": false,
+      "isHotSpring": false,
+      "hasClearWater": true,
+      "hasView": false
+    },
+    "images": [],
+    "lastUpdate": "2025-11-29 12:44:00.000000",
+    "name": "עין אביאל",
+    "mainRegion": "מרכז",
+    "subRegion": "רמות מנשה",
+    "location": {
+      "region": {
+        "main": "מרכז",
+        "sub": "רמות מנשה"
+      },
+      "directions": "מעבר הנחל לצדו השני והליכה עד למציאת נק' מועדפת על הנחל.",
+      "wazeLink": "https://www.waze.com/he/live-map/directions?to=ll.32.53697288%2C34.99061823",
+      "minutesByFoot": 5,
+      "coordinates": {
+        "pool": [
+          32.537839151566175,
+          34.991145035424964
+        ],
+        "parking": [
+          32.53737301295912,
+          34.991242762244745
+        ]
+      }
+    },
+    "description": "מספר נביעות ובריכות לאורך נחל תנינים (פארק אלונה). המים צלולים ונעימים, ישנן פינות מוצלות תחת הקנים."
+  }
+]
+

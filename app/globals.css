@@ -1,14 +1,24 @@
 :root {
-  --background-color: #FCEDD6;
-  --primary-color: #97C6E0;
-  --primary-color-hover: #CAE8F2;
+  --background-color: #F3F3F3;
+  --primary-color: #223F43;
+  --secondary-color: #97C6E0;
+  --secondary-color-hover: #CAE8F2;
+
+  --tag-color: #FCEDD6;
+  --tag-color-hover: #fbf0e0;
+
+  --input-text-color: #223F43;
+  --input-placeholder-color: #223F4360;
+  --background-input-color: #FFFFFF;
+
   --dark-text-color: #223F43;
   --dark-text-color-hover: #223F4360;
   --bright-text-color: #FFFFFF;
   --bright-text-color-hover: #FFFFFF60;
 
-  --border-radius: 10px;
-  --input-height: 30px;
+  --border-radius: 15px;
+  --tag-height: 32px;
+  --input-height: 40px;
 
   --font-family: 'Noto Sans Hebrew', system-ui, -apple-system, sans-serif;
 }

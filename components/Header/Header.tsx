@@ -3,22 +3,15 @@ import './Header.css';
 import Logo from '../ui/Logo/Logo';
 import SearchInput from '../SearchInput/SearchInput';
 import CategorySelector from '../CategorySelector/CategorySelector';
-import Icons from '@/style/icons';
+import Filters from '../Filters/Filters';
 
-type HeaderProps = {
-  onCloseSlidePanel: () => void;
-};
-
-const Header: React.FC<HeaderProps> = ({ onCloseSlidePanel }) => {
+const Header: React.FC = () => {
   return (
     <header className="header">
-      <div className="header-hamburger" onClick={onCloseSlidePanel}>
-        <Icons.hamburger />
-      </div>
-      <Logo size="M" />
+      <Logo size="L" />
       <section className="header-filters">
         <SearchInput />
-        <CategorySelector />
+        <Filters />
       </section>
     </header>
   );
