@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Icons from '@/style/icons';
 import Tag from '../ui/Tag/Tag';
 import Link from 'next/link';
+import SpringPositionTag from '../SpringPositionTag/SpringPositionTag';
 
 type PreviewCardProps = {
   spring: Spring;
@@ -22,10 +23,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ spring }) => {
       />
       <section className="preview-card-info">
         <h3>{spring.name}</h3>
-        <div className="preview-card-subregion">
-          <Icons.map />
-          {spring.subRegion}
-        </div>
+        <SpringPositionTag position={spring.subRegion} />
         <section className="preview-card-tags">
           <Tag icon={<Icons.water />} label="צלול" />
           <Tag icon={<Icons.clock />} label="להכנס כולי" />
