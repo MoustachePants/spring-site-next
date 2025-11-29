@@ -10,11 +10,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /*min-height: 100%;*/
     gap: 20px;
 }
 
 @media (max-width: 768px) {
+    .springs-options-scroll {
+        width: 100vw;
+        max-width: 100vw;
+    }
+
     .springs-options-container {
         justify-content: flex-start;
     }

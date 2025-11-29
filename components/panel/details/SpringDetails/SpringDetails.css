@@ -1,12 +1,12 @@
 .spring-details {
     position: relative;
     top: 0;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 20px;
     color: var(--dark-text-color);
     padding: 20px 30px;
+    box-sizing: border-box;
 }
 
 .spring-details-header {
@@ -128,4 +128,16 @@
 .spring-details-arrival {
     font-size: 16px;
     line-height: 1.6;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .spring-details {
+        padding: 20px 15px;
+        width: 100vw;
+        max-width: 100vw;
+        padding-bottom: 100px;
+    }
+
 }

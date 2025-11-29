@@ -64,3 +64,17 @@
     display: flex;
     align-items: center;
 }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .places-selector {
+        gap: 10px;
+    }
+
+    .place-chip {
+        width: 90px;
+        height: var(--tag-height);
+        gap: 8px;
+        font-size: 14px;
+    }
+}
