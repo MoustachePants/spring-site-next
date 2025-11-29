@@ -16,8 +16,7 @@ const getSpring = async (id: string): Promise<ActionResponse<Spring>> => {
       return { status: 'error', error: new Error(`Spring with id ${id} was not found`) };
     }
 
-    const updates = await SpringUpdateModel.find().lean();
-
+    const updates = await SpringUpdateModel.find({ spring: id }).lean();
     if (updates && updates.length > 0) {
       spring.updates = updates;
     }
