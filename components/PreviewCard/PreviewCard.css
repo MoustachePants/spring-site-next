@@ -55,11 +55,3 @@
     font-size: 28px;
     font-weight: 600;
 }
-
-.preview-card-tags {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    font-size: 14px;
-    cursor: pointer;
-}
