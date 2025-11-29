@@ -14,7 +14,7 @@ import getSpring from '@/app/actions/getSpring';
 
 const Map = dynamic(() => import('@/components/Map/Map'), { ssr: false });
 
-const SpringPage = () => {
+const SpringPage: React.FC = () => {
   const params = useParams();
   const { filteredSpringsList, springsList } = useDataContext();
   const id = params.id as string;
@@ -48,18 +48,7 @@ const SpringPage = () => {
   return (
     <main className="dashboard-container">
       <Panel
-        header={
-          spring && spring.images.length > 0 ? (
-            <ImageHeader
-              imageSrc={
-                spring.images[0].image
-                  ? `/springImages/${spring.images[0].image}`
-                  : '/water_texture.jpg'
-              }
-              imageAlt={spring.name}
-            />
-          ) : undefined
-        }
+        header={spring && spring.images.length > 0 ? <ImageHeader spring={spring} /> : undefined}
       >
         {spring ? <SpringDetails spring={spring} /> : <Loading />}
       </Panel>
