@@ -7,6 +7,7 @@ import NewsBox from '../NewsBox/NewsBox';
 import SpringPositionTag from '../SpringPositionTag/SpringPositionTag';
 import NearbySprings from '../NearbySprings/NearbySprings';
 import { useDataContext } from '@/context/DataContext';
+import TopDetailsActions from '../TopDetailsActions/TopDetailsActions';
 
 type SpringDetailsProps = {
   spring: Spring;
@@ -51,20 +52,7 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
           <Icons.arrowRight />
           <span>לדף הראשי</span>
         </div>
-        <div className="spring-details-header-actions">
-          <div className="spring-details-header-action">
-            <Icons.updates />
-            <span>עדכונים מהשטח</span>
-          </div>
-          <div className="spring-details-header-action">
-            <Icons.wase />
-            <span>ניווט</span>
-          </div>
-          <div className="spring-details-header-action">
-            <Icons.share />
-            <span>שתף</span>
-          </div>
-        </div>
+        <TopDetailsActions />
       </header>
       <section className="spring-details-top-details">
         <h1 className="spring-details-title">{spring.name}</h1>
