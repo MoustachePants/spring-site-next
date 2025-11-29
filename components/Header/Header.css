@@ -21,3 +21,15 @@
     gap: 10px;
     width: 80%;
 }
+
+@media (max-width: 768px) {
+    .header {
+        min-height: 120px;
+        padding: 15px 0;
+        gap: 10px;
+    }
+
+    .header-filters {
+        width: 90%;
+    }
+}
