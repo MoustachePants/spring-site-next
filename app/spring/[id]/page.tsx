@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Panel from '@/components/ui/Panel/Panel';
-import ImageHeader from '@/components/ImageHeader/ImageHeader';
-import SpringDetails from '@/components/SpringDetails/SpringDetails';
+import ImageHeader from '@/components/panel/ImageHeader/ImageHeader';
+import SpringDetails from '@/components/panel/details/SpringDetails/SpringDetails';
 import Loading from '@/components/loading/Loading/Loading';
 import { useDataContext } from '@/context/DataContext';
 import dynamic from 'next/dynamic';
