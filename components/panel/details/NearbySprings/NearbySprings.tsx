@@ -1,7 +1,7 @@
 import React from 'react';
 import './NearbySprings.css';
 import { Spring } from '@/models/types/spring';
-import SmallPreviewCard from '../SmallPreviewCard/SmallPreviewCard';
+import SmallPreviewCard from '@/components/SmallPreviewCard/SmallPreviewCard';
 
 type NearbySpringsProps = {
   springs: Spring[];
