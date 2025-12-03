@@ -39,3 +39,7 @@
 .user-location-btn:hover {
     background-color: #f4f4f4;
 }
+
+.map-spring-icon-not-selected {
+    opacity: 0.5; /* TODO: Change it to something else */
+}

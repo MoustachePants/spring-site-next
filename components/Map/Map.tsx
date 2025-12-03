@@ -5,21 +5,16 @@ import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 're
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import { MAP_CONSTANTS } from '@/models/constant/map';
-import L from 'leaflet';
 import { useCurrentPosition } from '@/hooks/useCurrentPosition';
 import { useDataContext } from '@/context/DataContext';
 import SmallPreviewCard from '@/components/SmallPreviewCard/SmallPreviewCard';
 import { UserLocation } from '@/models/types/userLocation';
-
-const springIcon = L.icon({
-  iconUrl: '/icons/spring_icon.svg',
-  iconSize: [40, 45],
-  iconAnchor: [20, 45],
-  popupAnchor: [0, -42],
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-  shadowSize: [60, 60],
-  shadowAnchor: [20, 58],
-});
+import {
+  springIcon,
+  unselectedSpringIcon,
+  parkingIcon,
+  userLocationIcon,
+} from './mapIcons';
 
 const MapStateUpdater = () => {
   const { setMapState } = useDataContext();
@@ -92,18 +87,8 @@ const UserLocationControl = ({
 };
 
 const Map: React.FC = () => {
-  const { mapState, filteredSpringsList } = useDataContext();
+  const { mapState, filteredSpringsList, selectedSpring } = useDataContext();
   const { userLocation, getLocation } = useCurrentPosition();
-  // Create a custom icon for user location (blue marker)
-  const userLocationIcon = L.icon({
-    iconUrl:
-      'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41],
-  });
 
   return (
     <MapContainer
@@ -127,12 +112,26 @@ const Map: React.FC = () => {
           </Popup>
         </Marker>
       )}
+      {selectedSpring &&
+      selectedSpring.location?.coordinates?.parking?.length >= 2 && (
+        <Marker
+          position={[
+            selectedSpring.location.coordinates.parking[0],
+            selectedSpring.location.coordinates.parking[1],
+          ]}
+          icon={parkingIcon}
+        >
+          <Popup>Parking for {selectedSpring.name}</Popup>
+        </Marker>
+      )}
       {filteredSpringsList &&
         filteredSpringsList.map((spring) => {
           const [lat, lng] = spring.location.coordinates.pool;
+          const iconToUse =
+            selectedSpring && selectedSpring._id !== spring._id ? unselectedSpringIcon : springIcon;
 
           return (
-            <Marker key={spring._id} position={[lat, lng]} icon={springIcon}>
+            <Marker key={spring._id} position={[lat, lng]} icon={iconToUse}>
               <Popup className="leaflet-popup-reset">
                 <SmallPreviewCard key={spring._id} spring={spring} />
               </Popup>
