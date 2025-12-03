@@ -8,12 +8,15 @@ import { useDataContext } from '@/context/DataContext';
 const SearchInput: React.FC = () => {
   const { searchTerm, setSearchTerm } = useDataContext();
 
+  const handleDeleteTermOnClick = () => {
+    setSearchTerm('');
+  };
+
   return (
     <div className="search-input-container">
-      <div className="search-input-icons-container">
-        <Icons.search />
-        <Icons.close />
-      </div>
+      <Icons.search />
+      {/*<div className="search-input-icons-container">*/}
+      {/*</div>*/}
       <input
         type="text"
         className="search-input"
@@ -21,6 +24,7 @@ const SearchInput: React.FC = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      {searchTerm && <Icons.close onClick={handleDeleteTermOnClick} />}
     </div>
   );
 };
