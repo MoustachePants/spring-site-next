@@ -3,11 +3,20 @@
     position: relative;
 }
 
-.search-input-icons-container {
+.search-input-container svg {
     position: absolute;
-    right: 10px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.search-input-container svg:first-of-type {
+    right: 10px;
+    pointer-events: none;
+}
+
+.search-input-container svg:last-child {
+    left: 10px;
+    cursor: pointer;
 }
 
 .search-input {
