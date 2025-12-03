@@ -5,8 +5,6 @@ import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { DataContextProvider } from '@/context/DataContext';
 import Loading from '@/components/loading/Loading/Loading';
-import MapFooter from '@/components/MapFooter/MapFooter';
-import Script from 'next/script';
 
 const notoSansHebrew = Noto_Sans_Hebrew({ subsets: ['hebrew'] });
 

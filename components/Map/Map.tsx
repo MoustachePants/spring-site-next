@@ -5,17 +5,20 @@ import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 're
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import { MAP_CONSTANTS } from '@/models/constant/map';
-import { Spring } from '@/models/types/spring';
 import L from 'leaflet';
 import { useCurrentPosition } from '@/hooks/useCurrentPosition';
 import { useDataContext } from '@/context/DataContext';
 import SmallPreviewCard from '@/components/SmallPreviewCard/SmallPreviewCard';
 import { UserLocation } from '@/models/types/userLocation';
 
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
+const springIcon = L.icon({
+  iconUrl: '/icons/spring_icon.svg',
+  iconSize: [40, 45],
+  iconAnchor: [20, 45],
+  popupAnchor: [0, -42],
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+  shadowSize: [60, 60],
+  shadowAnchor: [20, 58],
 });
 
 const MapStateUpdater = () => {
@@ -50,8 +53,6 @@ const MapController: React.FC = () => {
 
 import Icons from '@/style/icons';
 
-// ...
-
 const UserLocationControl = ({
   userLocation,
   getLocation,
@@ -72,7 +73,11 @@ const UserLocationControl = ({
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (userLocation) {
-      map.setView([userLocation.latitude, userLocation.longitude], MAP_CONSTANTS.DEFAULT_ZOOM);
+      map.setView([userLocation.latitude, userLocation.longitude], MAP_CONSTANTS.DEFAULT_ZOOM, {
+        animate: true,
+        duration: 0.6,
+        easeLinearity: 0.1,
+      });
     } else {
       setIsWaitingForLocation(true);
       getLocation();
@@ -80,11 +85,7 @@ const UserLocationControl = ({
   };
 
   return (
-    <button
-      onClick={handleClick}
-      className="user-location-btn"
-      title="Show my location"
-    >
+    <button onClick={handleClick} className="user-location-btn" title="Show my location">
       <Icons.position width={20} height={20} />
     </button>
   );
@@ -131,7 +132,7 @@ const Map: React.FC = () => {
           const [lat, lng] = spring.location.coordinates.pool;
 
           return (
-            <Marker key={spring._id} position={[lat, lng]}>
+            <Marker key={spring._id} position={[lat, lng]} icon={springIcon}>
               <Popup className="leaflet-popup-reset">
                 <SmallPreviewCard key={spring._id} spring={spring} />
               </Popup>

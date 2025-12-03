@@ -3,12 +3,11 @@
     position: relative;
 }
 
-.search-input-container svg {
+.search-input-icons-container {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    cursor: pointer;
 }
 
 .search-input {
@@ -20,4 +19,5 @@
     border: 1px solid var(--dark-text-color);
     border-radius: 50px;
     font-size: 16px;
+    font-family: inherit;
 }
