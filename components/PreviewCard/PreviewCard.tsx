@@ -16,8 +16,8 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ spring }) => {
     <Link href={`/spring/${spring._id}`} className="preview-card">
       <Image
         className="preview-card-image"
-        width={346}
-        height={200}
+        width={400}
+        height={230}
         src={getImage(spring)}
         alt={spring?.name || 'מעיין'}
       />
