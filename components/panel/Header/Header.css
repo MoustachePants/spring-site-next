@@ -1,7 +1,9 @@
 .header {
     background-color: var(--primary-color);
     position: relative;
+    left: 0;
     top: 0;
+    min-width: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -24,7 +26,7 @@
 
 .header-filters-and-search {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     gap: 10px;
     width: 100%;
@@ -55,12 +57,14 @@
     .header {
         min-height: fit-content;
         box-sizing: border-box;
-        width: 100vw;
-        max-width: 100vw;
+        width: 100%;
+        max-width: 100dvw;
+        gap: 10px;
     }
 
     .header-filters-search {
         width: 90%;
+        gap: 5px;
     }
 
     .header::after {

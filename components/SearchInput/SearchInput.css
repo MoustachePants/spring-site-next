@@ -1,5 +1,6 @@
 .search-input-container {
     width: 100%;
+    max-width: none;
     position: relative;
 }
 
@@ -29,4 +30,12 @@
     border-radius: 50px;
     font-size: 16px;
     font-family: inherit;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .search-input-container {
+        width: 100%;
+        max-width: 70vw;
+    }
 }

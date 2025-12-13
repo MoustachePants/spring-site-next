@@ -1,5 +1,7 @@
 .preview-card {
-    width: 400px;
+    min-width: 300px;
+    width: 100%;
+    max-width: 400px;
     height: 230px;
     display: flex;
     flex-direction: column;
@@ -11,7 +13,7 @@
 
 @media (max-width: 768px) {
     .preview-card {
-        width: 90%;
+        width: 100%;
         max-width: 346px;
     }
 }
