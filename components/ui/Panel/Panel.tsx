@@ -90,7 +90,7 @@ const Panel: React.FC<PanelProps> = ({ header, children }) => {
         bottom: positions.closed,
       }}
     >
-      <div className="side-panel-wrapper">
+      <div className="side-panel-content-wrapper">
         {header}
         {children}
       </div>
