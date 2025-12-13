@@ -1,3 +1,27 @@
+export type MapType = {
+  id: string;
+  name: string;
+  tileLayerUrl: string;
+  attribution: string;
+};
+
+export const AVAILABLE_MAPS: MapType[] = [
+  {
+    id: 'standard',
+    name: 'Standard',
+    tileLayerUrl: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  },
+  {
+    id: 'satellite',
+    name: 'Satellite',
+    tileLayerUrl:
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    attribution: '&copy; <a href="https://www.esri.com/">Esri</a>',
+  },
+];
+
 export const MAP_CONSTANTS = {
   DEFAULT_CENTER: [31.7683, 35.2137] as [number, number], // Jerusalem
   DEFAULT_ZOOM: 13,
@@ -7,7 +31,4 @@ export const MAP_CONSTANTS = {
     [37.5, 38.0], // North East (Expanded)
   ] as [[number, number], [number, number]],
   MAX_BOUNDS_VISCOSITY: 1.0,
-  TILE_LAYER_URL: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-  ATTRIBUTION:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 };

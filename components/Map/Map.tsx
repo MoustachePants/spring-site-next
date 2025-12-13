@@ -4,17 +4,12 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
-import { MAP_CONSTANTS } from '@/models/constant/map';
+import { MAP_CONSTANTS, AVAILABLE_MAPS } from '@/models/constant/map';
 import { useCurrentPosition } from '@/hooks/useCurrentPosition';
 import { useDataContext } from '@/context/DataContext';
 import SmallPreviewCard from '@/components/SmallPreviewCard/SmallPreviewCard';
 import { UserLocation } from '@/models/types/userLocation';
-import {
-  springIcon,
-  unselectedSpringIcon,
-  parkingIcon,
-  userLocationIcon,
-} from './mapIcons';
+import { springIcon, unselectedSpringIcon, parkingIcon, userLocationIcon } from './mapIcons';
 
 const MapStateUpdater = () => {
   const { setMapState } = useDataContext();
@@ -48,10 +43,14 @@ const MapController: React.FC = () => {
 
 import Icons from '@/style/icons';
 
-const UserLocationControl = ({
+const MapControls = ({
+  selectedMapType,
+  onMapTypeChange,
   userLocation,
   getLocation,
 }: {
+  selectedMapType: any;
+  onMapTypeChange: () => void;
   userLocation: UserLocation | null;
   getLocation: () => void;
 }) => {
@@ -65,7 +64,7 @@ const UserLocationControl = ({
     }
   }, [userLocation, isWaitingForLocation, map]);
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleLocationClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (userLocation) {
       map.setView([userLocation.latitude, userLocation.longitude], MAP_CONSTANTS.DEFAULT_ZOOM, {
@@ -79,16 +78,37 @@ const UserLocationControl = ({
     }
   };
 
+  const handleMapTypeClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onMapTypeChange();
+  };
+
   return (
-    <button onClick={handleClick} className="user-location-btn" title="Show my location">
-      <Icons.position width={20} height={20} />
-    </button>
+    <div className="map-controls-container">
+      <button
+        onClick={handleMapTypeClick}
+        className="map-button"
+        title={`Switch map (Current: ${selectedMapType.name})`}
+      >
+        <Icons.map width={20} height={20} />
+      </button>
+      <button onClick={handleLocationClick} className="map-button" title="Show my location">
+        <Icons.position width={20} height={20} />
+      </button>
+    </div>
   );
 };
 
 const Map: React.FC = () => {
   const { mapState, filteredSpringsList, selectedSpring } = useDataContext();
   const { userLocation, getLocation } = useCurrentPosition();
+  const [selectedMapType, setSelectedMapType] = useState(AVAILABLE_MAPS[0]);
+
+  const handleMapTypeChange = () => {
+    const currentIndex = AVAILABLE_MAPS.findIndex((map) => map.id === selectedMapType.id);
+    const nextIndex = (currentIndex + 1) % AVAILABLE_MAPS.length;
+    setSelectedMapType(AVAILABLE_MAPS[nextIndex]);
+  };
 
   return (
     <MapContainer
@@ -101,10 +121,19 @@ const Map: React.FC = () => {
       scrollWheelZoom={true}
       zoomControl={false}
     >
-      <TileLayer url={MAP_CONSTANTS.TILE_LAYER_URL} attribution={MAP_CONSTANTS.ATTRIBUTION} />
+      <TileLayer
+        key={selectedMapType.id}
+        url={selectedMapType.tileLayerUrl}
+        attribution={selectedMapType.attribution}
+      />
       <MapStateUpdater />
       <MapController />
-      <UserLocationControl userLocation={userLocation} getLocation={getLocation} />
+      <MapControls
+        selectedMapType={selectedMapType}
+        onMapTypeChange={handleMapTypeChange}
+        userLocation={userLocation}
+        getLocation={getLocation}
+      />
       {userLocation && (
         <Marker position={[userLocation.latitude, userLocation.longitude]} icon={userLocationIcon}>
           <Popup>
@@ -112,8 +141,7 @@ const Map: React.FC = () => {
           </Popup>
         </Marker>
       )}
-      {selectedSpring &&
-      selectedSpring.location?.coordinates?.parking?.length >= 2 && (
+      {selectedSpring && selectedSpring.location?.coordinates?.parking?.length >= 2 && (
         <Marker
           position={[
             selectedSpring.location.coordinates.parking[0],
