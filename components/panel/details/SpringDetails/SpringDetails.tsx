@@ -9,6 +9,7 @@ import Link from 'next/link';
 import NearbySprings from '../NearbySprings/NearbySprings';
 import SpringUpdates from '@/components/panel/details/SpringUpdates/SpringUpdates';
 import TagsList from '@/components/TagsList/TagsList';
+import nearbySprings from '../NearbySprings/NearbySprings';
 
 type SpringDetailsProps = {
   spring: Spring;
@@ -30,6 +31,11 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
     hasClearWater: 'מים צלולים',
     hasView: 'נוף',
   };
+
+  const nearbySpringList = springsList
+    .filter((nearbySpring) => nearbySpring.name !== spring.name)
+    .filter((nearbySpring) => nearbySpring.subRegion === spring.subRegion)
+    .slice(0, 5);
 
   const formatValue = (key: string, value: any): string => {
     if (typeof value === 'boolean') {
@@ -103,11 +109,7 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
           <div className="spring-details-arrival">{spring.location.directions}</div>
         </section>
         <SpringUpdates updates={spring.updates} springId={spring._id} ref={springUpdatesRef} />
-        <NearbySprings
-          springs={springsList
-            .filter((nearbySpring) => nearbySpring.subRegion === spring.subRegion)
-            .slice(0, 5)}
-        />
+        {nearbySpringList.length > 0 && <NearbySprings springs={nearbySpringList} />}
       </section>
     </section>
   );
