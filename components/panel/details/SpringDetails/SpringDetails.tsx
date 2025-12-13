@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './SpringDetails.css';
 import { Spring } from '@/models/types/spring';
 import Icons from '@/style/icons';
@@ -16,6 +16,8 @@ type SpringDetailsProps = {
 
 const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
   const { springsList } = useDataContext();
+  const springDetailsRef = useRef<HTMLElement | null>(null);
+  const springUpdatesRef = useRef<HTMLElement | null>(null);
 
   const detailsMapping: { [key: string]: string } = {
     reserve: 'שמורה',
@@ -46,8 +48,14 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
     </div>
   );
 
+  const scrollToUpdates = () => {
+    if (springUpdatesRef.current) {
+      springUpdatesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
-    <section className="spring-details">
+    <section className="spring-details" ref={springDetailsRef}>
       <header className="spring-details-header">
         <Link
           href="/"
@@ -57,7 +65,7 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
           <Icons.arrowRight />
           <span>לדף הראשי</span>
         </Link>
-        <TopDetailsActions />
+        <TopDetailsActions scrollToUpdates={scrollToUpdates} />
       </header>
       <section className="spring-details-top-details">
         <h1 className="spring-details-title">{spring.name}</h1>
@@ -94,7 +102,7 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
           <h2 className="spring-details-section-title">דרכי הגעה:</h2>
           <div className="spring-details-arrival">{spring.location.directions}</div>
         </section>
-        <SpringUpdates updates={spring.updates} springId={spring._id} />
+        <SpringUpdates updates={spring.updates} springId={spring._id} ref={springUpdatesRef} />
         <NearbySprings
           springs={springsList
             .filter((nearbySpring) => nearbySpring.subRegion === spring.subRegion)

@@ -3,7 +3,11 @@ import './TopDetailsActions.css';
 import Icons from '@/style/icons';
 import { useShare } from '@/hooks/useShare';
 
-const TopDetailsActions: React.FC = () => {
+type TopDetailActionsProp = {
+  scrollToUpdates: () => void;
+};
+
+const TopDetailsActions: React.FC<TopDetailActionsProp> = ({ scrollToUpdates }) => {
   const { share } = useShare();
 
   const handleShare = () => {
@@ -15,9 +19,9 @@ const TopDetailsActions: React.FC = () => {
 
   return (
     <div className="spring-details-header-actions">
-      <div className="spring-details-header-action">
+      <div className="spring-details-header-action" onClick={scrollToUpdates}>
         <Icons.updates />
-        <span>עדכונים מהשטח</span>
+        <span>עדכונים</span>
       </div>
       <div className="spring-details-header-action">
         <Icons.wase />

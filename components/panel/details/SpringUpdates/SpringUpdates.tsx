@@ -11,24 +11,25 @@ type SpringUpdateProps = {
   springId: string;
 };
 
-const SpringUpdates: React.FC<SpringUpdateProps> = ({ updates, springId }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showAddUpdate, setShowAddUpdate] = useState(false);
+const SpringUpdates = React.forwardRef<HTMLElement, SpringUpdateProps>(
+  ({ updates, springId }, ref) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [showAddUpdate, setShowAddUpdate] = useState(false);
 
-  const hasUpdates = updates && updates.length > 0;
-  const displayUpdates = hasUpdates ? [...updates].reverse() : [];
-  const currentUpdate = displayUpdates[currentIndex];
+    const hasUpdates = updates && updates.length > 0;
+    const displayUpdates = hasUpdates ? [...updates].reverse() : [];
+    const currentUpdate = displayUpdates[currentIndex];
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % displayUpdates.length);
-  };
+    const handleNext = () => {
+      setCurrentIndex((prev) => (prev + 1) % displayUpdates.length);
+    };
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + displayUpdates.length) % displayUpdates.length);
-  };
+    const handlePrev = () => {
+      setCurrentIndex((prev) => (prev - 1 + displayUpdates.length) % displayUpdates.length);
+    };
 
-  return (
-    <section className="updates-box-container">
+    return (
+      <section className="updates-box-container" ref={ref}>
       <section className="updates-title-section">
         <div className="icon-wrapper">
           <Icons.updates width={50} height={50} strokeWidth={1.5} />
@@ -68,7 +69,8 @@ const SpringUpdates: React.FC<SpringUpdateProps> = ({ updates, springId }) => {
         )}
       </section>
     </section>
-  );
-};
-
+    );
+  }
+);
+  
 export default SpringUpdates;
