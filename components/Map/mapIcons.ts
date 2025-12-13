@@ -31,7 +31,7 @@ export const userLocationIcon = L.icon({
 export const parkingIcon = L.icon({
   ...BASE_ICON_OPTIONS,
   iconUrl: '/icons/parking.svg',
-  iconSize: [30, 30],
-  iconAnchor: [15, 30],
-  popupAnchor: [0, -30],
+  iconSize: [40, 45],
+  iconAnchor: [20, 45],
+  popupAnchor: [0, -42],
 });
