@@ -4,6 +4,7 @@ import getSpring from '@/app/actions/getSpring';
 import listSprings from '@/app/actions/listSprings';
 import { Category, mapPlaces, Place } from '@/models/types/category';
 import { Spring } from '@/models/types/spring';
+import { UserLocation } from '@/models/types/userLocation';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
@@ -16,11 +17,13 @@ type DataContextType = {
   searchTerm: string;
   mapState: { center: [number, number]; zoom: number } | null;
   selectedSpring: Spring | undefined;
+  userLocation: UserLocation | null;
   setSelectedCategories: (categories: Category[]) => void;
   setSelectedPlaces: (places: Place[]) => void;
   setSearchTerm: (term: string) => void;
   setMapState: (state: { center: [number, number]; zoom: number }) => void;
   setSelectedSpring: (spring: Spring | undefined) => void;
+  setUserLocation: (location: UserLocation | null) => void;
 };
 
 export const DataContext = createContext<DataContextType>({
@@ -32,11 +35,13 @@ export const DataContext = createContext<DataContextType>({
   searchTerm: '',
   mapState: null,
   selectedSpring: undefined,
+  userLocation: null,
   setSelectedCategories: () => {},
   setSelectedPlaces: () => {},
   setSearchTerm: () => {},
   setMapState: () => {},
   setSelectedSpring: () => {},
+  setUserLocation: () => {},
 });
 
 export function useDataContext() {
@@ -52,6 +57,7 @@ export function DataContextProvider({ children }: { children: ReactNode }) {
   const [isSpringsListLoading, setIsSpringsListLoading] = useState<boolean>(true);
   const [mapState, setMapState] = useState<{ center: [number, number]; zoom: number } | null>(null);
   const [selectedSpring, setSelectedSpring] = useState<Spring | undefined>(undefined);
+  const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -168,11 +174,13 @@ export function DataContextProvider({ children }: { children: ReactNode }) {
         searchTerm,
         mapState,
         selectedSpring,
+        userLocation,
         setSelectedCategories,
         setSelectedPlaces,
         setSearchTerm,
         setMapState,
         setSelectedSpring,
+        setUserLocation,
       }}
     >
       {children}

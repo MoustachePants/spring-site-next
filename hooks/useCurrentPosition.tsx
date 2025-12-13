@@ -1,10 +1,10 @@
 'use client';
 
-import { UserLocation } from '@/models/types/userLocation';
-import { useEffect, useState } from 'react';
+import { useDataContext } from '@/context/DataContext';
+import { useEffect } from 'react';
 
 export const useCurrentPosition = () => {
-  const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
+  const { userLocation, setUserLocation } = useDataContext();
 
   const getLocation = () => {
     if (typeof window !== 'undefined' && 'geolocation' in navigator) {

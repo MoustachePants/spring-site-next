@@ -1,15 +1,48 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Spring } from '@/models/types/spring';
 import './SpringsList.css';
 import PreviewCard from '@/components/PreviewCard/PreviewCard';
+import { useDataContext } from '@/context/DataContext';
+import { calculateDistanceBetweenCoords } from '@/utils/distance';
 
 const SpringsList: React.FC<{
   springs: Spring[];
 }> = ({ springs }) => {
+  const { userLocation } = useDataContext();
+
+  const sortedSprings = useMemo(() => {
+    return [...springs].sort((a, b) => {
+      if (!userLocation) {
+        const aHasImages = a.images && a.images.length > 0;
+        const bHasImages = b.images && b.images.length > 0;
+
+        if (aHasImages && !bHasImages) return -1;
+        if (!aHasImages && bHasImages) return 1;
+        return 0;
+      }
+
+      const distanceA = calculateDistanceBetweenCoords(
+        userLocation.latitude,
+        userLocation.longitude,
+        a.location.coordinates.pool[0],
+        a.location.coordinates.pool[1]
+      );
+
+      const distanceB = calculateDistanceBetweenCoords(
+        userLocation.latitude,
+        userLocation.longitude,
+        b.location.coordinates.pool[0],
+        b.location.coordinates.pool[1]
+      );
+
+      return distanceA - distanceB;
+    });
+  }, [springs, userLocation]);
+
   return (
     <section className="springs-options-scroll">
       <div className="springs-options-container">
-        {springs.map((spring) => (
+        {sortedSprings.map((spring) => (
           <PreviewCard spring={spring} key={spring._id} />
         ))}
       </div>
