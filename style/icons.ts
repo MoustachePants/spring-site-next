@@ -30,7 +30,7 @@ const Icons = {
   arrowRight: ArrowRight,
   arrowLeft: ArrowLeft,
   share: ShareAndroid,
-  wase: NavigatorAlt,
+  navigation: NavigatorAlt,
   updates: Group,
   prev: NavArrowRight,
   next: NavArrowLeft,
