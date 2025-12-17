@@ -120,6 +120,7 @@ const Map: React.FC = () => {
       className="map-container"
       scrollWheelZoom={true}
       zoomControl={false}
+      doubleClickZoom={true}
     >
       <TileLayer
         key={selectedMapType.id}
