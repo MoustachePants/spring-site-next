@@ -6,6 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import { DataContextProvider } from '@/context/DataContext';
 import Loading from '@/components/loading/Loading/Loading';
 import Script from 'next/script';
+import { Meta } from 'next/dist/lib/metadata/generate/meta';
 
 const notoSansHebrew = Noto_Sans_Hebrew({ subsets: ['hebrew'] });
 
@@ -132,6 +133,7 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}");
           `}
       </Script>
+      <Meta name="google-site-verification" content="V3W8XfT4n7EQXOepvUhH2h1tix6yc-qOdgsvRyXHpEQ" />
       <body className={notoSansHebrew.className}>
         <Suspense fallback={<Loading />}>
           <DataContextProvider>
