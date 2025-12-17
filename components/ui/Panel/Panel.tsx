@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useMotionValue, animate, PanInfo, useDragControls } from 'motion/react';
 import { useMobileSize } from '@/hooks/useMobileSize';
 import './Panel.css';
 
@@ -12,87 +12,151 @@ interface PanelProps {
 
 const Panel: React.FC<PanelProps> = ({ header, children }) => {
   const isMobile = useMobileSize();
-  const [snapPoint, setSnapPoint] = React.useState<'open' | 'middle' | 'closed'>('middle');
 
-  // Define snap positions (pixel values from top)
-  // We can calculate these dynamically or use fixed values/percentages
-  // Open: 0
-  // Middle: ~40% of screen height
-  // Closed: ~85% of screen height
-  const getSnapPositions = () => {
-    if (typeof window === 'undefined') return { open: 0, middle: 300, closed: 600 };
-    const height = window.innerHeight;
-    return {
-      open: height * 0.05,
-      middle: height * 0.45,
-      closed: height * 0.85,
-    };
-  };
+  // Snap points (y-position relative to screen top)
+  const [windowHeight, setWindowHeight] = useState(
+    typeof window !== 'undefined' ? window.innerHeight : 800
+  );
 
-  const handleDragEnd = (event: any, info: any) => {
-    const { offset, velocity } = info;
-    const positions = getSnapPositions();
-    const currentY =
-      (snapPoint === 'open'
-        ? positions.open
-        : snapPoint === 'middle'
-          ? positions.middle
-          : positions.closed) + offset.y;
+  const openY = windowHeight * 0.05;
+  const closedY = windowHeight * 0.85;
 
-    // Determine direction and magnitude
-    const isSwipeDown = velocity.y > 200;
-    const isSwipeUp = velocity.y < -200;
+  const y = useMotionValue(closedY);
+  const [isOpen, setIsOpen] = useState(false);
 
-    let nextSnap = snapPoint;
+  const controls = useDragControls();
+  const contentRef = useRef<HTMLDivElement>(null);
 
-    if (isSwipeUp) {
-      if (snapPoint === 'closed') nextSnap = 'middle';
-      else if (snapPoint === 'middle') nextSnap = 'open';
-    } else if (isSwipeDown) {
-      if (snapPoint === 'open') nextSnap = 'middle';
-      else if (snapPoint === 'middle') nextSnap = 'closed';
+  const isDraggingRef = useRef(false);
+  const startYRef = useRef(0);
+  const startPanelYRef = useRef(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowHeight(window.innerHeight);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      // Initialize position
+      // If we want to start closed or open?
+      // MapPanel starts closed. Panel started 'middle'.
+      // Let's start closed to be safe/consistent with MapPanel.
+      animate(y, isOpen ? openY : closedY, {
+        type: 'spring',
+        damping: 25,
+        stiffness: 250,
+      });
     } else {
-      // Snap to nearest
-      const distOpen = Math.abs(currentY - positions.open);
-      const distMiddle = Math.abs(currentY - positions.middle);
-      const distClosed = Math.abs(currentY - positions.closed);
-
-      if (distOpen < distMiddle && distOpen < distClosed) nextSnap = 'open';
-      else if (distMiddle < distOpen && distMiddle < distClosed) nextSnap = 'middle';
-      else nextSnap = 'closed';
+      y.set(0); // Desktop: reset to 0 (handled by CSS positioning/layout usually, or just 0 offset)
     }
+  }, [isOpen, openY, closedY, y, isMobile]);
 
-    setSnapPoint(nextSnap);
+  const calculateSnap = (currentY: number, velocityY: number) => {
+    let nextOpen = isOpen;
+    if (velocityY > 300) {
+      nextOpen = false;
+    } else if (velocityY < -300) {
+      nextOpen = true;
+    } else {
+      const distToOpen = Math.abs(currentY - openY);
+      const distToClosed = Math.abs(currentY - closedY);
+      nextOpen = distToOpen < distToClosed;
+    }
+    return nextOpen;
   };
 
-  const positions = getSnapPositions();
-  const y = isMobile
-    ? snapPoint === 'open'
-      ? positions.open
-      : snapPoint === 'middle'
-        ? positions.middle
-        : positions.closed
-    : 0;
+  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const nextOpen = calculateSnap(y.get(), info.velocity.y);
+    setIsOpen(nextOpen);
+    if (nextOpen === isOpen) {
+      animate(y, nextOpen ? openY : closedY, { type: 'spring', damping: 25, stiffness: 250 });
+    }
+  };
+
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el || !isMobile) return;
+
+    const onTouchStart = (e: TouchEvent) => {
+      startYRef.current = e.touches[0].clientY;
+      startPanelYRef.current = y.get();
+      isDraggingRef.current = false;
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      const currentY = e.touches[0].clientY;
+      const deltaY = currentY - startYRef.current;
+      const scrollTop = el.scrollTop;
+
+      if (isDraggingRef.current) {
+        if (e.cancelable) e.preventDefault();
+        y.set(startPanelYRef.current + deltaY);
+      } else if (scrollTop <= 0 && deltaY > 0) {
+        isDraggingRef.current = true;
+        if (e.cancelable) e.preventDefault();
+        y.set(startPanelYRef.current + deltaY);
+      }
+    };
+
+    const onTouchEnd = (e: TouchEvent) => {
+      if (isDraggingRef.current) {
+        isDraggingRef.current = false;
+        const currentY = y.get();
+        const nextOpen = calculateSnap(currentY, 0);
+        setIsOpen(nextOpen);
+        if (nextOpen === isOpen) {
+          animate(y, nextOpen ? openY : closedY, { type: 'spring', damping: 25, stiffness: 250 });
+        }
+      }
+    };
+
+    el.addEventListener('touchstart', onTouchStart, { passive: true });
+    el.addEventListener('touchmove', onTouchMove, { passive: false });
+    el.addEventListener('touchend', onTouchEnd);
+
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove);
+      el.removeEventListener('touchend', onTouchEnd);
+    };
+  }, [isMobile, isOpen, openY, closedY, y]);
 
   return (
     <motion.div
       className="side-panel"
       key={isMobile ? 'mobile' : 'desktop'}
-      initial={false}
-      animate={{ y }}
-      transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+      style={isMobile ? { y, height: '95vh' } : {}}
       drag={isMobile ? 'y' : false}
+      dragListener={false}
+      dragControls={controls}
+      dragConstraints={isMobile ? { top: openY, bottom: closedY } : undefined}
+      dragElastic={0.05}
       dragMomentum={false}
-      dragElastic={0.2}
-      onDragEnd={handleDragEnd}
-      dragConstraints={{
-        top: positions.open,
-        bottom: positions.closed,
-      }}
+      onDragEnd={isMobile ? handleDragEnd : undefined}
     >
       <div className="side-panel-content-wrapper">
-        {header}
-        {children}
+        <div
+          onPointerDown={(e) => {
+            controls.start(e);
+          }}
+          style={{ width: '100%', touchAction: 'none' }} // Ensure handle captures touches
+        >
+          {header}
+        </div>
+        <div
+          ref={contentRef}
+          style={{
+            flex: 1,
+            overflowY: 'auto',
+            width: '100%',
+            // Fix for iOS smooth scroll
+            WebkitOverflowScrolling: 'touch',
+          }}
+        >
+          {children}
+        </div>
       </div>
     </motion.div>
   );
