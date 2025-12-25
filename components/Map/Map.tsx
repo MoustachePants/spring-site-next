@@ -141,7 +141,7 @@ const Map: React.FC = () => {
 
           return (
             <Marker key={spring._id} position={[lat, lng]} icon={iconToUse}>
-              <Popup className="leaflet-popup-reset" keepInView={false}>
+              <Popup className="leaflet-popup-reset" autoPan={false}>
                 <SmallPreviewCard key={spring._id} spring={spring} />
               </Popup>
             </Marker>
