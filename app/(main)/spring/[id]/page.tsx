@@ -10,6 +10,7 @@ import '../../../home.css';
 import { Spring } from '@/models/types/spring';
 import getSpring from '@/app/actions/getSpring';
 import LoadingPanel from '@/components/loading/LoadingPanel/LoadingPanel';
+import MapPanel from '@/components/ui/MapPanel/MapPanel';
 
 const SpringPage: React.FC = () => {
   const params = useParams();
@@ -44,11 +45,11 @@ const SpringPage: React.FC = () => {
   }, [id, springsList, setSelectedSpring]);
 
   return (
-    <Panel
+    <MapPanel
       header={spring && spring.images.length > 0 ? <ImageHeader spring={spring} /> : undefined}
     >
       {spring ? <SpringDetails spring={spring} /> : <LoadingPanel />}
-    </Panel>
+    </MapPanel>
   );
 };
 

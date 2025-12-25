@@ -24,7 +24,9 @@
     "react-dom": "^19.2.0",
     "react-hot-toast": "^2.5.2",
     "react-leaflet": "^5.0.0",
+    "react-modal-sheet": "^5.2.1",
     "react-select": "^5.9.0",
+    "react-use-measure": "^2.1.7",
     "validator": "^13.15.15"
   },
   "devDependencies": {

@@ -8,6 +8,7 @@ import Header from '@/components/panel/Header/Header';
 import SpringsList from '@/components/panel/SpringsList/SpringsList';
 import { useDataContext } from '@/context/DataContext';
 import LoadingPanel from '@/components/loading/LoadingPanel/LoadingPanel';
+import MapPanel from '@/components/ui/MapPanel/MapPanel';
 
 const Home: NextPage = () => {
   const { filteredSpringsList, isSpringsListLoading, setSelectedSpring } = useDataContext();
@@ -17,10 +18,16 @@ const Home: NextPage = () => {
   }, [setSelectedSpring]);
 
   return (
-    <Panel header={<Header />}>
+    <MapPanel header={<Header />}>
       {isSpringsListLoading ? <LoadingPanel /> : <SpringsList springs={filteredSpringsList} />}
-    </Panel>
+    </MapPanel>
   );
+
+  // return (
+  //   <Panel header={<Header />}>
+  //     {isSpringsListLoading ? <LoadingPanel /> : <SpringsList springs={filteredSpringsList} />}
+  //   </Panel>
+  // );
 };
 
 export default Home;
