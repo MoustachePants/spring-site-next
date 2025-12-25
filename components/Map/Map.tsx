@@ -12,7 +12,6 @@ import { UserLocation } from '@/models/types/userLocation';
 import { springIcon, unselectedSpringIcon, parkingIcon, userLocationIcon } from './mapIcons';
 import LoadingButton from '@/components/ui/LoadingButton/LoadingButton';
 
-
 const MapController: React.FC = () => {
   const map = useMap();
   const { selectedSpring } = useDataContext();
@@ -120,11 +119,10 @@ const Map: React.FC = () => {
         getLocation={getLocation}
       />
       {userLocation && (
-        <Marker position={[userLocation.latitude, userLocation.longitude]} icon={userLocationIcon}>
-          <Popup>
-            <b>Your Location</b>
-          </Popup>
-        </Marker>
+        <Marker
+          position={[userLocation.latitude, userLocation.longitude]}
+          icon={userLocationIcon}
+        />
       )}
       {selectedSpring && selectedSpring.location?.coordinates?.parking?.length >= 2 && (
         <Marker
@@ -133,9 +131,7 @@ const Map: React.FC = () => {
             selectedSpring.location.coordinates.parking[1],
           ]}
           icon={parkingIcon}
-        >
-          <Popup>Parking for {selectedSpring.name}</Popup>
-        </Marker>
+        ></Marker>
       )}
       {filteredSpringsList &&
         filteredSpringsList.map((spring) => {

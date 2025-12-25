@@ -2,19 +2,19 @@
     height: 100%;
     width: 100%;
     min-height: 25rem;
-    /* Fallback height */
 }
 
-.leaflet-popup-reset{
+.leaflet-popup-content-wrapper {
     background-color: transparent;
+    box-shadow: none;
 }
 
 .leaflet-popup-content {
-    /*background-color: red;*/
     margin: 0;
-    padding: 0;
-    background-color: transparent;
+}
 
+.leaflet-popup-tip {
+    background-color: #000c;
 }
 
 .map-controls-container {
