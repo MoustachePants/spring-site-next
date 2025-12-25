@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import { MAP_CONSTANTS, AVAILABLE_MAPS } from '@/models/constant/map';
@@ -12,18 +12,6 @@ import { UserLocation } from '@/models/types/userLocation';
 import { springIcon, unselectedSpringIcon, parkingIcon, userLocationIcon } from './mapIcons';
 import LoadingButton from '@/components/ui/LoadingButton/LoadingButton';
 
-const MapStateUpdater = () => {
-  const { setMapState } = useDataContext();
-  useMapEvents({
-    moveend: (e) => {
-      setMapState({
-        center: [e.target.getCenter().lat, e.target.getCenter().lng],
-        zoom: e.target.getZoom(),
-      });
-    },
-  });
-  return null;
-};
 
 const MapController: React.FC = () => {
   const map = useMap();
@@ -97,7 +85,7 @@ const MapControls = ({
 };
 
 const Map: React.FC = () => {
-  const { mapState, filteredSpringsList, selectedSpring } = useDataContext();
+  const { filteredSpringsList, selectedSpring } = useDataContext();
   const { userLocation, getLocation } = useCurrentPosition();
   const [selectedMapType, setSelectedMapType] = useState(AVAILABLE_MAPS[0]);
 
@@ -109,8 +97,8 @@ const Map: React.FC = () => {
 
   return (
     <MapContainer
-      center={mapState?.center || MAP_CONSTANTS.INITIAL_CENTER}
-      zoom={mapState?.zoom || MAP_CONSTANTS.INITIAL_ZOOM}
+      center={MAP_CONSTANTS.INITIAL_CENTER}
+      zoom={MAP_CONSTANTS.INITIAL_ZOOM}
       minZoom={MAP_CONSTANTS.MIN_ZOOM}
       maxBounds={MAP_CONSTANTS.ISRAEL_BOUNDS}
       maxBoundsViscosity={MAP_CONSTANTS.MAX_BOUNDS_VISCOSITY}
@@ -124,7 +112,6 @@ const Map: React.FC = () => {
         url={selectedMapType.tileLayerUrl}
         attribution={selectedMapType.attribution}
       />
-      <MapStateUpdater />
       <MapController />
       <MapControls
         selectedMapType={selectedMapType}
@@ -158,7 +145,7 @@ const Map: React.FC = () => {
 
           return (
             <Marker key={spring._id} position={[lat, lng]} icon={iconToUse}>
-              <Popup className="leaflet-popup-reset">
+              <Popup className="leaflet-popup-reset" keepInView={false}>
                 <SmallPreviewCard key={spring._id} spring={spring} />
               </Popup>
             </Marker>
