@@ -9,7 +9,7 @@ import Link from 'next/link';
 import NearbySprings from '../NearbySprings/NearbySprings';
 import SpringUpdates from '@/components/panel/details/SpringUpdates/SpringUpdates';
 import TagsList from '@/components/TagsList/TagsList';
-import nearbySprings from '../NearbySprings/NearbySprings';
+import { springSize, springDepth, springTemp } from '@/utils/springTranslators';
 
 type SpringDetailsProps = {
   spring: Spring;
@@ -91,13 +91,13 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
               detailsMapping.reserve,
               formatValue('reserve', spring.springDetails.reserve)
             )}
-            {renderDetailItem(detailsMapping.size, spring.springDetails.size)}
-            {renderDetailItem(detailsMapping.howDeep, spring.springDetails.howDeep)}
+            {renderDetailItem(detailsMapping.size, springSize(spring.springDetails.size))}
+            {renderDetailItem(detailsMapping.howDeep, springDepth(spring.springDetails.howDeep))}
             {renderDetailItem(
               detailsMapping.hasSitingSpots,
               formatValue('hasSitingSpots', spring.springDetails.hasSitingSpots)
             )}
-            {renderDetailItem(detailsMapping.temperature, spring.springDetails.temperature)}
+            {renderDetailItem(detailsMapping.temperature, springTemp(spring.springDetails.temperature))}
             {renderDetailItem(
               detailsMapping.hasClearWater,
               formatValue('hasClearWater', spring.springDetails.hasClearWater)
