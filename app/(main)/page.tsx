@@ -3,7 +3,6 @@
 import { NextPage } from 'next';
 import { useEffect } from 'react';
 import '../home.css';
-import Panel from '@/components/ui/Panel/Panel';
 import Header from '@/components/panel/Header/Header';
 import SpringsList from '@/components/panel/SpringsList/SpringsList';
 import { useDataContext } from '@/context/DataContext';
