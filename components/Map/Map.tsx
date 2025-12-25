@@ -10,6 +10,7 @@ import { useDataContext } from '@/context/DataContext';
 import SmallPreviewCard from '@/components/SmallPreviewCard/SmallPreviewCard';
 import { UserLocation } from '@/models/types/userLocation';
 import { springIcon, unselectedSpringIcon, parkingIcon, userLocationIcon } from './mapIcons';
+import LoadingButton from '@/components/ui/LoadingButton/LoadingButton';
 
 const MapStateUpdater = () => {
   const { setMapState } = useDataContext();
@@ -85,16 +86,19 @@ const MapControls = ({
 
   return (
     <div className="map-controls-container">
-      <button
-        onClick={handleMapTypeClick}
-        className="map-button"
-        title={`Switch map (Current: ${selectedMapType.name})`}
-      >
+      <button onClick={handleMapTypeClick} className="map-button" title={`Switch map`}>
         <Icons.map width={20} height={20} />
       </button>
-      <button onClick={handleLocationClick} className="map-button" title="Show my location">
+      <LoadingButton
+        onClick={handleLocationClick}
+        className="map-button"
+        title="Show my location"
+        isLoading={isWaitingForLocation}
+        loadingTimeoutMs={10000}
+        onTimeout={() => setIsWaitingForLocation(false)}
+      >
         <Icons.position width={20} height={20} />
-      </button>
+      </LoadingButton>
     </div>
   );
 };
