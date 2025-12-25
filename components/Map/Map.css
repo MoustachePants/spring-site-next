@@ -50,10 +50,10 @@
     opacity: 0.5; /* TODO: Change it to something else */
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .map-controls-container {
-        top: unset;
-        bottom: 7rem;
-    }
-}
+/*!* Mobile *!*/
+/*@media (max-width: 768px) {*/
+/*    .map-controls-container {*/
+/*        top: unset;*/
+/*        bottom: 7rem;*/
+/*    }*/
+/*}*/
