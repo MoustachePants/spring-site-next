@@ -24,7 +24,8 @@ export const AVAILABLE_MAPS: MapType[] = [
 ];
 
 export const MAP_CONSTANTS = {
-  DEFAULT_CENTER: [31.7683, 35.2137] as [number, number], // Jerusalem
+  INITIAL_CENTER: [31.60355, 34.95969] as [number, number], // Jerusalem
+  INITIAL_ZOOM: 8,
   DEFAULT_ZOOM: 13,
   MIN_ZOOM: 7,
   ISRAEL_BOUNDS: [

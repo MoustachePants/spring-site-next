@@ -58,13 +58,6 @@ const MapControls = ({
   const map = useMap();
   const [isWaitingForLocation, setIsWaitingForLocation] = useState(false);
 
-  useEffect(() => {
-    if (isWaitingForLocation && userLocation) {
-      map.setView([userLocation.latitude, userLocation.longitude], MAP_CONSTANTS.DEFAULT_ZOOM);
-      setIsWaitingForLocation(false);
-    }
-  }, [userLocation, isWaitingForLocation, map]);
-
   const handleLocationClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (userLocation) {
@@ -116,11 +109,11 @@ const Map: React.FC = () => {
 
   return (
     <MapContainer
-      center={mapState?.center || MAP_CONSTANTS.DEFAULT_CENTER}
-      zoom={mapState?.zoom || MAP_CONSTANTS.DEFAULT_ZOOM}
+      center={mapState?.center || MAP_CONSTANTS.INITIAL_CENTER}
+      zoom={mapState?.zoom || MAP_CONSTANTS.INITIAL_ZOOM}
       minZoom={MAP_CONSTANTS.MIN_ZOOM}
-      // maxBounds={MAP_CONSTANTS.ISRAEL_BOUNDS}
-      // maxBoundsViscosity={MAP_CONSTANTS.MAX_BOUNDS_VISCOSITY}
+      maxBounds={MAP_CONSTANTS.ISRAEL_BOUNDS}
+      maxBoundsViscosity={MAP_CONSTANTS.MAX_BOUNDS_VISCOSITY}
       className="map-container"
       scrollWheelZoom={true}
       zoomControl={false}
