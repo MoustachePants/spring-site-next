@@ -1,17 +1,10 @@
-import mongoose, {Mongoose} from 'mongoose';
+import mongoose from 'mongoose';
 
-// Import all models to ensure they are registered
-import  "../models/schemas/spring.model"
-import  "../models/schemas/springUpdate.model"
+import '../models/schemas/spring.model';
+import '../models/schemas/springUpdate.model';
 
-// MongoDB connection configuration
 const mongodbUri = process.env.MONGODB_URI as string;
 
-/**
- * Connect to MongoDB using Mongoose
- * - Handles development vs production environments
- * - Provides detailed error handling
- */
 export async function connectDB(dbName: string) {
   if (mongoose.connection.readyState >= 1) {
     console.log('Using existing MongoDB connection');
@@ -19,7 +12,7 @@ export async function connectDB(dbName: string) {
   }
 
   if (mongodbUri === '') {
-      return
+    return;
   }
 
   const opts = {

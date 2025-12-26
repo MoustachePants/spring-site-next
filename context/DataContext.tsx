@@ -1,6 +1,5 @@
 'use client';
 
-import getSpring from '@/app/actions/getSpring';
 import listSprings from '@/app/actions/listSprings';
 import { Category, mapPlaces, Place } from '@/models/types/category';
 import { Spring } from '@/models/types/spring';
