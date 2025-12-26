@@ -22,19 +22,7 @@ export const metadata: Metadata = {
   description:
     'מחפשים מקום לטבול? לשכשך רגליים? עדכונים שוטפים על מאות מעיינות, מאגרי מים ונחלים בסידור שמותאם למיקום שלכם!',
   icons: {
-    icon: [
-      { url: '/icons/favicon.ico', sizes: 'any' },
-      {
-        media: '(prefers-color-scheme: light)',
-        url: '/icons/favicon_dark.svg',
-        type: 'image/svg+xml',
-      },
-      {
-        media: '(prefers-color-scheme: dark)',
-        url: '/icons/favicon_bright.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/icons/favicon.ico',
     shortcut: '/icons/favicon.ico',
     apple: '/icons/apple-icon.png',
   },
