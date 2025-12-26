@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import { DataContextProvider } from '@/context/DataContext';
 import Loading from '@/components/loading/Loading/Loading';
 import Script from 'next/script';
-import { Meta } from 'next/dist/lib/metadata/generate/meta';
+import { env } from '@/lib/env.config';
 
 const notoSansHebrew = Noto_Sans_Hebrew({ subsets: ['hebrew'] });
 
@@ -23,18 +23,25 @@ export const metadata: Metadata = {
     'מחפשים מקום לטבול? לשכשך רגליים? עדכונים שוטפים על מאות מעיינות, מאגרי מים ונחלים בסידור שמותאם למיקום שלכם!',
   icons: {
     icon: [
+      { url: '/icons/favicon.ico', sizes: 'any' },
       {
         media: '(prefers-color-scheme: light)',
         url: '/icons/favicon_dark.svg',
-        href: '/icons/favicon_dark.svg',
+        type: 'image/svg+xml',
       },
       {
         media: '(prefers-color-scheme: dark)',
         url: '/icons/favicon_bright.svg',
-        href: '/icons/favicon_bright.svg',
+        type: 'image/svg+xml',
       },
     ],
+    shortcut: '/icons/favicon.ico',
+    apple: '/icons/apple-icon.png',
   },
+  verification: {
+    google: 'V3W8XfT4n7EQXOepvUhH2h1tix6yc-qOdgsvRyXHpEQ',
+  },
+  metadataBase: new URL(env.baseUrl),
   robots: {
     index: true,
     follow: true,
@@ -133,7 +140,6 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}");
           `}
       </Script>
-      <Meta name="google-site-verification" content="V3W8XfT4n7EQXOepvUhH2h1tix6yc-qOdgsvRyXHpEQ" />
       <body className={notoSansHebrew.className}>
         <Suspense fallback={<Loading />}>
           <DataContextProvider>

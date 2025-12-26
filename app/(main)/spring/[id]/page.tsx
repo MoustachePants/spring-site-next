@@ -1,56 +1,49 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import Panel from '@/components/ui/Panel/Panel';
-import ImageHeader from '@/components/panel/ImageHeader/ImageHeader';
-import SpringDetails from '@/components/panel/details/SpringDetails/SpringDetails';
-import { useDataContext } from '@/context/DataContext';
-import '../../../home.css';
-import { Spring } from '@/models/types/spring';
+import { Metadata } from 'next';
 import getSpring from '@/app/actions/getSpring';
-import LoadingPanel from '@/components/loading/LoadingPanel/LoadingPanel';
-import MapPanel from '@/components/ui/MapPanel/MapPanel';
+import SpringPageClient from './SpringPageClient';
 
-const SpringPage: React.FC = () => {
-  const params = useParams();
-  const { filteredSpringsList, springsList, setSelectedSpring } = useDataContext();
-  const id = params.id as string;
-  const [spring, setSpring] = useState<Spring | undefined>(undefined);
-
-  useEffect(() => {
-    const fetchSpring = async () => {
-      if (!id) return;
-
-      // // First try to find in loaded list
-      // const found = springsList.find((s) => s._id === id);
-      // if (found) {
-      //   setSpring(found);
-      //   return;
-      // }
-
-      // If not found, fetch from API
-      try {
-        const response = await getSpring(id);
-        if (response.data) {
-          setSpring(response.data);
-          setSelectedSpring(response.data);
-        }
-      } catch (error) {
-        console.error('Error fetching spring:', error);
-      }
-    };
-
-    fetchSpring();
-  }, [id, springsList, setSelectedSpring]);
-
-  return (
-    <MapPanel
-      header={spring && spring.images.length > 0 ? <ImageHeader spring={spring} /> : undefined}
-    >
-      {spring ? <SpringDetails spring={spring} /> : <LoadingPanel />}
-    </MapPanel>
-  );
+type Props = {
+  params: Promise<{ id: string }>;
 };
 
-export default SpringPage;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const response = await getSpring(id);
+
+  if (response.status !== 'success' || !response.data) {
+    return {
+      title: 'מעיין לא נמצא | המעיין הנובע',
+    };
+  }
+
+  const spring = response.data;
+  const title = `${spring.name} | המעיין הנובע`;
+  const description =
+    spring.description ||
+    `${spring.name} - ${spring.mainRegion}, ${spring.subRegion}. מידע עדכני על המעיין כולל הוראות הגעה ותמונות.`;
+
+  const imageUrl = spring.images?.[0]?.image || '/og-image.png';
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [imageUrl],
+      type: 'article',
+      locale: 'he_IL',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [imageUrl],
+    },
+  };
+}
+
+export default async function SpringPage({ params }: Props) {
+  const { id } = await params;
+  return <SpringPageClient id={id} />;
+}
