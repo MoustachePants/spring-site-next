@@ -1,11 +1,17 @@
 import React from 'react';
+import { notFound } from 'next/navigation';
 import listSprings from '@/app/actions/listSprings';
 import AdminPanel from './AdminPanel';
 import './AdminPanel.css';
+import { env } from '@/lib/env.config';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
+  if (!env.isDevelopment) {
+    notFound();
+  }
+
   const response = await listSprings();
 
   if (response.status === 'error') {
