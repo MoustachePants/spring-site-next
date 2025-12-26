@@ -30,6 +30,7 @@ const Panel: React.FC<PanelProps> = ({ header, children }) => {
 
   // For content area drag detection
   const isDraggingPanelRef = useRef(false);
+  const canDragPanelRef = useRef(false); // Whether this touch CAN drag the panel (started at scroll top)
   const startTouchYRef = useRef(0);
   const startPanelYRef = useRef(0);
 
@@ -94,14 +95,16 @@ const Panel: React.FC<PanelProps> = ({ header, children }) => {
       startTouchYRef.current = e.touches[0].clientY;
       startPanelYRef.current = y.get();
       isDraggingPanelRef.current = false;
+      // Check if we're at the top of the scroll AT THE START of touch
+      // Only allow panel dragging if we started at the top
+      canDragPanelRef.current = contentEl.scrollTop <= 0;
     };
 
     const onTouchMove = (e: TouchEvent) => {
       const currentTouchY = e.touches[0].clientY;
       const deltaY = currentTouchY - startTouchYRef.current;
-      const scrollTop = contentEl.scrollTop;
 
-      // If we're already dragging the panel, continue
+      // If we're already dragging the panel, continue dragging
       if (isDraggingPanelRef.current) {
         if (e.cancelable) e.preventDefault();
         const newY = Math.max(openY, Math.min(closedY, startPanelYRef.current + deltaY));
@@ -109,12 +112,17 @@ const Panel: React.FC<PanelProps> = ({ header, children }) => {
         return;
       }
 
-      // Start panel drag if: content is at scroll top AND dragging down
-      if (scrollTop <= 0 && deltaY > 5) {
+      // Only allow starting panel drag if:
+      // 1. We started at scroll top (canDragPanelRef is true)
+      // 2. We're dragging down (deltaY > threshold)
+      // 3. Content is STILL at scroll top (scrollTop <= 0)
+      if (canDragPanelRef.current && deltaY > 10 && contentEl.scrollTop <= 0) {
         isDraggingPanelRef.current = true;
         if (e.cancelable) e.preventDefault();
         y.set(startPanelYRef.current + deltaY);
+        return;
       }
+
       // Otherwise, let normal scrolling happen
     };
 
@@ -125,6 +133,7 @@ const Panel: React.FC<PanelProps> = ({ header, children }) => {
         const nextOpen = calculateSnap(currentY, 0);
         snapToPosition(nextOpen);
       }
+      canDragPanelRef.current = false;
     };
 
     contentEl.addEventListener('touchstart', onTouchStart, { passive: true });
