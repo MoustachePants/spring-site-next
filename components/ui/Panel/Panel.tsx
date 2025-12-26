@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useMotionValue, animate, PanInfo, useDragControls } from 'motion/react';
 import { useMobileSize } from '@/hooks/useMobileSize';
 import './Panel.css';
@@ -26,9 +26,11 @@ const Panel: React.FC<PanelProps> = ({ header, children }) => {
 
   const controls = useDragControls();
   const contentRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<HTMLDivElement>(null);
 
-  const isDraggingRef = useRef(false);
-  const startYRef = useRef(0);
+  // For content area drag detection
+  const isDraggingPanelRef = useRef(false);
+  const startTouchYRef = useRef(0);
   const startPanelYRef = useRef(0);
 
   useEffect(() => {
@@ -39,89 +41,102 @@ const Panel: React.FC<PanelProps> = ({ header, children }) => {
 
   useEffect(() => {
     if (isMobile) {
-      // Initialize position
-      // If we want to start closed or open?
-      // MapPanel starts closed. Panel started 'middle'.
-      // Let's start closed to be safe/consistent with MapPanel.
       animate(y, isOpen ? openY : closedY, {
         type: 'spring',
         damping: 25,
         stiffness: 250,
       });
     } else {
-      y.set(0); // Desktop: reset to 0 (handled by CSS positioning/layout usually, or just 0 offset)
+      y.set(0);
     }
   }, [isOpen, openY, closedY, y, isMobile]);
 
-  const calculateSnap = (currentY: number, velocityY: number) => {
-    let nextOpen = isOpen;
-    if (velocityY > 300) {
-      nextOpen = false;
-    } else if (velocityY < -300) {
-      nextOpen = true;
-    } else {
-      const distToOpen = Math.abs(currentY - openY);
-      const distToClosed = Math.abs(currentY - closedY);
-      nextOpen = distToOpen < distToClosed;
-    }
-    return nextOpen;
-  };
+  const calculateSnap = useCallback(
+    (currentY: number, velocityY: number) => {
+      if (velocityY > 300) {
+        return false; // close
+      } else if (velocityY < -300) {
+        return true; // open
+      } else {
+        const distToOpen = Math.abs(currentY - openY);
+        const distToClosed = Math.abs(currentY - closedY);
+        return distToOpen < distToClosed;
+      }
+    },
+    [openY, closedY]
+  );
 
-  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+  const snapToPosition = useCallback(
+    (nextOpen: boolean) => {
+      setIsOpen(nextOpen);
+      animate(y, nextOpen ? openY : closedY, {
+        type: 'spring',
+        damping: 25,
+        stiffness: 250,
+      });
+    },
+    [y, openY, closedY]
+  );
+
+  // Handle drag end from the motion drag (handle area)
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const nextOpen = calculateSnap(y.get(), info.velocity.y);
-    setIsOpen(nextOpen);
-    if (nextOpen === isOpen) {
-      animate(y, nextOpen ? openY : closedY, { type: 'spring', damping: 25, stiffness: 250 });
-    }
+    snapToPosition(nextOpen);
   };
 
+  // Content area touch handling:
+  // Only allow dragging the panel down when content is scrolled to top
   useEffect(() => {
-    const el = contentRef.current;
-    if (!el || !isMobile) return;
+    const contentEl = contentRef.current;
+    if (!contentEl || !isMobile) return;
 
     const onTouchStart = (e: TouchEvent) => {
-      startYRef.current = e.touches[0].clientY;
+      startTouchYRef.current = e.touches[0].clientY;
       startPanelYRef.current = y.get();
-      isDraggingRef.current = false;
+      isDraggingPanelRef.current = false;
     };
 
     const onTouchMove = (e: TouchEvent) => {
-      const currentY = e.touches[0].clientY;
-      const deltaY = currentY - startYRef.current;
-      const scrollTop = el.scrollTop;
+      const currentTouchY = e.touches[0].clientY;
+      const deltaY = currentTouchY - startTouchYRef.current;
+      const scrollTop = contentEl.scrollTop;
 
-      if (isDraggingRef.current) {
+      // If we're already dragging the panel, continue
+      if (isDraggingPanelRef.current) {
         if (e.cancelable) e.preventDefault();
-        y.set(startPanelYRef.current + deltaY);
-      } else if (scrollTop <= 0 && deltaY > 0) {
-        isDraggingRef.current = true;
+        const newY = Math.max(openY, Math.min(closedY, startPanelYRef.current + deltaY));
+        y.set(newY);
+        return;
+      }
+
+      // Start panel drag if: content is at scroll top AND dragging down
+      if (scrollTop <= 0 && deltaY > 5) {
+        isDraggingPanelRef.current = true;
         if (e.cancelable) e.preventDefault();
         y.set(startPanelYRef.current + deltaY);
       }
+      // Otherwise, let normal scrolling happen
     };
 
-    const onTouchEnd = (e: TouchEvent) => {
-      if (isDraggingRef.current) {
-        isDraggingRef.current = false;
+    const onTouchEnd = () => {
+      if (isDraggingPanelRef.current) {
+        isDraggingPanelRef.current = false;
         const currentY = y.get();
         const nextOpen = calculateSnap(currentY, 0);
-        setIsOpen(nextOpen);
-        if (nextOpen === isOpen) {
-          animate(y, nextOpen ? openY : closedY, { type: 'spring', damping: 25, stiffness: 250 });
-        }
+        snapToPosition(nextOpen);
       }
     };
 
-    el.addEventListener('touchstart', onTouchStart, { passive: true });
-    el.addEventListener('touchmove', onTouchMove, { passive: false });
-    el.addEventListener('touchend', onTouchEnd);
+    contentEl.addEventListener('touchstart', onTouchStart, { passive: true });
+    contentEl.addEventListener('touchmove', onTouchMove, { passive: false });
+    contentEl.addEventListener('touchend', onTouchEnd);
 
     return () => {
-      el.removeEventListener('touchstart', onTouchStart);
-      el.removeEventListener('touchmove', onTouchMove);
-      el.removeEventListener('touchend', onTouchEnd);
+      contentEl.removeEventListener('touchstart', onTouchStart);
+      contentEl.removeEventListener('touchmove', onTouchMove);
+      contentEl.removeEventListener('touchend', onTouchEnd);
     };
-  }, [isMobile, isOpen, openY, closedY, y]);
+  }, [isMobile, y, openY, closedY, calculateSnap, snapToPosition]);
 
   return (
     <motion.div
@@ -137,21 +152,25 @@ const Panel: React.FC<PanelProps> = ({ header, children }) => {
       onDragEnd={isMobile ? handleDragEnd : undefined}
     >
       <div className="side-panel-content-wrapper">
+        {/* Handle area - always draggable */}
         <div
+          ref={handleRef}
+          className="panel-handle-area"
           onPointerDown={(e) => {
             controls.start(e);
           }}
-          style={{ width: '100%', touchAction: 'none' }} // Ensure handle captures touches
+          style={{ width: '100%', touchAction: 'none' }}
         >
           {header}
         </div>
+        {/* Content area - only drags panel down when scrolled to top */}
         <div
           ref={contentRef}
+          className="panel-content-area"
           style={{
             flex: 1,
             overflowY: 'auto',
             width: '100%',
-            // Fix for iOS smooth scroll
             WebkitOverflowScrolling: 'touch',
           }}
         >
