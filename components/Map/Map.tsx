@@ -11,6 +11,7 @@ import SmallPreviewCard from '@/components/SmallPreviewCard/SmallPreviewCard';
 import { UserLocation } from '@/models/types/userLocation';
 import { springIcon, unselectedSpringIcon, parkingIcon, userLocationIcon } from './mapIcons';
 import LoadingButton from '@/components/ui/LoadingButton/LoadingButton';
+import Icons from '@/style/icons';
 
 const MapController: React.FC = () => {
   const map = useMap();
@@ -19,7 +20,7 @@ const MapController: React.FC = () => {
   useEffect(() => {
     if (selectedSpring && selectedSpring.location && selectedSpring.location.coordinates) {
       const [lat, lng] = selectedSpring.location.coordinates.pool;
-      map.setView([lat, lng], MAP_CONSTANTS.DEFAULT_ZOOM, {
+      map.setView([lat - 0.011, lng], MAP_CONSTANTS.DEFAULT_ZOOM, {
         animate: true,
         duration: 0.7,
       });
@@ -28,8 +29,6 @@ const MapController: React.FC = () => {
 
   return null;
 };
-
-import Icons from '@/style/icons';
 
 const MapControls = ({
   selectedMapType,

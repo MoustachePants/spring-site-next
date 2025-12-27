@@ -16,6 +16,8 @@
     justify-content: flex-start;
     gap: 10px;
     overflow-x: scroll;
+    width: calc(100% + var(--details-padding));
+    padding-left: var(--details-padding);
 }
 
 .nearby-springs-cards-container .nearby-springs-card {
