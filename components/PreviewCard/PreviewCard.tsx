@@ -20,6 +20,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ spring }) => {
         height={230}
         src={getImage(spring)}
         alt={spring?.name || 'מעיין'}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
       />
       <section className="preview-card-info">
         <h3>{spring?.name || 'מעיין'}</h3>

@@ -22,6 +22,7 @@ const SmallPreviewCard: React.FC<SmallPreviewCardProps> = ({ spring }) => {
         alt={spring.name}
         width={150}
         height={150}
+        sizes="150px"
       />
       <div className="nearby-springs-card-info">
         <h3>{spring.name}</h3>
