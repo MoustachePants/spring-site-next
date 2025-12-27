@@ -5,7 +5,7 @@ export interface SpringUpdate {
   update: string;
   waterStatus: number;
   cleanliness: number;
-  spring: string; // ObjectId reference to Spring
+  spring: string;
   __v?: number;
 }
 

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
-import { connectDB } from '@/lib/mongoConnection';
-import { SpringModel } from '@/models/schemas/spring.model';
+import { getRedisClient, getSpringsPattern, jsonMGet } from '@/lib/redisConnection';
+import { Spring } from '@/models/types/spring';
 import { env } from '@/lib/env.config';
 
 const BASE_URL = env.baseUrl;
@@ -30,10 +30,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic spring pages
   try {
-    await connectDB('Springs-Refactored');
-    const springs = await SpringModel.find({}, '_id lastUpdate').lean();
+    const redis = getRedisClient();
+    const keys = await redis.keys(getSpringsPattern());
 
-    const springPages: MetadataRoute.Sitemap = springs.map((spring: any) => ({
+    if (!keys || keys.length === 0) {
+      return staticPages;
+    }
+
+    const springsData = await jsonMGet<Spring>(keys);
+    const springs = springsData.filter((s): s is Spring => s !== null);
+
+    const springPages: MetadataRoute.Sitemap = springs.map((spring) => ({
       url: `${BASE_URL}/spring/${spring._id}`,
       lastModified: spring.lastUpdate ? new Date(spring.lastUpdate) : new Date(),
       changeFrequency: 'weekly' as const,
@@ -46,4 +53,3 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return staticPages;
   }
 }
-

@@ -1,31 +1,40 @@
 'use server';
 
 import { Spring } from '@/models/types/spring';
-import { connectDB } from '@/lib/mongoConnection';
-import { SpringModel } from '@/models/schemas/spring.model';
+import { SpringUpdate } from '@/models/types/springUpdate';
+import {
+  getSpringKey,
+  getUpdatesPattern,
+  getRedisClient,
+  jsonGet,
+  jsonMGet,
+} from '@/lib/redisConnection';
 import { ActionResponse } from '@/models/types/actionResponse';
-import { SpringUpdateModel } from '@/models/schemas/springUpdate.model';
 
 const getSpring = async (id: string): Promise<ActionResponse<Spring>> => {
   try {
-    await connectDB('Springs-Refactored');
-    const spring = (await SpringModel.findById(id).lean()) as any;
+    const redis = getRedisClient();
+    const key = getSpringKey(id);
 
-    if (!spring || !spring.name || spring.name === '') {
+    const spring = await jsonGet<Spring>(key);
+
+    if (!spring) {
       console.error(`Spring with id ${id} was not found`);
       return { status: 'error', error: new Error(`Spring with id ${id} was not found`) };
     }
 
-    const updates = await SpringUpdateModel.find({ spring: id }).lean();
-    if (updates && updates.length > 0) {
+    // Fetch updates from separate keys (updates:springId:*)
+    const updateKeys = await redis.keys(getUpdatesPattern(id));
+    if (updateKeys && updateKeys.length > 0) {
+      const updatesData = await jsonMGet<SpringUpdate>(updateKeys);
+      const updates = updatesData.filter((u): u is SpringUpdate => u !== null);
+      updates.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
       spring.updates = updates;
     }
 
-    const plainSpring = JSON.parse(JSON.stringify(spring)) as Spring;
-
     return {
       status: 'success',
-      data: plainSpring,
+      data: spring,
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';

@@ -1,27 +1,28 @@
 'use server';
 
 import { Spring } from '@/models/types/spring';
-import { connectDB } from '@/lib/mongoConnection';
-import { SpringModel } from '@/models/schemas/spring.model';
+import { getRedisClient, getSpringsPattern, jsonMGet } from '@/lib/redisConnection';
 import { ActionResponse } from '@/models/types/actionResponse';
 
 const listSprings = async (): Promise<ActionResponse<Spring[]>> => {
   try {
-    console.log('Fetching springs from database...');
-    await connectDB('Springs-Refactored');
-    const springs = await SpringModel.find().lean();
+    const redis = getRedisClient();
 
-    if (springs.length === 0) {
-      console.error('No springs found');
-      return { status: 'error', error: new Error('No springs found') };
+    const keys = await redis.keys(getSpringsPattern());
+    if (!keys || keys.length === 0) {
+      return {
+        status: 'success',
+        data: [],
+      };
     }
 
-    // Convert to plain objects (handles ObjectIds, Dates, etc.)
-    const plainSprings = JSON.parse(JSON.stringify(springs)) as Spring[];
+    const springsData = await jsonMGet<Spring>(keys);
+
+    const springs: Spring[] = springsData.filter((data): data is Spring => data !== null);
 
     return {
       status: 'success',
-      data: plainSprings,
+      data: springs,
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
