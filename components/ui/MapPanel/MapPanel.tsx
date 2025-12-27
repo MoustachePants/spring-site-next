@@ -4,18 +4,24 @@ import React, { useRef } from 'react';
 import { Sheet } from 'react-modal-sheet';
 import './MapPanel.css';
 import { useMobileSize } from '@/hooks/useMobileSize';
+import { PanelContextProvider, usePanelContext } from '@/context/PanelContext';
 
 interface MapPanelProps {
   header: React.ReactNode;
   children: React.ReactNode;
 }
 
-const MapPanel: React.FC<MapPanelProps> = ({ header, children }) => {
+const MapPanelContent: React.FC<MapPanelProps> = ({ header, children }) => {
   const isMobile = useMobileSize();
   const sheetRef = useRef<any>(null);
+  const { isScrollAtTop } = usePanelContext();
 
-  // Snap points - 0 Hidden, 0.1 Peeking, 0.4 Middle, 1 Open
-  const snapPoints = [0, 0.1, 0.4, 1];
+  const Hidden = { v: 0, i: 0 };
+  const Peeking = { v: 0.1, i: 1 };
+  const Middle = { v: 0.6, i: 2 };
+  const Open = { v: 1, i: 3 };
+
+  const snapPoints = [Hidden.v, Peeking.v, Middle.v, Open.v];
 
   if (!isMobile) {
     return (
@@ -34,35 +40,27 @@ const MapPanel: React.FC<MapPanelProps> = ({ header, children }) => {
         ref={sheetRef}
         isOpen
         onClose={() => {
-          sheetRef.current?.snapTo(1); // 0.1
+          sheetRef.current?.snapTo(Peeking.i);
         }}
         snapPoints={snapPoints}
-        initialSnap={2} // 0.4
+        initialSnap={Middle.i}
       >
         <Sheet.Container>
           <Sheet.Header>
-            <div className="map-panel-sheet-header-wrapper">
-              {header}
-            </div>
+            <div className="map-panel-sheet-header-wrapper">{header}</div>
           </Sheet.Header>
-          <Sheet.Content
-            disableDrag={(state) => state.scrollPosition !== 'top'}
-          >
-            {children}
-          </Sheet.Content>
+          <Sheet.Content disableDrag={!isScrollAtTop}>{children}</Sheet.Content>
         </Sheet.Container>
-        {/* Optional: Backdrop. Usually desirable to dim background, 
-            but for a Map Panel you might want to interact with the map when it's just "peeking" 
-            or "half open". 
-            If we want to interact with the map, we might need to disable backdrop or make it transparent/pointer-events-none 
-            except when fully open? 
-            For now, let's include it but maybe make it transparent or remove it if it blocks map interaction.
-            Common map pattern: No backdrop, just the sheet floating over map. 
-            Removing Backdrop for "Map" feel. 
-        */}
-        {/* <Sheet.Backdrop /> */}
       </Sheet>
     </div>
+  );
+};
+
+const MapPanel: React.FC<MapPanelProps> = (props) => {
+  return (
+    <PanelContextProvider>
+      <MapPanelContent {...props} />
+    </PanelContextProvider>
   );
 };
 

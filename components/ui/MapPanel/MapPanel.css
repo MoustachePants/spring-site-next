@@ -23,11 +23,15 @@
   min-height: 100%;
   min-width: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .map-panel-header {
   width: 100%;
   touch-action: none;
+  z-index: 5;
+  position: sticky;
+  top: 0;
 }
 
 .map-panel-content {
@@ -53,5 +57,11 @@
 
   .map-panel-sheet-header-wrapper {
     width: 100%;
+  }
+
+  .react-modal-sheet-container {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    overflow: hidden;
   }
 }
