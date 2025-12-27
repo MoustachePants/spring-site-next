@@ -21,12 +21,6 @@ const Home: NextPage = () => {
       {isSpringsListLoading ? <LoadingPanel /> : <SpringsList springs={filteredSpringsList} />}
     </MapPanel>
   );
-
-  // return (
-  //   <Panel header={<Header />}>
-  //     {isSpringsListLoading ? <LoadingPanel /> : <SpringsList springs={filteredSpringsList} />}
-  //   </Panel>
-  // );
 };
 
 export default Home;

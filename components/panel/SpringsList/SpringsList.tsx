@@ -1,14 +1,43 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useEffect } from 'react';
 import { Spring } from '@/models/types/spring';
 import './SpringsList.css';
 import PreviewCard from '@/components/PreviewCard/PreviewCard';
 import { useDataContext } from '@/context/DataContext';
+import { usePanelContext } from '@/context/PanelContext';
 import { calculateDistanceBetweenCoords } from '@/utils/distance';
 
 const SpringsList: React.FC<{
   springs: Spring[];
 }> = ({ springs }) => {
   const { userLocation } = useDataContext();
+  const { setIsScrollAtTop } = usePanelContext();
+  const scrollRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const scrollElement = scrollRef.current;
+    if (!scrollElement) return;
+
+    const handleScroll = () => {
+      const scrollTop = scrollElement.scrollTop;
+      const hasScroll = scrollElement.scrollHeight > scrollElement.clientHeight;
+      const isAtTop = scrollTop === 0;
+
+      if (hasScroll) {
+        setIsScrollAtTop(isAtTop);
+        if (isAtTop) {
+          // Scroll reached the top
+          console.log('Scroll reached the top - no more scroll up available');
+        }
+      } else {
+        setIsScrollAtTop(true);
+      }
+    };
+
+    handleScroll();
+
+    scrollElement.addEventListener('scroll', handleScroll);
+    return () => scrollElement.removeEventListener('scroll', handleScroll);
+  }, [setIsScrollAtTop]);
 
   const sortedSprings = useMemo(() => {
     return [...springs].sort((a, b) => {
@@ -40,7 +69,7 @@ const SpringsList: React.FC<{
   }, [springs, userLocation]);
 
   return (
-    <section className="springs-options-scroll">
+    <section ref={scrollRef} className="springs-options-scroll">
       <div className="springs-options-container">
         {sortedSprings.map((spring) => (
           <PreviewCard spring={spring} key={spring._id} />
