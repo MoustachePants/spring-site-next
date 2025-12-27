@@ -11,13 +11,6 @@
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .preview-card {
-        width: 100%;
-        max-width: 346px;
-    }
-}
-
 .preview-card:hover {
     opacity: 0.9;
 }
@@ -56,4 +49,11 @@
 .preview-card-info h3 {
     font-size: 28px;
     font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .preview-card {
+        width: 100%;
+        max-width: 346px;
+    }
 }

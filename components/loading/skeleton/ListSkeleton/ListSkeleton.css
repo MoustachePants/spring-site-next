@@ -1,0 +1,29 @@
+.springs-options-scroll-skeleton {
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.springs-options-container-skeleton {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .springs-options-scroll-skeleton {
+        width: 100vw;
+        max-width: 100vw;
+    }
+
+    .springs-options-container-skeleton {
+        justify-content: flex-start;
+    }
+}

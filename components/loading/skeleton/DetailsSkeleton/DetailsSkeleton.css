@@ -1,0 +1,161 @@
+.spring-details-skeleton {
+    position: relative;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-y: unset;
+    height: unset;
+}
+
+.spring-details-header-skeleton {
+    position: sticky;
+    /* TODO: not working */
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    z-index: 1;
+    padding: 25px var(--details-padding) 10px var(--details-padding);
+    box-sizing: border-box;
+}
+
+.spring-details-header-back-skeleton {
+    width: 100px;
+    height: 24px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, var(--skeleton-background-color) 25%, var(--skeleton-color) 50%, var(--skeleton-background-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-wave 1.5s infinite;
+}
+
+.spring-details-header-actions-skeleton {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.spring-details-header-action-skeleton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, var(--skeleton-background-color) 25%, var(--skeleton-color) 50%, var(--skeleton-background-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-wave 1.5s infinite;
+}
+
+.spring-details-content-skeleton {
+    padding: 0 var(--details-padding) 7vh var(--details-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.spring-details-top-details-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.spring-details-title-skeleton {
+    width: 200px;
+    height: 36px;
+    background: linear-gradient(90deg, var(--skeleton-background-color) 25%, var(--skeleton-color) 50%, var(--skeleton-background-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-wave 1.5s infinite;
+    border-radius: 20px;
+}
+
+.spring-details-description-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.spring-details-line-skeleton {
+    height: 20px;
+    background: linear-gradient(90deg, var(--skeleton-background-color) 25%, var(--skeleton-color) 50%, var(--skeleton-background-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-wave 1.5s infinite;
+    border-radius: 20px;
+}
+
+.spring-details-bottom-sections-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.spring-details-section-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.spring-details-section-title-skeleton {
+    width: 200px;
+    height: 36px;
+    background: linear-gradient(90deg, var(--skeleton-background-color) 25%, var(--skeleton-color) 50%, var(--skeleton-background-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-wave 1.5s infinite;
+    border-radius: 20px;
+}
+
+.spring-details-grid-skeleton {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 15px;
+    column-gap: 15px;
+    padding: 15px;
+    padding-right: 0;
+    box-sizing: border-box;
+}
+
+.spring-details-grid-item-skeleton {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.spring-detail-label-skeleton {
+    width: 80px;
+    height: 20px;
+    background: linear-gradient(90deg, var(--skeleton-background-color) 25%, var(--skeleton-color) 50%, var(--skeleton-background-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-wave 1.5s infinite;
+    border-radius: 20px;
+}
+
+.spring-detail-value-skeleton {
+    width: 60px;
+    height: 20px;
+    background: linear-gradient(90deg, var(--skeleton-background-color) 25%, var(--skeleton-color) 50%, var(--skeleton-background-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-wave 1.5s infinite;
+    border-radius: 20px;
+}
+
+.spring-details-arrival-description-skeleton {
+    height: 20px;
+    width: 250px;
+    background: linear-gradient(90deg, var(--skeleton-background-color) 25%, var(--skeleton-color) 50%, var(--skeleton-background-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-wave 1.5s infinite;
+    border-radius: 20px;
+}
+
+.spring-details-arrival-skeleton {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(90deg, var(--skeleton-background-color) 25%, var(--skeleton-color) 50%, var(--skeleton-background-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-wave 1.5s infinite;
+    border-radius: 20px;
+}

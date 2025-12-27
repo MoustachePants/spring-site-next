@@ -16,9 +16,14 @@
   --bright-text-color: #FFFFFF;
   --bright-text-color-hover: #FFFFFF60;
 
+  --skeleton-background-color: #E0E0E0;
+  --skeleton-color: #f3f3f3;
+
   --border-radius: 15px;
   --tag-height: 32px;
   --input-height: 40px;
+
+  --details-padding: 20px;
 
   --font-family: 'Noto Sans Hebrew', system-ui, -apple-system, sans-serif;
 }
@@ -44,5 +49,24 @@ body {
 }
 
 button {
-    font-family: inherit
+  font-family: inherit
+}
+
+@keyframes skeleton-wave {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton-wave {
+  background: linear-gradient(90deg,
+      var(--skeleton-color) 25%,
+      #ffffff 50%,
+      var(--skeleton-color) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-wave 1.5s infinite;
 }

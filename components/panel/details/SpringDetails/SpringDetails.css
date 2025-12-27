@@ -5,37 +5,18 @@
     flex-direction: column;
     gap: 20px;
     color: var(--dark-text-color);
-    padding: 20px 30px;
     box-sizing: border-box;
     width: 100%;
     overflow-y: unset;
     height: unset;
 }
 
-.spring-details-header {
-    position: sticky;
-    top: 0;
+.spring-details-content {
+    padding: 0 var(--details-padding) 7vh var(--details-padding);
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    background-color: var(--background-color);
-    z-index: 1;
-    padding: 25px 0 10px 0;
-    box-sizing: border-box;
+    flex-direction: column;
+    gap: 20px;
 }
-
-.spring-details-back {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.spring-details-back:hover {
-    color: var(--dark-text-color-hover);
-}
-
 
 .spring-details-top-details {
     display: flex;
@@ -81,9 +62,6 @@
     margin: 20px 0;
 }
 
-/* --- */
-
-
 
 .spring-details-bottom-sections {
     display: flex;
@@ -103,31 +81,6 @@
     font-weight: 600;
 }
 
-.spring-details-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 15px;
-    column-gap: 15px;
-    padding: 15px;
-    padding-right: 0;
-    box-sizing: border-box;
-}
-
-.spring-detail-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.spring-detail-label {
-    font-weight: 600;
-    color: #666;
-}
-
-.spring-detail-value {
-    font-weight: 500;
-}
-
 .spring-details-arrival {
     font-size: 16px;
     line-height: 1.6;
@@ -137,7 +90,6 @@
 /* Mobile */
 @media (max-width: 768px) {
     .spring-details {
-        padding: 20px 15px;
         width: 100vw;
         max-width: 100vw;
         padding-bottom: 100px;
@@ -145,8 +97,7 @@
         height: 100%;
     }
 
-    .spring-details-header {
-        position: relative;
+    .spring-details-content {
+        padding: 0 var(--details-padding) 3vh var(--details-padding);
     }
-
 }

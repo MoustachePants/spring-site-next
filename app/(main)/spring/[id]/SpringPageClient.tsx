@@ -8,6 +8,7 @@ import { Spring } from '@/models/types/spring';
 import getSpring from '@/app/actions/getSpring';
 import LoadingPanel from '@/components/loading/LoadingPanel/LoadingPanel';
 import MapPanel from '@/components/ui/MapPanel/MapPanel';
+import DetailsSkeleton from '@/components/loading/skeleton/DetailsSkeleton/DetailsSkeleton';
 
 interface SpringPageClientProps {
   id: string;
@@ -39,10 +40,9 @@ const SpringPageClient: React.FC<SpringPageClientProps> = ({ id }) => {
     <MapPanel
       header={spring && spring.images.length > 0 ? <ImageHeader spring={spring} /> : undefined}
     >
-      {spring ? <SpringDetails spring={spring} /> : <LoadingPanel />}
+      {spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}
     </MapPanel>
   );
 };
 
 export default SpringPageClient;
-

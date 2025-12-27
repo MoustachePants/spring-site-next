@@ -1,0 +1,28 @@
+.spring-details-header {
+    position: sticky; /* TODO: not working */
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    z-index: 1;
+    padding: 25px var(--details-padding) 10px var(--details-padding);
+    box-sizing: border-box;
+}
+
+.spring-details-back {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.spring-details-back:hover {
+    color: var(--dark-text-color-hover);
+}
+
+@media (max-width: 768px) {
+    .spring-details-header {
+        position: relative;
+    }
+}
