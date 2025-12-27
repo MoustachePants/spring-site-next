@@ -47,9 +47,15 @@ export function useDataContext() {
   return context;
 }
 
-export function DataContextProvider({ children }: { children: ReactNode }) {
-  const [springsList, setSpringsList] = useState<Spring[]>([]);
-  const [isSpringsListLoading, setIsSpringsListLoading] = useState<boolean>(true);
+export function DataContextProvider({
+  children,
+  initialSprings,
+}: {
+  children: ReactNode;
+  initialSprings?: Spring[];
+}) {
+  const [springsList, setSpringsList] = useState<Spring[]>(initialSprings || []);
+  const [isSpringsListLoading, setIsSpringsListLoading] = useState<boolean>(!initialSprings);
   const [selectedSpring, setSelectedSpring] = useState<Spring | undefined>(undefined);
   const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
 
@@ -95,6 +101,10 @@ export function DataContextProvider({ children }: { children: ReactNode }) {
 
   const blockRef = useRef<boolean>(true);
   useEffect(() => {
+    if (initialSprings && initialSprings.length > 0) {
+      return;
+    }
+
     const loadSpringsList = async () => {
       setIsSpringsListLoading(true);
       try {
@@ -110,7 +120,7 @@ export function DataContextProvider({ children }: { children: ReactNode }) {
       }
     };
     if (blockRef.current) loadSpringsList();
-  }, []);
+  }, [initialSprings]);
 
   const filteredSpringsList = useMemo(() => {
     return springsList.filter((spring) => {

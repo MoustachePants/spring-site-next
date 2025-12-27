@@ -71,8 +71,8 @@ const SpringsList: React.FC<{
   return (
     <section ref={scrollRef} className="springs-options-scroll">
       <div className="springs-options-container">
-        {sortedSprings.map((spring) => (
-          <PreviewCard spring={spring} key={spring._id} />
+        {sortedSprings.map((spring, index) => (
+          <PreviewCard spring={spring} key={spring._id} priority={index < 2} />
         ))}
       </div>
     </section>

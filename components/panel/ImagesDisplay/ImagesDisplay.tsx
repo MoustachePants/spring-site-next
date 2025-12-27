@@ -92,7 +92,8 @@ const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0,
             alt={`Spring image ${currentIndex + 1}`}
             fill
             className="images-display-image"
-            priority
+            sizes="100vw"
+            loading="eager"
           />
         </div>
 

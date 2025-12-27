@@ -29,6 +29,7 @@ const ImageHeader: React.FC<ImageHeaderProps> = ({ spring }) => {
         alt={spring?.name || 'מעיין'}
         fill
         className="image-header-img"
+        sizes="(max-width: 768px) 100vw, 50vw"
         priority
       />
       {showGallery ? <ImagesDisplay images={spring.images} onClose={handleClose} /> : null}
