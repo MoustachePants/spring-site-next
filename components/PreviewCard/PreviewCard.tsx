@@ -9,9 +9,10 @@ import { getImage } from '@/utils/image';
 
 type PreviewCardProps = {
   spring: Spring;
+  priority?: boolean;
 };
 
-const PreviewCard: React.FC<PreviewCardProps> = ({ spring }) => {
+const PreviewCard: React.FC<PreviewCardProps> = ({ spring, priority = false }) => {
   return (
     <Link href={`/spring/${spring._id}`} className="preview-card">
       <Image
@@ -21,6 +22,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ spring }) => {
         src={getImage(spring)}
         alt={spring?.name || 'מעיין'}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+        priority={priority}
       />
       <section className="preview-card-info">
         <h3>{spring?.name || 'מעיין'}</h3>

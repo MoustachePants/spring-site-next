@@ -30,6 +30,7 @@
     border-radius: var(--border-radius);
     width: 100%;
     height: 100%;
+    aspect-ratio: 400 / 230;
     object-fit: cover;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
