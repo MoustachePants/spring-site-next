@@ -38,7 +38,7 @@ const SpringPageClient: React.FC<SpringPageClientProps> = ({ id }) => {
 
   return (
     <MapPanel
-      header={spring && spring.images.length > 0 ? <ImageHeader spring={spring} /> : undefined}
+      header={spring ? <ImageHeader spring={spring} /> : undefined}
     >
       {spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}
     </MapPanel>

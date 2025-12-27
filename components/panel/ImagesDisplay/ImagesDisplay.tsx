@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { createPortal } from 'react-dom';
 import './ImagesDisplay.css';
@@ -14,6 +14,8 @@ type ImagesDisplayProps = {
 const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [mounted, setMounted] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -34,10 +36,41 @@ const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0,
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }
+    if (isRightSwipe) {
+      setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    }
+    
+    // Reset
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   if (!mounted || !images || images.length === 0) return null;
 
   return createPortal(
-    <div className="images-display-overlay">
+    <div 
+      className="images-display-overlay"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <button
         className="images-display-close"
         onClick={(e) => {
