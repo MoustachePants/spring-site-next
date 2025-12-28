@@ -5,7 +5,6 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import { MAP_CONSTANTS, AVAILABLE_MAPS } from '@/models/constant/map';
-import { useCurrentPosition } from '@/hooks/useCurrentPosition';
 import { useDataContext } from '@/context/DataContext';
 import SmallPreviewCard from '@/components/SmallPreviewCard/SmallPreviewCard';
 import { UserLocation } from '@/models/types/userLocation';
@@ -15,17 +14,21 @@ import Icons from '@/style/icons';
 
 const MapController: React.FC = () => {
   const map = useMap();
-  const { selectedSpring } = useDataContext();
+  const { selectedSpring, setIsMapReady } = useDataContext();
 
   useEffect(() => {
     if (selectedSpring && selectedSpring.location && selectedSpring.location.coordinates) {
       const [lat, lng] = selectedSpring.location.coordinates.pool;
-      map.setView([lat - 0.011, lng], MAP_CONSTANTS.DEFAULT_ZOOM, {
+      map.setView([lat - 0.02, lng], MAP_CONSTANTS.DEFAULT_ZOOM, {
         animate: true,
         duration: 0.7,
       });
     }
   }, [selectedSpring, map]);
+
+  useEffect(() => {
+    map.whenReady(() => setIsMapReady(true));
+  }, [map]);
 
   return null;
 };
@@ -83,8 +86,13 @@ const MapControls = ({
 };
 
 const Map: React.FC = () => {
-  const { filteredSpringsList, selectedSpring } = useDataContext();
-  const { userLocation, getLocation } = useCurrentPosition();
+  const {
+    filteredSpringsList,
+    selectedSpring,
+    setIsMapReady,
+    userLocation,
+    getLocation,
+  } = useDataContext();
   const [selectedMapType, setSelectedMapType] = useState(AVAILABLE_MAPS[0]);
 
   const handleMapTypeChange = () => {

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import getSpring from '@/app/actions/getSpring';
 import SpringPageClient from './SpringPageClient';
+import { GalleryContextProvider } from '@/context/GalleryContext';
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -45,5 +46,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SpringPage({ params }: Props) {
   const { id } = await params;
-  return <SpringPageClient id={id} />;
+  return (
+    <GalleryContextProvider>
+      <SpringPageClient id={id} />
+    </GalleryContextProvider>
+  );
 }

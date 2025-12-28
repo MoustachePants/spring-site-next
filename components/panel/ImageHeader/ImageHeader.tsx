@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import './ImageHeader.css';
 import { Spring } from '@/models/types/spring';
 import { getImage } from '@/utils/image';
-import ImagesDisplay from '../ImagesDisplay/ImagesDisplay';
+import { useGalleryContext } from '@/context/GalleryContext';
 
 type ImageHeaderProps = {
   spring: Spring;
 };
 
 const ImageHeader: React.FC<ImageHeaderProps> = ({ spring }) => {
-  const [showGallery, setShowGallery] = useState(false);
+  const { openGallery } = useGalleryContext();
 
   const handleImageClick = () => {
     if (spring.images.length > 0) {
-      setShowGallery(true);
+      openGallery(spring);
     }
-  };
-
-  const handleClose = () => {
-    setShowGallery(false);
   };
 
   return (
@@ -32,7 +28,6 @@ const ImageHeader: React.FC<ImageHeaderProps> = ({ spring }) => {
         sizes="(max-width: 768px) 100vw, 50vw"
         priority
       />
-      {showGallery ? <ImagesDisplay images={spring.images} onClose={handleClose} /> : null}
     </header>
   );
 };

@@ -1,10 +1,12 @@
 'use client';
 
+import { Dispatch, SetStateAction } from 'react';
 import listSprings from '@/app/actions/listSprings';
 import { Category, mapPlaces, Place } from '@/models/types/category';
 import { Spring } from '@/models/types/spring';
 import { UserLocation } from '@/models/types/userLocation';
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { useSearchFilters } from '@/hooks/useSearchFilters';
+import { checkSpringByCategory } from '@/utils/category';
 import { createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 type DataContextType = {
@@ -16,11 +18,14 @@ type DataContextType = {
   searchTerm: string;
   selectedSpring: Spring | undefined;
   userLocation: UserLocation | null;
+  isMapReady: boolean;
   setSelectedCategories: (categories: Category[]) => void;
   setSelectedPlaces: (places: Place[]) => void;
   setSearchTerm: (term: string) => void;
   setSelectedSpring: (spring: Spring | undefined) => void;
   setUserLocation: (location: UserLocation | null) => void;
+  setIsMapReady: Dispatch<SetStateAction<boolean>>;
+  getLocation: () => void;
 };
 
 export const DataContext = createContext<DataContextType>({
@@ -32,11 +37,14 @@ export const DataContext = createContext<DataContextType>({
   searchTerm: '',
   selectedSpring: undefined,
   userLocation: null,
+  isMapReady: false,
   setSelectedCategories: () => {},
   setSelectedPlaces: () => {},
   setSearchTerm: () => {},
   setSelectedSpring: () => {},
   setUserLocation: () => {},
+  setIsMapReady: () => {},
+  getLocation: () => {},
 });
 
 export function useDataContext() {
@@ -58,46 +66,31 @@ export function DataContextProvider({
   const [isSpringsListLoading, setIsSpringsListLoading] = useState<boolean>(!initialSprings);
   const [selectedSpring, setSelectedSpring] = useState<Spring | undefined>(undefined);
   const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
+  const [isMapReady, setIsMapReady] = useState<boolean>(false);
 
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
+  const {
+    selectedCategories,
+    selectedPlaces,
+    searchTerm,
+    setSelectedCategories,
+    setSelectedPlaces,
+    setSearchTerm,
+  } = useSearchFilters();
 
-  const selectedCategories = useMemo(() => {
-    const param = searchParams.get('categories');
-    return param ? (param.split(',') as Category[]) : [];
-  }, [searchParams]);
-
-  const selectedPlaces = useMemo(() => {
-    const param = searchParams.get('places');
-    return param ? (param.split(',') as Place[]) : [];
-  }, [searchParams]);
-
-  const searchTerm = searchParams.get('search') || '';
-
-  const updateSearchParams = (key: string, value: string | null) => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (value) {
-      params.set(key, value);
-    } else {
-      params.delete(key);
+  const getLocation = () => {
+    if (typeof window !== 'undefined' && 'geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setUserLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+      });
     }
-    const newUrl = `${pathname}?${params.toString()}`;
-    router.replace(newUrl, { scroll: false });
   };
 
-  const setSelectedCategories = (categories: Category[]) => {
-    updateSearchParams('categories', categories.length > 0 ? categories.join(',') : null);
-  };
-
-  const setSelectedPlaces = (places: Place[]) => {
-    updateSearchParams('places', places.length > 0 ? places.join(',') : null);
-  };
-
-  const setSearchTerm = (term: string) => {
-    console.log('setSearchTerm called with:', term);
-    updateSearchParams('search', term || null);
-  };
+  useEffect(() => {
+    getLocation();
+  }, []);
 
   const blockRef = useRef<boolean>(true);
   useEffect(() => {
@@ -138,27 +131,7 @@ export function DataContextProvider({
       // Filter by categories
       if (selectedCategories.length > 0) {
         const matchesAllCategories = selectedCategories.every((category) => {
-          switch (category) {
-            case 'deep':
-              return spring.springDetails.isDeep;
-            case 'hot':
-              return spring.springDetails.isHotSpring;
-            case 'accsessible':
-              return spring.springDetails.IsAccessible;
-            case 'shadow':
-              return spring.springDetails.hasShadow;
-            case 'view':
-              return spring.springDetails.hasView;
-            case 'nearCar':
-              // Assuming near car means <= 10 minutes walk
-              return spring.location.minutesByFoot <= 10;
-            case 'sitSpot':
-              return spring.springDetails.hasSitingSpots;
-            case 'shallow':
-              return spring.springDetails.isShallow;
-            default:
-              return true;
-          }
+          return checkSpringByCategory(spring, category);
         });
         if (!matchesAllCategories) return false;
       }
@@ -178,11 +151,14 @@ export function DataContextProvider({
         searchTerm,
         selectedSpring,
         userLocation,
+        isMapReady,
         setSelectedCategories,
         setSelectedPlaces,
         setSearchTerm,
         setSelectedSpring,
         setUserLocation,
+        setIsMapReady,
+        getLocation,
       }}
     >
       {children}
