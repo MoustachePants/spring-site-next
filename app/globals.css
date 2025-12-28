@@ -24,6 +24,9 @@
   --input-height: 40px;
 
   --details-padding: 20px;
+  --details-height: 37vh;
+  --details-min-height: 200px;
+  --details-max-height: 400px;
 
   --font-family: 'Noto Sans Hebrew', system-ui, -apple-system, sans-serif;
 }

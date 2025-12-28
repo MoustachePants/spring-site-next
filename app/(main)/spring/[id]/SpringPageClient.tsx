@@ -10,6 +10,7 @@ import MapPanel from '@/components/ui/MapPanel/MapPanel';
 import DetailsSkeleton from '@/components/loading/skeleton/DetailsSkeleton/DetailsSkeleton';
 import ImagesDisplay from '@/components/panel/ImagesDisplay/ImagesDisplay';
 import { useGalleryContext } from '@/context/GalleryContext';
+import ImgHeaderSkeleton from '@/components/loading/skeleton/ImgHeaderSkeleton/ImgHeaderSkeleton';
 
 interface SpringPageClientProps {
   id: string;
@@ -41,7 +42,7 @@ const SpringPageClient: React.FC<SpringPageClientProps> = ({ id }) => {
 
   return (
     <>
-      <MapPanel header={spring ? <ImageHeader spring={spring} /> : undefined}>
+      <MapPanel header={spring ? <ImageHeader spring={spring} /> : <ImgHeaderSkeleton />}>
         {spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}
       </MapPanel>
       {isOpen && currentSpring && (
