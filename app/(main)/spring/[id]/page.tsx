@@ -1,54 +1,52 @@
-import { Metadata } from 'next';
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
+import ImageHeader from '@/components/panel/ImageHeader/ImageHeader';
+import SpringDetails from '@/components/panel/details/SpringDetails/SpringDetails';
+import { useDataContext } from '@/context/DataContext';
+import { Spring } from '@/models/types/spring';
 import getSpring from '@/app/actions/getSpring';
-import SpringPageClient from './SpringPageClient';
-import { GalleryContextProvider } from '@/context/GalleryContext';
+import MapPanel from '@/components/ui/MapPanel/MapPanel';
+import DetailsSkeleton from '@/components/loading/skeleton/DetailsSkeleton/DetailsSkeleton';
+import ImagesDisplay from '@/components/panel/ImagesDisplay/ImagesDisplay';
+import { useGalleryContext } from '@/context/GalleryContext';
+import ImgHeaderSkeleton from '@/components/loading/skeleton/ImgHeaderSkeleton/ImgHeaderSkeleton';
 
-type Props = {
-  params: Promise<{ id: string }>;
-};
+export default function SpringPage() {
+  const params = useParams();
+  const id = params?.id as string;
+  const { setSelectedSpring } = useDataContext();
+  const [spring, setSpring] = useState<Spring | undefined>(undefined);
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
-  const response = await getSpring(id);
+  const { isOpen, currentSpring, closeGallery } = useGalleryContext();
 
-  if (response.status !== 'success' || !response.data) {
-    return {
-      title: 'מעיין לא נמצא | המעיין הנובע',
+  useEffect(() => {
+    const fetchSpring = async () => {
+      if (!id) return;
+
+      try {
+        const response = await getSpring(id);
+        if (response.data) {
+          setSpring(response.data);
+          setSelectedSpring(response.data);
+        }
+      } catch (error) {
+        console.error('Error fetching spring:', error);
+      }
     };
-  }
 
-  const spring = response.data;
-  const title = `${spring.name} | המעיין הנובע`;
-  const description =
-    spring.description ||
-    `${spring.name} - ${spring.mainRegion}, ${spring.subRegion}. מידע עדכני על המעיין כולל הוראות הגעה ותמונות.`;
+    fetchSpring();
+  }, [id, setSelectedSpring]);
 
-  const imageUrl = spring.images?.[0]?.image || '/og-image.png';
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      images: [imageUrl],
-      type: 'article',
-      locale: 'he_IL',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [imageUrl],
-    },
-  };
-}
-
-export default async function SpringPage({ params }: Props) {
-  const { id } = await params;
   return (
-    <GalleryContextProvider>
-      <SpringPageClient id={id} />
-    </GalleryContextProvider>
+    <>
+      <MapPanel header={spring ? <ImageHeader spring={spring} /> : <ImgHeaderSkeleton />}>
+        {spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}
+      </MapPanel>
+      {isOpen && currentSpring && (
+        <ImagesDisplay images={currentSpring.images} onClose={closeGallery} />
+      )}
+    </>
   );
 }
