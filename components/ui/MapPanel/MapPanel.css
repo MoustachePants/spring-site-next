@@ -10,7 +10,7 @@
   flex-direction: column;
   overflow-y: auto;
   box-shadow: -5px -1px 10px rgba(0, 0, 0, 0.5);
-  z-index: 20;
+  z-index: 100;
 }
 
 .side-panel-content-wrapper {

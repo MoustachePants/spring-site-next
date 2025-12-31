@@ -15,8 +15,6 @@ const SearchInput: React.FC = () => {
   return (
     <div className="search-input-container">
       <Icons.search />
-      {/*<div className="search-input-icons-container">*/}
-      {/*</div>*/}
       <input
         type="text"
         className="search-input"
