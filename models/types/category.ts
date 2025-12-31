@@ -16,6 +16,20 @@ export const mapPlaces = {
   north: 'צפון',
   south: 'דרום',
   center: 'מרכז',
+  // upperGalilee: 'הגליל העליון',
+  // lowerGalilee: 'הגליל התחתון',
+  // golan: 'הגולן',
+  // yezreelValley: 'עמק יזרעאל',
+  // carmel: 'הכרמל',
+  // sharon: 'השרון',
+  // shefela: 'השפלה',
+  // jerusalemMountains: 'הרי ירושלים',
+  // judeanDesert: 'מדבר יהודה',
+  // jordanValley: 'בקעת הירדן',
+  // northernNegev: 'הנגב הצפוני',
+  // centralNegev: 'הנגב המרכזי',
+  // arava: 'הערבה',
+  // eilatArea: 'אזור אילת',
 } as const;
 
 export type Place = keyof typeof mapPlaces;
