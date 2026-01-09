@@ -12,6 +12,7 @@ import DetailsSkeleton from '@/components/loading/skeleton/DetailsSkeleton/Detai
 import ImagesDisplay from '@/components/panel/ImagesDisplay/ImagesDisplay';
 import { useGalleryContext } from '@/context/GalleryContext';
 import ImgHeaderSkeleton from '@/components/loading/skeleton/ImgHeaderSkeleton/ImgHeaderSkeleton';
+import Head from 'next/head';
 
 export default function SpringPage() {
   const params = useParams();
@@ -41,6 +42,9 @@ export default function SpringPage() {
 
   return (
     <>
+      <Head>
+        <link rel="canonical" href={`https://springsofisrael.com/spring/${id}`} />
+      </Head>
       <MapPanel header={spring ? <ImageHeader spring={spring} /> : <ImgHeaderSkeleton />}>
         {spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}
       </MapPanel>
