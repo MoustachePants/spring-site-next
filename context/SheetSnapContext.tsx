@@ -2,30 +2,22 @@
 
 import { createContext, ReactNode, useContext, useState, useEffect } from 'react';
 
-type PanelContextType = {
-  isScrollAtTop: boolean;
-  setIsScrollAtTop: (isAtTop: boolean) => void;
+type SheetSnapContextType = {
   currentSnapIndex: number;
   setCurrentSnapIndex: (index: number) => void;
 };
 
-export const PanelContext = createContext<PanelContextType>({
-  isScrollAtTop: true,
-  setIsScrollAtTop: () => {},
-  currentSnapIndex: 2,
-  setCurrentSnapIndex: () => {},
-});
+const SheetSnapContext = createContext<SheetSnapContextType | undefined>(undefined);
 
-export function usePanelContext() {
-  const context = useContext(PanelContext);
+export function useSheetSnapContext() {
+  const context = useContext(SheetSnapContext);
   if (context === undefined) {
-    throw new Error('usePanelContext must be used within a PanelContextProvider');
+    throw new Error('useSheetSnapContext must be used within a SheetSnapContextProvider');
   }
   return context;
 }
 
-export function PanelContextProvider({ children }: { children: ReactNode }) {
-  const [isScrollAtTop, setIsScrollAtTop] = useState<boolean>(true);
+export function SheetSnapContextProvider({ children }: { children: ReactNode }) {
   const [currentSnapIndex, setCurrentSnapIndex] = useState<number>(2);
 
   useEffect(() => {
@@ -41,15 +33,13 @@ export function PanelContextProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <PanelContext.Provider
+    <SheetSnapContext.Provider
       value={{
-        isScrollAtTop,
-        setIsScrollAtTop,
         currentSnapIndex,
         setCurrentSnapIndex: updateSnapIndex,
       }}
     >
       {children}
-    </PanelContext.Provider>
+    </SheetSnapContext.Provider>
   );
 }

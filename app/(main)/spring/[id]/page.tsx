@@ -6,7 +6,7 @@ import SpringDetails from '@/components/panel/details/SpringDetails/SpringDetail
 import { useDataContext } from '@/context/DataContext';
 import { Spring } from '@/models/types/spring';
 import getSpring from '@/app/actions/getSpring';
-import MapPanel from '@/components/ui/MapPanel/MapPanel';
+import Panel from '@/components/ui/Panel/Panel';
 import DetailsSkeleton from '@/components/loading/skeleton/DetailsSkeleton/DetailsSkeleton';
 import ImagesDisplay from '@/components/panel/ImagesDisplay/ImagesDisplay';
 import { useGalleryContext } from '@/context/GalleryContext';
@@ -43,7 +43,7 @@ export default function SpringPage() {
       <Head>
         <link rel="canonical" href={`https://springsofisrael.com/spring/${id}`} />
       </Head>
-      <MapPanel>{spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}</MapPanel>
+      <Panel>{spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}</Panel>
       {isOpen && currentSpring && (
         <ImagesDisplay images={currentSpring.images} onClose={closeGallery} />
       )}

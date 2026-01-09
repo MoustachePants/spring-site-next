@@ -2,19 +2,19 @@
 
 import React, { useRef } from 'react';
 import { Sheet } from 'react-modal-sheet';
-import './MapPanel.css';
+import './Panel.css';
 import { useMobileSize } from '@/hooks/useMobileSize';
 import { PanelContextProvider, usePanelContext } from '@/context/PanelContext';
 
-interface MapPanelProps {
+interface PanelProps {
   header?: React.ReactNode;
   children: React.ReactNode;
 }
 
-const MapPanelContent: React.FC<MapPanelProps> = ({ header, children }) => {
+const PanelContent: React.FC<PanelProps> = ({ header, children }) => {
   const isMobile = useMobileSize();
   const sheetRef = useRef<any>(null);
-  const { isScrollAtTop } = usePanelContext();
+  const { isScrollAtTop, currentSnapIndex, setCurrentSnapIndex } = usePanelContext();
 
   const Hidden = { v: 0, i: 0 };
   const Peeking = { v: 0.1, i: 1 };
@@ -23,18 +23,11 @@ const MapPanelContent: React.FC<MapPanelProps> = ({ header, children }) => {
 
   const snapPoints = [Hidden.v, Peeking.v, Middle.v, Open.v];
 
-  if (!isMobile) {
-    return (
-      <div className="map-panel">
-        <div className="map-panel-content-wrapper">
-          <div className="map-panel-header">{header}</div>
-          <div className="map-panel-content">{children}</div>
-        </div>
-      </div>
-    );
-  }
+  const handleSnap = (index: number) => {
+    setCurrentSnapIndex(index === Peeking.i ? Middle.i : index);
+  };
 
-  return (
+  if (isMobile) {
     <div className="map-panel-mobile-wrapper">
       <Sheet
         ref={sheetRef}
@@ -43,7 +36,8 @@ const MapPanelContent: React.FC<MapPanelProps> = ({ header, children }) => {
           sheetRef.current?.snapTo(Peeking.i);
         }}
         snapPoints={snapPoints}
-        initialSnap={Middle.i}
+        initialSnap={currentSnapIndex}
+        onSnap={handleSnap}
       >
         <Sheet.Container>
           <Sheet.Header>
@@ -58,16 +52,25 @@ const MapPanelContent: React.FC<MapPanelProps> = ({ header, children }) => {
           <Sheet.Content disableDrag={!isScrollAtTop}>{children}</Sheet.Content>
         </Sheet.Container>
       </Sheet>
+    </div>;
+  }
+
+  return (
+    <div className="map-panel">
+      <div className="map-panel-content-wrapper">
+        <div className="map-panel-header">{header}</div>
+        <div className="map-panel-content">{children}</div>
+      </div>
     </div>
   );
 };
 
-const MapPanel: React.FC<MapPanelProps> = (props) => {
+const Panel: React.FC<PanelProps> = (props) => {
   return (
     <PanelContextProvider>
-      <MapPanelContent {...props} />
+      <PanelContent {...props} />
     </PanelContextProvider>
   );
 };
 
-export default MapPanel;
+export default Panel;
