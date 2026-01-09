@@ -2,16 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import ImageHeader from '@/components/panel/ImageHeader/ImageHeader';
 import SpringDetails from '@/components/panel/details/SpringDetails/SpringDetails';
 import { useDataContext } from '@/context/DataContext';
 import { Spring } from '@/models/types/spring';
 import getSpring from '@/app/actions/getSpring';
-import MapPanel from '@/components/ui/MapPanel/MapPanel';
+import Panel from '@/components/ui/Panel/Panel';
 import DetailsSkeleton from '@/components/loading/skeleton/DetailsSkeleton/DetailsSkeleton';
 import ImagesDisplay from '@/components/panel/ImagesDisplay/ImagesDisplay';
 import { useGalleryContext } from '@/context/GalleryContext';
-import ImgHeaderSkeleton from '@/components/loading/skeleton/ImgHeaderSkeleton/ImgHeaderSkeleton';
 import Head from 'next/head';
 
 export default function SpringPage() {
@@ -45,10 +43,10 @@ export default function SpringPage() {
       <Head>
         <link rel="canonical" href={`https://springsofisrael.com/spring/${id}`} />
       </Head>
-      <MapPanel header={spring ? <ImageHeader spring={spring} /> : <ImgHeaderSkeleton />}>
-        {spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}
-      </MapPanel>
-      {isOpen && currentSpring && <ImagesDisplay spring={currentSpring} onClose={closeGallery} />}
+      <Panel>{spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}</Panel>
+      {isOpen && currentSpring && (
+        <ImagesDisplay spring={currentSpring} onClose={closeGallery} />
+      )}
     </>
   );
 }

@@ -9,6 +9,7 @@ import MoreDetails from '../MoreDetails/MoreDetails';
 import { useDataContext } from '@/context/DataContext';
 import SpringPositionTag from '../../../SpringPositionTag/SpringPositionTag';
 import NearbySprings from '../NearbySprings/NearbySprings';
+import ImageHeader from '../../ImageHeader/ImageHeader';
 
 type SpringDetailsProps = {
   spring: Spring;
@@ -26,6 +27,7 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
 
   return (
     <section className="spring-details" ref={springDetailsRef}>
+      <ImageHeader spring={spring} />
       <DetailsHeader springUpdatesRef={springUpdatesRef} />
       <section className="spring-details-content">
         <section className="spring-details-top-details">
