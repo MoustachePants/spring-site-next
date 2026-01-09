@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  trailingSlash: false,
   images: {
     // Enable modern image formats for better compression
     formats: ['image/avif', 'image/webp'],

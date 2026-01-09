@@ -10,6 +10,7 @@ import MapPanel from '@/components/ui/MapPanel/MapPanel';
 import DetailsSkeleton from '@/components/loading/skeleton/DetailsSkeleton/DetailsSkeleton';
 import ImagesDisplay from '@/components/panel/ImagesDisplay/ImagesDisplay';
 import { useGalleryContext } from '@/context/GalleryContext';
+import Head from 'next/head';
 
 export default function SpringPage() {
   const params = useParams();
@@ -39,9 +40,10 @@ export default function SpringPage() {
 
   return (
     <>
-      <MapPanel>
-        {spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}
-      </MapPanel>
+      <Head>
+        <link rel="canonical" href={`https://springsofisrael.com/spring/${id}`} />
+      </Head>
+      <MapPanel>{spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}</MapPanel>
       {isOpen && currentSpring && (
         <ImagesDisplay images={currentSpring.images} onClose={closeGallery} />
       )}

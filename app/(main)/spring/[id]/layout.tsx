@@ -11,7 +11,6 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const response = await getSpring(id);
-
   if (response.status !== 'success' || !response.data) {
     return {
       title: 'מעיין לא נמצא | המעיין הנובע',
@@ -43,9 +42,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       images: [imageUrl],
     },
+    alternates: {
+      canonical: `/spring/${id}`,
+    },
   };
 }
 
 export default function SpringLayout({ children }: { children: React.ReactNode }) {
-  return <GalleryContextProvider><section>{children}</section></GalleryContextProvider>;
+  return (
+    <GalleryContextProvider>
+      <section>{children}</section>
+    </GalleryContextProvider>
+  );
 }
