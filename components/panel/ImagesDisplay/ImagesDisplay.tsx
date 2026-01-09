@@ -3,15 +3,16 @@ import Image from 'next/image';
 import { createPortal } from 'react-dom';
 import './ImagesDisplay.css';
 import Icons from '@/style/icons';
-import { SpringImage } from '@/models/types/spring';
+import { Spring } from '@/models/types/spring';
+import { getSpringImage } from '@/utils/springImage';
 
 type ImagesDisplayProps = {
-  images: SpringImage[];
+  spring: Spring;
   initialIndex?: number;
   onClose: () => void;
 };
 
-const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0, onClose }) => {
+const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ spring, initialIndex = 0, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [mounted, setMounted] = useState(false);
   const touchStartX = useRef<number | null>(null);
@@ -28,12 +29,12 @@ const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0,
 
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setCurrentIndex((prev) => (prev + 1) % spring.images.length);
   };
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentIndex((prev) => (prev - 1 + spring.images.length) % spring.images.length);
   };
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -51,21 +52,21 @@ const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0,
     const isRightSwipe = distance < -50;
 
     if (isLeftSwipe) {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
+      setCurrentIndex((prev) => (prev + 1) % spring.images.length);
     }
     if (isRightSwipe) {
-      setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+      setCurrentIndex((prev) => (prev - 1 + spring.images.length) % spring.images.length);
     }
-    
+
     // Reset
     touchStartX.current = null;
     touchEndX.current = null;
   };
 
-  if (!mounted || !images || images.length === 0) return null;
+  if (!mounted || !spring.images || spring.images.length === 0) return null;
 
   return createPortal(
-    <div 
+    <div
       className="images-display-overlay"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -88,7 +89,7 @@ const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0,
 
         <div className="images-display-image-container">
           <Image
-            src={`/springImages/${images[currentIndex].image}`}
+            src={getSpringImage(spring, currentIndex)}
             alt={`Spring image ${currentIndex + 1}`}
             fill
             className="images-display-image"
@@ -103,23 +104,23 @@ const ImagesDisplay: React.FC<ImagesDisplayProps> = ({ images, initialIndex = 0,
       </div>
 
       <div className="images-display-counter">
-        {currentIndex + 1} / {images.length}
+        {currentIndex + 1} / {spring.images.length}
       </div>
 
-      {images[currentIndex].credit && (
+      {spring.images[currentIndex].credit && (
         <div className="images-display-credit">
           <span>צילום: </span>
-          {images[currentIndex].link ? (
+          {spring.images[currentIndex].link ? (
             <a
-              href={images[currentIndex].link}
+              href={spring.images[currentIndex].link}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
             >
-              {images[currentIndex].credit}
+              {spring.images[currentIndex].credit}
             </a>
           ) : (
-            <span>{images[currentIndex].credit}</span>
+            <span>{spring.images[currentIndex].credit}</span>
           )}
         </div>
       )}

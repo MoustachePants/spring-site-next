@@ -48,9 +48,7 @@ export default function SpringPage() {
       <MapPanel header={spring ? <ImageHeader spring={spring} /> : <ImgHeaderSkeleton />}>
         {spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}
       </MapPanel>
-      {isOpen && currentSpring && (
-        <ImagesDisplay images={currentSpring.images} onClose={closeGallery} />
-      )}
+      {isOpen && currentSpring && <ImagesDisplay spring={currentSpring} onClose={closeGallery} />}
     </>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import './ImageHeader.css';
 import { Spring } from '@/models/types/spring';
-import { getImage } from '@/utils/image';
+import { getSpringImage } from '@/utils/springImage';
 import { useGalleryContext } from '@/context/GalleryContext';
 
 type ImageHeaderProps = {
@@ -21,7 +21,7 @@ const ImageHeader: React.FC<ImageHeaderProps> = ({ spring }) => {
   return (
     <header className="image-header" onClick={handleImageClick}>
       <Image
-        src={getImage(spring)}
+        src={getSpringImage(spring)}
         alt={spring?.name || 'מעיין'}
         fill
         className="image-header-img"

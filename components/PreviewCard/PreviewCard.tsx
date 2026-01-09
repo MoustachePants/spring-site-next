@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SpringPositionTag from '../SpringPositionTag/SpringPositionTag';
 import TagsList from '../TagsList/TagsList';
-import { getImage } from '@/utils/image';
+import { getSpringImage } from '@/utils/springImage';
 
 type PreviewCardProps = {
   spring: Spring;
@@ -19,7 +19,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ spring, priority = false }) =
         className="preview-card-image"
         width={400}
         height={230}
-        src={getImage(spring)}
+        src={getSpringImage(spring)}
         alt={spring?.name || 'מעיין'}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
         priority={priority}
