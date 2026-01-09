@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import getSpring from '@/app/actions/getSpring';
 import { GalleryContextProvider } from '@/context/GalleryContext';
 import { env } from '@/lib/env.config';
-import { getImage } from '@/utils/image';
+import { getSpringImage } from '@/utils/springImage';
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     spring.description ||
     `${spring.name} - ${spring.mainRegion}, ${spring.subRegion}. מידע עדכני על המעיין כולל הוראות הגעה ותמונות.`;
 
-  const imagePath = spring.images?.length > 0 ? getImage(spring) : '/og-image.png';
+  const imagePath = spring.images?.length > 0 ? getSpringImage(spring) : '/og-image.png';
   const imageUrl = `${env.baseUrl}${imagePath}`;
 
   return {

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Spring } from '@/models/types/spring';
 import SpringPositionTag from '../SpringPositionTag/SpringPositionTag';
 import Link from 'next/link';
+import { getSpringImage } from '@/utils/springImage';
 
 type SmallPreviewCardProps = {
   spring: Spring;
@@ -13,11 +14,7 @@ const SmallPreviewCard: React.FC<SmallPreviewCardProps> = ({ spring }) => {
   return (
     <Link href={`/spring/${spring._id}`} key={spring._id} className="nearby-springs-card">
       <Image
-        src={
-          spring.images.length > 0
-            ? `/springImages/${spring.images[0].image}`
-            : '/water_texture.jpg'
-        }
+        src={getSpringImage(spring)}
         className="nearby-springs-card-image"
         alt={spring.name}
         width={150}

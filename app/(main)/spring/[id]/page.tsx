@@ -45,7 +45,7 @@ export default function SpringPage() {
       </Head>
       <Panel>{spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}</Panel>
       {isOpen && currentSpring && (
-        <ImagesDisplay images={currentSpring.images} onClose={closeGallery} />
+        <ImagesDisplay spring={currentSpring} onClose={closeGallery} />
       )}
     </>
   );

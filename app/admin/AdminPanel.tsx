@@ -5,6 +5,7 @@ import { Spring, SpringImage } from '@/models/types/spring';
 import updateSpring from '@/app/actions/updateSpring';
 import { Search, FloppyDisk, Plus, Trash, Check, Xmark } from 'iconoir-react';
 import './AdminPanel.css';
+import { getSpringImage } from '@/utils/springImage';
 
 interface AdminPanelProps {
   initialSprings: Spring[];
@@ -379,7 +380,9 @@ export default function AdminPanel({ initialSprings }: AdminPanelProps) {
                     {formData.images.map((img, idx) => (
                       <div key={idx} className="image-item">
                         <div className="image-preview">
-                          {img.image ? <img src={'springImages/' + img.image} alt="" loading="lazy" /> : null}
+                          {img.image ? (
+                            <img src={getSpringImage(formData)} alt="" loading="lazy" />
+                          ) : null}
                         </div>
                         <div className="image-fields">
                           <div className="form-group">
