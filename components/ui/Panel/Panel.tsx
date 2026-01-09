@@ -28,31 +28,33 @@ const PanelContent: React.FC<PanelProps> = ({ header, children }) => {
   };
 
   if (isMobile) {
-    <div className="map-panel-mobile-wrapper">
-      <Sheet
-        ref={sheetRef}
-        isOpen
-        onClose={() => {
-          sheetRef.current?.snapTo(Peeking.i);
-        }}
-        snapPoints={snapPoints}
-        initialSnap={currentSnapIndex}
-        onSnap={handleSnap}
-      >
-        <Sheet.Container>
-          <Sheet.Header>
-            {header ? (
-              <div className="map-panel-sheet-header-wrapper">{header}</div>
-            ) : (
-              <div className="map-panel-sheet-header-wrapper shadow">
-                <div className="header-indicator"></div>
-              </div>
-            )}
-          </Sheet.Header>
-          <Sheet.Content disableDrag={!isScrollAtTop}>{children}</Sheet.Content>
-        </Sheet.Container>
-      </Sheet>
-    </div>;
+    return (
+      <div className="map-panel-mobile-wrapper">
+        <Sheet
+          ref={sheetRef}
+          isOpen
+          onClose={() => {
+            sheetRef.current?.snapTo(Peeking.i);
+          }}
+          snapPoints={snapPoints}
+          initialSnap={currentSnapIndex}
+          onSnap={handleSnap}
+        >
+          <Sheet.Container>
+            <Sheet.Header>
+              {header ? (
+                <div className="map-panel-sheet-header-wrapper">{header}</div>
+              ) : (
+                <div className="map-panel-sheet-header-wrapper shadow">
+                  <div className="header-indicator"></div>
+                </div>
+              )}
+            </Sheet.Header>
+            <Sheet.Content disableDrag={!isScrollAtTop}>{children}</Sheet.Content>
+          </Sheet.Container>
+        </Sheet>
+      </div>
+    );
   }
 
   return (
