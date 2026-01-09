@@ -59,6 +59,29 @@
     width: 100%;
   }
 
+  .map-panel-sheet-header-wrapper.shadow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: calc(0.3rem + 2 * 0.5rem);
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+
+  .header-indicator {
+    height: 0.3rem;
+    width: 3rem;
+    background-color: var(--bright-text-color);
+    border-radius: 1rem;
+    z-index: 100;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .react-modal-sheet-container {
     border-top-left-radius: 20px !important;
     border-top-right-radius: 20px !important;

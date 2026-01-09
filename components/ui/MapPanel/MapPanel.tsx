@@ -7,7 +7,7 @@ import { useMobileSize } from '@/hooks/useMobileSize';
 import { PanelContextProvider, usePanelContext } from '@/context/PanelContext';
 
 interface MapPanelProps {
-  header: React.ReactNode;
+  header?: React.ReactNode;
   children: React.ReactNode;
 }
 
@@ -47,7 +47,13 @@ const MapPanelContent: React.FC<MapPanelProps> = ({ header, children }) => {
       >
         <Sheet.Container>
           <Sheet.Header>
-            <div className="map-panel-sheet-header-wrapper">{header}</div>
+            {header ? (
+              <div className="map-panel-sheet-header-wrapper">{header}</div>
+            ) : (
+              <div className="map-panel-sheet-header-wrapper shadow">
+                <div className="header-indicator"></div>
+              </div>
+            )}
           </Sheet.Header>
           <Sheet.Content disableDrag={!isScrollAtTop}>{children}</Sheet.Content>
         </Sheet.Container>

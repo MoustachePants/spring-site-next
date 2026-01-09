@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import ImageHeader from '@/components/panel/ImageHeader/ImageHeader';
 import SpringDetails from '@/components/panel/details/SpringDetails/SpringDetails';
 import { useDataContext } from '@/context/DataContext';
 import { Spring } from '@/models/types/spring';
@@ -11,7 +10,6 @@ import MapPanel from '@/components/ui/MapPanel/MapPanel';
 import DetailsSkeleton from '@/components/loading/skeleton/DetailsSkeleton/DetailsSkeleton';
 import ImagesDisplay from '@/components/panel/ImagesDisplay/ImagesDisplay';
 import { useGalleryContext } from '@/context/GalleryContext';
-import ImgHeaderSkeleton from '@/components/loading/skeleton/ImgHeaderSkeleton/ImgHeaderSkeleton';
 
 export default function SpringPage() {
   const params = useParams();
@@ -41,7 +39,7 @@ export default function SpringPage() {
 
   return (
     <>
-      <MapPanel header={spring ? <ImageHeader spring={spring} /> : <ImgHeaderSkeleton />}>
+      <MapPanel>
         {spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}
       </MapPanel>
       {isOpen && currentSpring && (

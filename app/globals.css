@@ -28,6 +28,8 @@
   --details-min-height: 200px;
   --details-max-height: 400px;
 
+  --padding-bottom-panel: 7vh;
+
   --font-family: 'Noto Sans Hebrew', system-ui, -apple-system, sans-serif;
 }
 
