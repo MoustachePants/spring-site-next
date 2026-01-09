@@ -381,7 +381,7 @@ export default function AdminPanel({ initialSprings }: AdminPanelProps) {
                       <div key={idx} className="image-item">
                         <div className="image-preview">
                           {img.image ? (
-                            <img src={getSpringImage(spring)} alt="" loading="lazy" />
+                            <img src={getSpringImage(formData)} alt="" loading="lazy" />
                           ) : null}
                         </div>
                         <div className="image-fields">
