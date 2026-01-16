@@ -6,6 +6,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'הצהרת נגישות - המעיין הנובע',
   description: 'הצהרת נגישות של אתר המעיין הנובע',
+  alternates: {
+    canonical: '/accessibility',
+  },
 };
 
 const AccessibilityPage = () => {

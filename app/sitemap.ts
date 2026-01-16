@@ -6,7 +6,6 @@ import { env } from '@/lib/env.config';
 const BASE_URL = env.baseUrl;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
@@ -28,7 +27,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Dynamic spring pages
   try {
     const redis = getRedisClient();
     const keys = await redis.keys(getSpringsPattern());

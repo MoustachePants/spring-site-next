@@ -1,52 +1,47 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import SpringDetails from '@/components/panel/details/SpringDetails/SpringDetails';
-import { useDataContext } from '@/context/DataContext';
-import { Spring } from '@/models/types/spring';
+import { notFound } from 'next/navigation';
 import getSpring from '@/app/actions/getSpring';
 import Panel from '@/components/ui/Panel/Panel';
-import DetailsSkeleton from '@/components/loading/skeleton/DetailsSkeleton/DetailsSkeleton';
-import ImagesDisplay from '@/components/panel/ImagesDisplay/ImagesDisplay';
-import { useGalleryContext } from '@/context/GalleryContext';
-import Head from 'next/head';
+import SpringDetailsContent from '@/components/pageContent/SpringDetailsContent/SpringDetailsContent';
+import { NextPage } from 'next';
+import { Spring } from '@/models/types/spring';
+import { getSpringJsonLd } from '@/utils/seo';
 
-export default function SpringPage() {
-  const params = useParams();
-  const id = params?.id as string;
-  const { setSelectedSpring } = useDataContext();
-  const [spring, setSpring] = useState<Spring | undefined>(undefined);
+type Props = {
+  params: Promise<{ id: string }>;
+};
 
-  const { isOpen, currentSpring, closeGallery } = useGalleryContext();
+const SpringPage: NextPage<Props> = async ({ params }) => {
+  const { id } = await params;
 
-  useEffect(() => {
-    const fetchSpring = async () => {
-      if (!id) return;
+  if (!id) return notFound();
 
-      try {
-        const response = await getSpring(id);
-        if (response.data) {
-          setSpring(response.data);
-          setSelectedSpring(response.data);
-        }
-      } catch (error) {
-        console.error('Error fetching spring:', error);
-      }
-    };
+  try {
+    const response = await getSpring(id);
 
-    fetchSpring();
-  }, [id, setSelectedSpring]);
+    if (response.status !== 'success' || !response.data) return notFound();
+    const spring = response.data as Spring;
 
-  return (
-    <>
-      <Head>
-        <link rel="canonical" href={`https://springsofisrael.com/spring/${id}`} />
-      </Head>
-      <Panel>{spring ? <SpringDetails spring={spring} /> : <DetailsSkeleton />}</Panel>
-      {isOpen && currentSpring && (
-        <ImagesDisplay spring={currentSpring} onClose={closeGallery} />
-      )}
-    </>
-  );
-}
+    const { attractionLd, breadcrumbLd } = getSpringJsonLd(spring);
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(attractionLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+        />
+        <Panel>
+          <SpringDetailsContent spring={spring} />
+        </Panel>
+      </>
+    );
+  } catch (error) {
+    console.error('Error fetching spring:', error);
+    return notFound();
+  }
+};
+
+export default SpringPage;

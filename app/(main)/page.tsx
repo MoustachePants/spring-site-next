@@ -1,29 +1,24 @@
-'use client';
-
 import { NextPage } from 'next';
-import { useEffect } from 'react';
 import '../home.css';
 import Header from '@/components/panel/Header/Header';
-import SpringsList from '@/components/panel/SpringsList/SpringsList';
-import { useDataContext } from '@/context/DataContext';
 import Panel from '@/components/ui/Panel/Panel';
-import ListSkeleton from '@/components/loading/skeleton/ListSkeleton/ListSkeleton';
+import listSprings from '../actions/listSprings';
+import MainContent from '@/components/pageContent/MainContent/MainContent';
+import { Metadata } from 'next';
 
-const Home: NextPage = () => {
-  const { filteredSpringsList, isSpringsListLoading, isMapReady, setSelectedSpring } =
-    useDataContext();
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+};
 
-  useEffect(() => {
-    setSelectedSpring(undefined);
-  }, [setSelectedSpring]);
+const Home: NextPage = async () => {
+  const springsResponse = await listSprings();
+  const initialSprings = springsResponse.data ? springsResponse.data : [];
 
   return (
     <Panel header={<Header />}>
-      {!isMapReady || isSpringsListLoading ? (
-        <ListSkeleton />
-      ) : (
-        <SpringsList springs={filteredSpringsList} />
-      )}
+      <MainContent initialSprings={initialSprings} />
     </Panel>
   );
 };

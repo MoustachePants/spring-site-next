@@ -7,7 +7,6 @@ import { DataContextProvider } from '@/context/DataContext';
 import Loading from '@/components/loading/Loading/Loading';
 import Script from 'next/script';
 import { env } from '@/lib/env.config';
-import listSprings from '@/app/actions/listSprings';
 
 const notoSansHebrew = Noto_Sans_Hebrew({ subsets: ['hebrew'] });
 
@@ -127,9 +126,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const springsResponse = await listSprings();
-  const initialSprings = springsResponse.status === 'success' ? springsResponse.data : [];
-
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning={true}>
       <Script id="clarity-script" strategy="afterInteractive">
@@ -143,7 +139,7 @@ export default async function RootLayout({
       </Script>
       <body className={notoSansHebrew.className}>
         <Suspense fallback={<Loading />}>
-          <DataContextProvider initialSprings={initialSprings}>
+          <DataContextProvider>
             {children}
             <Toaster />
           </DataContextProvider>

@@ -19,6 +19,7 @@ type DataContextType = {
   selectedSpring: Spring | undefined;
   userLocation: UserLocation | null;
   isMapReady: boolean;
+  setSpringsList: (springs: Spring[]) => void;
   setSelectedCategories: (categories: Category[]) => void;
   setSelectedPlaces: (places: Place[]) => void;
   setSearchTerm: (term: string) => void;
@@ -38,6 +39,7 @@ export const DataContext = createContext<DataContextType>({
   selectedSpring: undefined,
   userLocation: null,
   isMapReady: false,
+  setSpringsList: () => {},
   setSelectedCategories: () => {},
   setSelectedPlaces: () => {},
   setSearchTerm: () => {},
@@ -68,6 +70,11 @@ export function DataContextProvider({
   const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
   const [isMapReady, setIsMapReady] = useState<boolean>(false);
 
+  const setSpringsListAndLoading = (springs: Spring[]) => {
+    setSpringsList(springs);
+    setIsSpringsListLoading(false);
+  };
+
   const {
     selectedCategories,
     selectedPlaces,
@@ -92,28 +99,30 @@ export function DataContextProvider({
     getLocation();
   }, []);
 
-  const blockRef = useRef<boolean>(true);
+  const blockRef = useRef<boolean>(false);
   useEffect(() => {
-    if (initialSprings && initialSprings.length > 0) {
+    if ((initialSprings && initialSprings.length > 0) || springsList.length > 0) {
+      setIsSpringsListLoading(false);
       return;
     }
 
     const loadSpringsList = async () => {
+      blockRef.current = true;
       setIsSpringsListLoading(true);
       try {
         const response = await listSprings();
-        if (!response || response.data?.length === 0) {
-          return;
+        if (response.data && response.data.length > 0) {
+          setSpringsList(response.data);
         }
-        setSpringsList(response.data || []);
       } catch (error) {
         console.error('Error loading springs list:', error);
       } finally {
         setIsSpringsListLoading(false);
       }
     };
-    if (blockRef.current) loadSpringsList();
-  }, [initialSprings]);
+
+    if (!blockRef.current) loadSpringsList();
+  }, [initialSprings, springsList.length]);
 
   const filteredSpringsList = useMemo(() => {
     return springsList.filter((spring) => {
@@ -159,6 +168,7 @@ export function DataContextProvider({
         setUserLocation,
         setIsMapReady,
         getLocation,
+        setSpringsList: setSpringsListAndLoading,
       }}
     >
       {children}

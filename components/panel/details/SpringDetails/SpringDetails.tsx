@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef } from 'react';
 import { useScrollToTopListener } from '@/hooks/useScrollToTopListener';
 import './SpringDetails.css';

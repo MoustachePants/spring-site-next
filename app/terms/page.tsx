@@ -1,10 +1,14 @@
 import React from 'react';
 import '@/style/legal-pages.css';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'תנאי שימוש ומדיניות פרטיות - המעיין הנובע',
   description: 'תנאי שימוש, תקנון ומדיניות פרטיות של אתר המעיין הנובע',
+  alternates: {
+    canonical: '/terms',
+  },
 };
 
 const TermsPage = () => {

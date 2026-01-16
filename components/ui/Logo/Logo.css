@@ -7,6 +7,23 @@
     object-fit: contain;
 }
 
+.logo-mobile {
+    display: block;
+}
+
+.logo-desktop {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .logo-mobile {
+        display: none;
+    }
+    .logo-desktop {
+        display: block;
+    }
+}
+
 .logo-container.S {
     width: 100px;
     height: 32px;
