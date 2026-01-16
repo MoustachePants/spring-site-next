@@ -7,6 +7,8 @@ type PanelContextType = {
   setIsScrollAtTop: (isAtTop: boolean) => void;
   currentSnapIndex: number;
   setCurrentSnapIndex: (index: number) => void;
+  header: ReactNode;
+  setHeader: (header: ReactNode) => void;
 };
 
 export const PanelContext = createContext<PanelContextType>({
@@ -14,6 +16,8 @@ export const PanelContext = createContext<PanelContextType>({
   setIsScrollAtTop: () => {},
   currentSnapIndex: 2,
   setCurrentSnapIndex: () => {},
+  header: null,
+  setHeader: () => {},
 });
 
 export function usePanelContext() {
@@ -27,6 +31,7 @@ export function usePanelContext() {
 export function PanelContextProvider({ children }: { children: ReactNode }) {
   const [isScrollAtTop, setIsScrollAtTop] = useState<boolean>(true);
   const [currentSnapIndex, setCurrentSnapIndex] = useState<number>(2);
+  const [header, setHeader] = useState<ReactNode>(null);
 
   useEffect(() => {
     const savedSnapIndex = sessionStorage.getItem('sheetSnapIndex');
@@ -47,6 +52,8 @@ export function PanelContextProvider({ children }: { children: ReactNode }) {
         setIsScrollAtTop,
         currentSnapIndex,
         setCurrentSnapIndex: updateSnapIndex,
+        header,
+        setHeader,
       }}
     >
       {children}

@@ -4,6 +4,7 @@ import './globals.css';
 import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { DataContextProvider } from '@/context/DataContext';
+import { PanelContextProvider } from '@/context/PanelContext';
 import Loading from '@/components/loading/Loading/Loading';
 import Script from 'next/script';
 import { env } from '@/lib/env.config';
@@ -138,12 +139,12 @@ export default async function RootLayout({
           `}
       </Script>
       <body className={notoSansHebrew.className}>
-        <Suspense fallback={<Loading />}>
+        <PanelContextProvider>
           <DataContextProvider>
             {children}
             <Toaster />
           </DataContextProvider>
-        </Suspense>
+        </PanelContextProvider>
       </body>
     </html>
   );

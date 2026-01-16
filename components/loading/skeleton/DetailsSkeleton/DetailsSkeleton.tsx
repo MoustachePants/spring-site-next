@@ -1,11 +1,11 @@
 import React from 'react';
 import './DetailsSkeleton.css';
-import ImgHeaderSkeleton from '../ImgHeaderSkeleton/ImgHeaderSkeleton';
 
 const DetailsSkeleton: React.FC = () => {
   return (
     <>
-      <ImgHeaderSkeleton />
+      <section className="spring-img-header-skeleton skeleton-wave" />
+
       <section className="spring-details-skeleton">
         <header className="spring-details-header-skeleton">
           <div className="spring-details-header-back-skeleton" />

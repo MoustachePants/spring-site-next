@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import getSpring from '@/app/actions/getSpring';
-import Panel from '@/components/ui/Panel/Panel';
+import { PanelHeader } from '@/components/ui/Panel/Panel';
 import SpringDetailsContent from '@/components/pageContent/SpringDetailsContent/SpringDetailsContent';
 import { NextPage } from 'next';
 import { Spring } from '@/models/types/spring';
@@ -33,9 +33,8 @@ const SpringPage: NextPage<Props> = async ({ params }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
-        <Panel>
-          <SpringDetailsContent spring={spring} />
-        </Panel>
+        <PanelHeader  />
+        <SpringDetailsContent spring={spring} />
       </>
     );
   } catch (error) {

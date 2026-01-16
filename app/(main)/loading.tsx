@@ -1,11 +1,12 @@
 import ListSkeleton from '@/components/loading/skeleton/ListSkeleton/ListSkeleton';
-import Panel from '@/components/ui/Panel/Panel';
 import Header from '@/components/panel/Header/Header';
+import { PanelHeader } from '@/components/ui/Panel/Panel';
 
 export default function Loading() {
   return (
-    <Panel header={<Header />}>
+    <>
+      <PanelHeader header={<Header />} />
       <ListSkeleton />
-    </Panel>
+    </>
   );
 }
