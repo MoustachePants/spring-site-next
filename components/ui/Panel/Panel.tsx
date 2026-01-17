@@ -1,78 +1,90 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { Sheet } from 'react-modal-sheet';
+import React, { useMemo, useState, useEffect } from 'react';
+import { Drawer } from 'vaul';
 import './Panel.css';
 import { useMobileSize } from '@/hooks/useMobileSize';
-import { PanelContextProvider, usePanelContext } from '@/context/PanelContext';
+import { usePanelContext } from '@/context/PanelContext';
+import { SNAP_INDEX } from '@/lib/storage';
 
 interface PanelProps {
   header?: React.ReactNode;
   children: React.ReactNode;
 }
 
-const PanelContent: React.FC<PanelProps> = ({ header, children }) => {
+const Peeking = 0.1;
+const Middle = 0.6;
+const Open = 0.9;
+const SNAP_POINTS = [Peeking, Middle, Open];
+
+const PanelContent: React.FC<PanelProps> = ({ header: headerProp, children }) => {
   const isMobile = useMobileSize();
-  const sheetRef = useRef<any>(null);
-  const { isScrollAtTop, currentSnapIndex, setCurrentSnapIndex } = usePanelContext();
+  const { currentSnapIndex, setCurrentSnapIndex, header: contextHeader } = usePanelContext();
+  const [mounted, setMounted] = useState(false);
 
-  const Hidden = { v: 0, i: 0 };
-  const Peeking = { v: 0.1, i: 1 };
-  const Middle = { v: 0.6, i: 2 };
-  const Open = { v: 1, i: 3 };
+  const header = headerProp || contextHeader;
 
-  const snapPoints = [Hidden.v, Peeking.v, Middle.v, Open.v];
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  const handleSnap = (index: number) => {
-    setCurrentSnapIndex(index === Peeking.i ? Middle.i : index);
+  const activeSnapPoint = useMemo(() => {
+    if (currentSnapIndex === SNAP_INDEX.PEEKING) return Peeking;
+    if (currentSnapIndex === SNAP_INDEX.MIDDLE) return Middle;
+    if (currentSnapIndex === SNAP_INDEX.OPEN) return Open;
+    return Middle;
+  }, [currentSnapIndex]);
+
+  const handleSnapChange = (value: string | number | null) => {
+    if (typeof value === 'number') {
+      const index = SNAP_POINTS.indexOf(value);
+      if (index !== -1) {
+        // Store as 1-based index to maintain compatibility with existing logic/context
+        setCurrentSnapIndex(index + 1);
+      }
+    }
   };
 
-  if (isMobile) {
+  if (!mounted) return null;
+
+  if (!isMobile) {
     return (
-      <div className="map-panel-mobile-wrapper">
-        <Sheet
-          ref={sheetRef}
-          isOpen
-          onClose={() => {
-            sheetRef.current?.snapTo(Peeking.i);
-          }}
-          snapPoints={snapPoints}
-          initialSnap={currentSnapIndex}
-          onSnap={handleSnap}
-        >
-          <Sheet.Container>
-            <Sheet.Header>
-              {header ? (
-                <div className="map-panel-sheet-header-wrapper">{header}</div>
-              ) : (
-                <div className="map-panel-sheet-header-wrapper shadow">
-                  <div className="header-indicator"></div>
-                </div>
-              )}
-            </Sheet.Header>
-            <Sheet.Content disableDrag={!isScrollAtTop}>{children}</Sheet.Content>
-          </Sheet.Container>
-        </Sheet>
+      <div className="map-panel">
+        <div className="map-panel-content-wrapper">
+          {header ? <div className="map-panel-header">{header}</div> : null}
+          <div className="map-panel-content">{children}</div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="map-panel">
-      <div className="map-panel-content-wrapper">
-        <div className="map-panel-header">{header}</div>
-        <div className="map-panel-content">{children}</div>
-      </div>
-    </div>
+    <Drawer.Root
+      open={true}
+      dismissible={false}
+      modal={false}
+      snapPoints={SNAP_POINTS}
+      activeSnapPoint={activeSnapPoint}
+      setActiveSnapPoint={handleSnapChange}
+      shouldScaleBackground={false}
+    >
+      <Drawer.Portal>
+        <Drawer.Content className="map-panel-sheet-container" data-snap-index={currentSnapIndex}>
+          <Drawer.Title className="sr-only">תפריט מעיינות</Drawer.Title>
+          <Drawer.Description className="sr-only">מידע ועדכונים על מעיינות</Drawer.Description>
+          <div className="map-panel-drag-handle">
+            <Drawer.Handle className="drawer-handle" />
+          </div>
+          {header ? <div className="map-panel-sheet-header-wrapper">{header}</div> : null}
+          <div className="vaul-scrollable-content">{children}</div>
+        </Drawer.Content>
+      </Drawer.Portal>
+    </Drawer.Root>
   );
 };
 
 const Panel: React.FC<PanelProps> = (props) => {
-  return (
-    <PanelContextProvider>
-      <PanelContent {...props} />
-    </PanelContextProvider>
-  );
+  return <PanelContent {...props} />;
 };
 
 export default Panel;

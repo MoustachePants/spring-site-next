@@ -27,7 +27,8 @@
     "react-modal-sheet": "^5.2.1",
     "react-select": "^5.9.0",
     "react-use-measure": "^2.1.7",
-    "validator": "^13.15.15"
+    "validator": "^13.15.15",
+    "vaul": "^1.1.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

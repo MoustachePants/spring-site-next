@@ -1,0 +1,39 @@
+.scroll-to-top-btn {
+    position: sticky;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--bright-text-color);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.scroll-to-top-btn svg {
+    position: relative;
+    bottom: 1px;
+}
+
+.scroll-to-top-btn:hover {
+    transform: scale(1.1);
+}
+
+.scroll-to-top-btn:active {
+    transform: scale(0.9);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .scroll-to-top-btn {
+        bottom: calc(var(--padding-bottom-open) + var(--details-padding));
+        border: 2px solid var(--bright-text-color-hover);
+    }
+}

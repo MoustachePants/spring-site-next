@@ -1,10 +1,11 @@
 import DetailsSkeleton from '@/components/loading/skeleton/DetailsSkeleton/DetailsSkeleton';
-import Panel from '@/components/ui/Panel/Panel';
+import { PanelHeader } from '@/components/ui/Panel/PanelHeader';
 
 export default function Loading() {
   return (
-    <Panel>
+    <>
+      <PanelHeader header={null} />
       <DetailsSkeleton />
-    </Panel>
+    </>
   );
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { useScrollToTopListener } from '@/hooks/useScrollToTopListener';
 import './SpringDetails.css';
 import { Spring } from '@/models/types/spring';
 import DetailsHeader from '../DetailsHeader/DetailsHeader';
@@ -19,7 +18,6 @@ type SpringDetailsProps = {
 
 const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
   const { springsList } = useDataContext();
-  const springDetailsRef = useScrollToTopListener();
   const springUpdatesRef = useRef<HTMLElement | null>(null);
 
   const nearbySpringList = springsList
@@ -28,7 +26,7 @@ const SpringDetails: React.FC<SpringDetailsProps> = ({ spring }) => {
     .slice(0, 5);
 
   return (
-    <section className="spring-details" ref={springDetailsRef}>
+    <section className="spring-details">
       <ImageHeader spring={spring} />
       <DetailsHeader springUpdatesRef={springUpdatesRef} />
       <section className="spring-details-content">

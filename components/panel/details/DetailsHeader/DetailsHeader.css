@@ -1,13 +1,15 @@
 .spring-details-header {
-    position: sticky; /* TODO: not working */
+    position: sticky;
     top: 0;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    z-index: 1;
-    padding: 25px var(--details-padding) 10px var(--details-padding);
+    z-index: 10;
     box-sizing: border-box;
+    background-color: var(--background-color);
+    padding: 15px var(--details-padding);
+    border-bottom: 1px solid var(--secondary-color-hover);
 }
 
 .spring-details-back {
@@ -23,6 +25,7 @@
 
 @media (max-width: 768px) {
     .spring-details-header {
-        position: relative;
+        position: sticky;
+        top: 0;
     }
 }

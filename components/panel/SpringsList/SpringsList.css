@@ -1,6 +1,8 @@
-.springs-options-scroll {
+.springs-options {
+    position: relative;
+    flex: 1;
+    min-height: 0;
     overflow-y: auto;
-    height: 100%;
     width: 100%;
     padding: 20px 0;
     box-sizing: border-box;
@@ -18,12 +20,25 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-    .springs-options-scroll {
+    .springs-options {
         width: 100vw;
         max-width: 100vw;
     }
 
     .springs-options-container {
         justify-content: flex-start;
+    }
+
+    /* Dynamic padding based on snap index passed from Panel.tsx */
+    .map-panel-sheet-container[data-snap-index="3"] .springs-options-container {
+        padding-bottom: var(--padding-bottom-open);
+    }
+
+    .map-panel-sheet-container[data-snap-index="2"] .springs-options-container {
+        padding-bottom: var(--padding-bottom-middle);
+    }
+
+    .map-panel-sheet-container[data-snap-index="1"] .springs-options-container {
+        padding-bottom: var(--padding-bottom-peeking);
     }
 }

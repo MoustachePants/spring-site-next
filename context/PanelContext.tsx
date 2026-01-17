@@ -1,19 +1,20 @@
 'use client';
 
 import { createContext, ReactNode, useContext, useState, useEffect } from 'react';
+import { getSessionItem, setSessionItem, STORAGE_KEYS, SNAP_INDEX } from '@/lib/storage';
 
 type PanelContextType = {
-  isScrollAtTop: boolean;
-  setIsScrollAtTop: (isAtTop: boolean) => void;
   currentSnapIndex: number;
   setCurrentSnapIndex: (index: number) => void;
+  header: ReactNode;
+  setHeader: (header: ReactNode) => void;
 };
 
 export const PanelContext = createContext<PanelContextType>({
-  isScrollAtTop: true,
-  setIsScrollAtTop: () => {},
   currentSnapIndex: 2,
-  setCurrentSnapIndex: () => {},
+  setCurrentSnapIndex: () => { },
+  header: null,
+  setHeader: () => { },
 });
 
 export function usePanelContext() {
@@ -25,11 +26,11 @@ export function usePanelContext() {
 }
 
 export function PanelContextProvider({ children }: { children: ReactNode }) {
-  const [isScrollAtTop, setIsScrollAtTop] = useState<boolean>(true);
-  const [currentSnapIndex, setCurrentSnapIndex] = useState<number>(2);
+  const [currentSnapIndex, setCurrentSnapIndex] = useState<number>(SNAP_INDEX.MIDDLE);
+  const [header, setHeader] = useState<ReactNode>(null);
 
   useEffect(() => {
-    const savedSnapIndex = sessionStorage.getItem('sheetSnapIndex');
+    const savedSnapIndex = getSessionItem(STORAGE_KEYS.SHEET_SNAP_INDEX);
     if (savedSnapIndex !== null) {
       setCurrentSnapIndex(parseInt(savedSnapIndex, 10));
     }
@@ -37,16 +38,16 @@ export function PanelContextProvider({ children }: { children: ReactNode }) {
 
   const updateSnapIndex = (index: number) => {
     setCurrentSnapIndex(index);
-    sessionStorage.setItem('sheetSnapIndex', index.toString());
+    setSessionItem(STORAGE_KEYS.SHEET_SNAP_INDEX, index.toString());
   };
 
   return (
     <PanelContext.Provider
       value={{
-        isScrollAtTop,
-        setIsScrollAtTop,
         currentSnapIndex,
         setCurrentSnapIndex: updateSnapIndex,
+        header,
+        setHeader,
       }}
     >
       {children}

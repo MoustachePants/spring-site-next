@@ -1,3 +1,10 @@
+.spring-img-header-skeleton {
+    width: 100%;
+    height: var(--details-height);
+    min-height: var(--details-min-height);
+    max-height: var(--details-max-height);
+}
+
 .spring-details-skeleton {
     position: relative;
     top: 0;

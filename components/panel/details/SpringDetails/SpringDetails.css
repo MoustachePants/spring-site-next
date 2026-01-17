@@ -7,8 +7,8 @@
     color: var(--dark-text-color);
     box-sizing: border-box;
     width: 100%;
-    overflow-y: unset;
-    height: unset;
+    overflow-y: scroll;
+    height: 100dvh;
 }
 
 .spring-details-content {
@@ -93,13 +93,26 @@
     .spring-details {
         width: 100vw;
         max-width: 100vw;
-        overflow-y: auto;
-        height: 100%;
+        overflow-y: visible;
+        height: fit-content;
         gap: 0;
         top: 0;
     }
 
     .spring-details-content {
-        padding: 0 var(--details-padding) var(--padding-bottom-panel) var(--details-padding);
+        padding: 0 var(--details-padding) 0 var(--details-padding);
+    }
+
+    /* Dynamic padding based on snap index passed from Panel.tsx */
+    .map-panel-sheet-container[data-snap-index="3"] .spring-details-content {
+        padding-bottom: var(--padding-bottom-open);
+    }
+
+    .map-panel-sheet-container[data-snap-index="2"] .spring-details-content {
+        padding-bottom: var(--padding-bottom-middle);
+    }
+
+    .map-panel-sheet-container[data-snap-index="1"] .spring-details-content {
+        padding-bottom: var(--padding-bottom-peeking);
     }
 }

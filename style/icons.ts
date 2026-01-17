@@ -12,6 +12,7 @@ import {
   ArrowLeft,
   NavArrowRight,
   NavArrowLeft,
+  FastArrowUp,
   Position,
 } from 'iconoir-react';
 import FilterIcon from '@/components/ui/icons/FilterIcon';
@@ -40,6 +41,7 @@ const Icons = {
   shadow: ShadowIcon,
   waves: WavesIcon,
   position: Position,
+  arrowUp: FastArrowUp,
 };
 
 export default Icons;

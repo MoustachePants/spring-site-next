@@ -19,7 +19,10 @@ const ImageHeader: React.FC<ImageHeaderProps> = ({ spring }) => {
   };
 
   return (
-    <header className="image-header" onClick={handleImageClick}>
+    <header
+      className={`image-header ${spring.images.length === 0 ? 'no-images' : ''}`}
+      onClick={handleImageClick}
+    >
       <Image
         src={getSpringImage(spring)}
         alt={spring?.name || 'מעיין'}
