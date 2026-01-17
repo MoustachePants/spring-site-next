@@ -9,7 +9,12 @@ import Loading from '@/components/loading/Loading/Loading';
 import Script from 'next/script';
 import { env } from '@/lib/env.config';
 
-const notoSansHebrew = Noto_Sans_Hebrew({ subsets: ['hebrew'] });
+const notoSansHebrew = Noto_Sans_Hebrew({ 
+  subsets: ['hebrew'],
+  display: 'swap',
+  preload: true,
+  weight: ['400', '500', '600', '700'],
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -129,6 +134,14 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning={true}>
+      <head>
+        <link rel="preconnect" href="https://www.clarity.ms" />
+        <link rel="preconnect" href="https://c.bing.com" />
+        <link rel="preconnect" href="https://tile.openstreetmap.org" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://v0.blob.vercel-storage.com" crossOrigin="anonymous" />
+      </head>
       <Script id="clarity-script" strategy="afterInteractive">
         {`
             (function(c,l,a,r,i,t,y){
