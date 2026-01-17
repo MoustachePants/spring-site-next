@@ -2,6 +2,12 @@ export const STORAGE_KEYS = {
   SHEET_SNAP_INDEX: 'sheetSnapIndex',
 } as const;
 
+export const SNAP_INDEX = {
+  PEEKING: 1,
+  MIDDLE: 2,
+  OPEN: 3,
+} as const;
+
 export const getSessionItem = (key: string): string | null => {
   if (typeof window === 'undefined') return null;
   try {

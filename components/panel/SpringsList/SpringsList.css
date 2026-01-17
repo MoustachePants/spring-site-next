@@ -28,4 +28,17 @@
     .springs-options-container {
         justify-content: flex-start;
     }
+
+    /* Dynamic padding based on snap index passed from Panel.tsx */
+    .map-panel-sheet-container[data-snap-index="3"] .springs-options-container {
+        padding-bottom: var(--padding-bottom-open);
+    }
+
+    .map-panel-sheet-container[data-snap-index="2"] .springs-options-container {
+        padding-bottom: var(--padding-bottom-middle);
+    }
+
+    .map-panel-sheet-container[data-snap-index="1"] .springs-options-container {
+        padding-bottom: var(--padding-bottom-peeking);
+    }
 }

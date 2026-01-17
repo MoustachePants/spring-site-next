@@ -5,6 +5,7 @@ import { Drawer } from 'vaul';
 import './Panel.css';
 import { useMobileSize } from '@/hooks/useMobileSize';
 import { usePanelContext } from '@/context/PanelContext';
+import { SNAP_INDEX } from '@/lib/storage';
 
 interface PanelProps {
   header?: React.ReactNode;
@@ -28,9 +29,9 @@ const PanelContent: React.FC<PanelProps> = ({ header: headerProp, children }) =>
   }, []);
 
   const activeSnapPoint = useMemo(() => {
-    if (currentSnapIndex === 1) return Peeking;
-    if (currentSnapIndex === 2) return Middle;
-    if (currentSnapIndex === 3) return Open;
+    if (currentSnapIndex === SNAP_INDEX.PEEKING) return Peeking;
+    if (currentSnapIndex === SNAP_INDEX.MIDDLE) return Middle;
+    if (currentSnapIndex === SNAP_INDEX.OPEN) return Open;
     return Middle;
   }, [currentSnapIndex]);
 
@@ -68,7 +69,7 @@ const PanelContent: React.FC<PanelProps> = ({ header: headerProp, children }) =>
       shouldScaleBackground={false}
     >
       <Drawer.Portal>
-        <Drawer.Content className="map-panel-sheet-container">
+        <Drawer.Content className="map-panel-sheet-container" data-snap-index={currentSnapIndex}>
           <Drawer.Title className="sr-only">תפריט מעיינות</Drawer.Title>
           <Drawer.Description className="sr-only">מידע ועדכונים על מעיינות</Drawer.Description>
           <div className="map-panel-drag-handle">

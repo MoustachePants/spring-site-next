@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, ReactNode, useContext, useState, useEffect } from 'react';
-import { getSessionItem, setSessionItem, STORAGE_KEYS } from '@/lib/storage';
+import { getSessionItem, setSessionItem, STORAGE_KEYS, SNAP_INDEX } from '@/lib/storage';
 
 type PanelContextType = {
   currentSnapIndex: number;
@@ -26,7 +26,7 @@ export function usePanelContext() {
 }
 
 export function PanelContextProvider({ children }: { children: ReactNode }) {
-  const [currentSnapIndex, setCurrentSnapIndex] = useState<number>(2);
+  const [currentSnapIndex, setCurrentSnapIndex] = useState<number>(SNAP_INDEX.MIDDLE);
   const [header, setHeader] = useState<ReactNode>(null);
 
   useEffect(() => {
