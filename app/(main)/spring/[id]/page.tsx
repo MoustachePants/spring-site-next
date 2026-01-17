@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import getSpring from '@/app/actions/getSpring';
-import { PanelHeader } from '@/components/ui/Panel/Panel';
+import { PanelHeader } from '@/components/ui/Panel/PanelHeader';
 import SpringDetailsContent from '@/components/pageContent/SpringDetailsContent/SpringDetailsContent';
 import { NextPage } from 'next';
 import { Spring } from '@/models/types/spring';

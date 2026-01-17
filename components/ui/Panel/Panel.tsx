@@ -86,12 +86,4 @@ const Panel: React.FC<PanelProps> = (props) => {
   return <PanelContent {...props} />;
 };
 
-export const PanelHeader = ({ header }: { header?: React.ReactNode }) => {
-  const { setHeader } = usePanelContext();
-  useEffect(() => {
-    setHeader(header);
-  }, [header, setHeader]);
-  return null;
-};
-
 export default Panel;

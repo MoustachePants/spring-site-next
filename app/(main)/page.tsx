@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import '../home.css';
 import Header from '@/components/panel/Header/Header';
-import { PanelHeader } from '@/components/ui/Panel/Panel';
+import { PanelHeader } from '@/components/ui/Panel/PanelHeader';
 import listSprings from '../actions/listSprings';
 import MainContent from '@/components/pageContent/MainContent/MainContent';
 import { Metadata } from 'next';

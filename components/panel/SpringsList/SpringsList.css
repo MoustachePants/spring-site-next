@@ -1,8 +1,8 @@
-.springs-options-scroll {
-    overflow-y: scroll;
-    /* TODO */
-    height: 50vh;
-
+.springs-options {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
     width: 100%;
     padding: 20px 0;
     box-sizing: border-box;
@@ -20,11 +20,9 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-    .springs-options-scroll {
+    .springs-options {
         width: 100vw;
         max-width: 100vw;
-        height: auto;
-        overflow-y: visible;
     }
 
     .springs-options-container {

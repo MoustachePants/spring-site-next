@@ -4,7 +4,7 @@ import CardSkeleton from '../CardSkeleton/CardSkeleton';
 
 const ListSkeleton: React.FC = () => {
   return (
-    <section className="springs-options-scroll-skeleton">
+    <section className="springs-options-skeleton">
       <div className="springs-options-container-skeleton">
         <CardSkeleton />
         <CardSkeleton />
