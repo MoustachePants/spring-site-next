@@ -11,10 +11,19 @@ export function useMobileSize(): boolean {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+    
+    const handleMatchChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      setIsMobile(e.matches);
+    };
+
+    // Initial check
+    handleMatchChange(mediaQuery);
+
+    // Modern browsers support addEventListener on MediaQueryList
+    mediaQuery.addEventListener('change', handleMatchChange);
+    
+    return () => mediaQuery.removeEventListener('change', handleMatchChange);
   }, []);
 
   return isMobile;

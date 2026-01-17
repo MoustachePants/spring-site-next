@@ -13,10 +13,14 @@ export const useCloseFiltersOnScroll = (
   const { isFiltersOpen, setIsFiltersOpen } = useMainPageContext();
 
   useEffect(() => {
+    let timeoutId: number;
     const handleScroll = () => {
-      if (isFiltersOpen && scrollRef.current && scrollRef.current.scrollTop > threshold) {
-        setIsFiltersOpen(false);
-      }
+      cancelAnimationFrame(timeoutId);
+      timeoutId = requestAnimationFrame(() => {
+        if (isFiltersOpen && scrollRef.current && scrollRef.current.scrollTop > threshold) {
+          setIsFiltersOpen(false);
+        }
+      });
     };
 
     const element = scrollRef.current;
@@ -27,6 +31,7 @@ export const useCloseFiltersOnScroll = (
       if (element) {
         element.removeEventListener('scroll', handleScroll);
       }
+      cancelAnimationFrame(timeoutId);
     };
   }, [isFiltersOpen, setIsFiltersOpen, scrollRef, threshold]);
 };

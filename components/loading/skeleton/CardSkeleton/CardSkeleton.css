@@ -1,8 +1,8 @@
 .preview-card-skeleton {
     min-width: 300px;
     width: 100%;
-    max-width: 346px;
     height: 230px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;

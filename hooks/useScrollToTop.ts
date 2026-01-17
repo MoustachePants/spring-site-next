@@ -12,10 +12,14 @@ export const useScrollToTop = (
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
+    let timeoutId: number;
     const handleScroll = () => {
-      if (scrollRef.current) {
-        setShowButton(scrollRef.current.scrollTop > threshold);
-      }
+      cancelAnimationFrame(timeoutId);
+      timeoutId = requestAnimationFrame(() => {
+        if (scrollRef.current) {
+          setShowButton(scrollRef.current.scrollTop > threshold);
+        }
+      });
     };
 
     const element = scrollRef.current;
@@ -26,6 +30,7 @@ export const useScrollToTop = (
       if (element) {
         element.removeEventListener('scroll', handleScroll);
       }
+      cancelAnimationFrame(timeoutId);
     };
   }, [scrollRef, threshold]);
 

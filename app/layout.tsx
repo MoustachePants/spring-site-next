@@ -140,10 +140,8 @@ export default async function RootLayout({
       </Script>
       <body className={notoSansHebrew.className}>
         <PanelContextProvider>
-          <DataContextProvider>
-            {children}
-            <Toaster />
-          </DataContextProvider>
+          {children}
+          <Toaster />
         </PanelContextProvider>
       </body>
     </html>

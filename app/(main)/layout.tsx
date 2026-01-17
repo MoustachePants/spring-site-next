@@ -5,21 +5,22 @@ import Panel from '@/components/ui/Panel/Panel';
 import { Suspense } from 'react';
 import Loading from './loading';
 import { MainPageContextProvider } from '@/context/MainPageContext';
+import { DataContextProvider } from '@/context/DataContext';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <MainPageContextProvider>
-      <main className="main-container">
-        <Panel>
-          <Suspense fallback={<Loading />}>
-            {children}
-          </Suspense>
-        </Panel>
-        <section className="map-wrapper">
-          <MapWrapper />
-          <MapFooter />
-        </section>
-      </main>
+      <Suspense fallback={<Loading />}>
+        <DataContextProvider>
+          <main className="main-container">
+            <Panel>{children}</Panel>
+            <section className="map-wrapper">
+              <MapWrapper />
+              <MapFooter />
+            </section>
+          </main>
+        </DataContextProvider>
+      </Suspense>
     </MainPageContextProvider>
   );
 }

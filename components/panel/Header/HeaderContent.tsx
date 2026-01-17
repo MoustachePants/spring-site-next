@@ -27,7 +27,10 @@ const HeaderContent: React.FC = () => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            style={{ overflow: 'hidden', width: '100%' }}
+            style={{ 
+              overflow: 'hidden', 
+              width: '100%',
+            }}
           >
             <Filters />
           </motion.div>
