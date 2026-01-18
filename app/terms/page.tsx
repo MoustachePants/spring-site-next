@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: 'תנאי שימוש, תקנון ומדיניות פרטיות של אתר המעיין הנובע',
   alternates: {
     canonical: '/terms',
+    languages: {
+      'he-IL': '/terms',
+    },
   },
 };
 

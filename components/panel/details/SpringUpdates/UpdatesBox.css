@@ -20,7 +20,7 @@
     min-width: 120px;
 }
 
-.updates-title-section h3 {
+.updates-title-section h2 {
     font-size: 18px;
     font-weight: 600;
     line-height: 1.2;
@@ -127,12 +127,12 @@
         padding: 15px;
     }
 
-    .updates-title-section h3 {
+    .updates-title-section h2 {
         margin: 0;
         text-align: right;
     }
 
-    .updates-title-section h3 br {
+    .updates-title-section h2 br {
         display: none;
     }
 

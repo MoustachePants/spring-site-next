@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: 'הצהרת נגישות של אתר המעיין הנובע',
   alternates: {
     canonical: '/accessibility',
+    languages: {
+      'he-IL': '/accessibility',
+    },
   },
 };
 

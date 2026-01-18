@@ -25,7 +25,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ spring, priority = false }) =
         priority={priority}
       />
       <section className="preview-card-info">
-        <h3>{spring?.name || 'מעיין'}</h3>
+        <h2>{spring?.name || 'מעיין'}</h2>
         <SpringPositionTag position={spring.subRegion} />
         <TagsList spring={spring} limit={3} />
       </section>

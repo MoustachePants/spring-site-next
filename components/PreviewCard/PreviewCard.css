@@ -47,7 +47,7 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 20%, transparent 100%);
 }
 
-.preview-card-info h3 {
+.preview-card-info h2 {
     font-size: 28px;
     font-weight: 600;
 }

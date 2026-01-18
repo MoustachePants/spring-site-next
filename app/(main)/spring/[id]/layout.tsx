@@ -44,6 +44,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     alternates: {
       canonical: `/spring/${id}`,
+      languages: {
+        'he-IL': `/spring/${id}`,
+      },
     },
   };
 }

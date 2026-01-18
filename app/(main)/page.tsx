@@ -9,6 +9,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   alternates: {
     canonical: '/',
+    languages: {
+      'he-IL': '/',
+    },
   },
 };
 
@@ -18,6 +21,7 @@ const Home: NextPage = async () => {
 
   return (
     <>
+      <h1 className="sr-only">המעיין הנובע - רשימת מעיינות ונחלים בישראל</h1>
       <PanelHeader header={<Header />} />
       <MainContent initialSprings={initialSprings} />
     </>

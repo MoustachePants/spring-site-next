@@ -1,11 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Noto_Sans_Hebrew } from 'next/font/google';
 import './globals.css';
-import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { DataContextProvider } from '@/context/DataContext';
 import { PanelContextProvider } from '@/context/PanelContext';
-import Loading from '@/components/loading/Loading/Loading';
 import Script from 'next/script';
 import { env } from '@/lib/env.config';
 
@@ -19,8 +16,6 @@ const notoSansHebrew = Noto_Sans_Hebrew({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export const metadata: Metadata = {
@@ -45,6 +40,12 @@ export const metadata: Metadata = {
     google: 'V3W8XfT4n7EQXOepvUhH2h1tix6yc-qOdgsvRyXHpEQ',
   },
   metadataBase: new URL(env.baseUrl),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'he-IL': '/',
+    },
+  },
   robots: {
     index: true,
     follow: true,
@@ -135,12 +136,9 @@ export default async function RootLayout({
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning={true}>
       <head>
-        <link rel="preconnect" href="https://www.clarity.ms" />
-        <link rel="preconnect" href="https://c.bing.com" />
         <link rel="preconnect" href="https://tile.openstreetmap.org" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://v0.blob.vercel-storage.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.clarity.ms" />
       </head>
       <Script id="clarity-script" strategy="afterInteractive">
         {`

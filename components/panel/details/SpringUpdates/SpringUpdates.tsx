@@ -34,7 +34,7 @@ const SpringUpdates = React.forwardRef<HTMLElement, SpringUpdateProps>(
         <div className="icon-wrapper">
           <Icons.updates width={50} height={50} strokeWidth={1.5} />
         </div>
-        <h3>עדכונים מהשטח</h3>
+        <h2>עדכונים מהשטח</h2>
       </section>
 
       <section className="updates-content">

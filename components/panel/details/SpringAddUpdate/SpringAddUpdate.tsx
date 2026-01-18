@@ -63,11 +63,11 @@ const SpringAddUpdate: React.FunctionComponent<SpringAddUpdateProps> = ({ spring
         <Icons.close />
       </button>
       <div className="title-section">
-        <h3>
+        <h2>
           נשמח לשמוע
           <br />
           איך היה לך הביקור :)
-        </h3>
+        </h2>
         <Sparks className="sparkles-icon" width={24} height={24} />
       </div>
 
