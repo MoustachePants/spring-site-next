@@ -4,7 +4,13 @@ import Icons from '@/style/icons';
 import { useShare } from '@/hooks/useShare';
 import { useDataContext } from '@/context/DataContext';
 import { useMobileSize } from '@/hooks/useMobileSize';
-import { getWhatsappShareUrl } from '@/utils/share';
+import { copyToClipboard } from '@/utils/share';
+import { Dropdown, DropdownItem } from '@/components/ui/Dropdown/Dropdown';
+import {
+  Link as LinkIcon,
+} from 'iconoir-react';
+import toast from 'react-hot-toast';
+import ShareOptions from '@/resources/shareOptions';
 
 type TopDetailActionsProp = {
   scrollToUpdates: () => void;
@@ -15,21 +21,23 @@ const TopDetailsActions: React.FC<TopDetailActionsProp> = ({ scrollToUpdates }) 
   const { selectedSpring } = useDataContext();
   const isMobile = useMobileSize();
 
-  const handleShare = () => {
-    const title = 'המעיין הנובע';
-    const text = `צפו במעיין ${selectedSpring?.name}`;
-    const url = decodeURI(window.location.href);
+  const title = 'המעיין הנובע';
+  const text = `צפו במעיין ${selectedSpring?.name}`;
+  const url = typeof window !== 'undefined' ? decodeURI(window.location.href) : '';
 
-    if (!isMobile) {
-      window.open(getWhatsappShareUrl(text, url, true), '_blank');
-      return;
-    }
-
+  const handleNativeShare = () => {
     share({
       title,
       text,
       url,
     });
+  };
+
+  const handleCopyLink = async () => {
+    const success = await copyToClipboard(url);
+    if (success) {
+      toast.success('הקישור הועתק!');
+    }
   };
 
   const handleNavigation = () => {
@@ -48,10 +56,36 @@ const TopDetailsActions: React.FC<TopDetailActionsProp> = ({ scrollToUpdates }) 
         <Icons.navigation />
         <span>ניווט</span>
       </div>
-      <div className="spring-details-header-action" onClick={handleShare}>
-        <Icons.share />
-        <span>שתף</span>
-      </div>
+      {isMobile ? (
+        <div className="spring-details-header-action" onClick={handleNativeShare}>
+          <Icons.share />
+          <span>שתף</span>
+        </div>
+      ) : (
+        <Dropdown
+          ariaLabel="אפשרויות שיתוף"
+          align="left"
+          trigger={
+            <div className="spring-details-header-action">
+              <Icons.share />
+              <span>שתף</span>
+            </div>
+          }
+        >
+          <DropdownItem onClick={handleCopyLink} icon={<LinkIcon color="var(--primary-color)" />} />
+          {
+            ShareOptions.map((option: any) => (
+              <DropdownItem
+                key={option.name}
+                as={option.as}
+                url={url}
+                title={text}
+                icon={option.icon}
+              />
+            ))
+          }
+        </Dropdown>
+      )}
     </div>
   );
 };

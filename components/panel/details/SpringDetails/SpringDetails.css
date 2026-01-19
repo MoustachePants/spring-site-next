@@ -93,8 +93,9 @@
     .spring-details {
         width: 100vw;
         max-width: 100vw;
-        overflow-y: visible;
-        height: fit-content;
+        overflow-y: auto;
+        flex: 1;
+        min-height: 0;
         gap: 0;
         top: 0;
     }
