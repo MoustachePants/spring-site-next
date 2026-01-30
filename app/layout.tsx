@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'המעיין הנובע',
+  title: 'המעיין הנובע - חיפוש מעיינות בישראל',
   description:
     'מחפשים מקום לטבול? לשכשך רגליים? עדכונים שוטפים על מאות מעיינות, מאגרי מים ונחלים בסידור שמותאם למיקום שלכם!',
   icons: {
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     'מים בטבע ישראל',
   ],
   openGraph: {
-    title: 'המעיין הנובע – מעיינות ונחלים בישראל',
+    title: 'המעיין הנובע - חיפוש מעיינות בישראל',
     description: 'כל המעיינות, הנחלים ומאגרי המים בישראל – לפי מיקום, מצב עדכני ועונות השנה.',
     siteName: 'המעיין הנובע',
     images: [
@@ -112,13 +112,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'המעיין הנובע – מעיינות ונחלים בישראל',
+    title: 'המעיין הנובע - חיפוש מעיינות בישראל',
     description: 'כל המעיינות, הנחלים ומאגרי המים בישראל – לפי מיקום, מצב עדכני ועונות השנה.',
     images: ['/og-image.png'],
   },
   appleWebApp: {
     capable: true,
-    title: 'המעיין הנובע',
+    title: 'המעיין הנובע - חיפוש מעיינות בישראל',
     statusBarStyle: 'black-translucent',
   },
   formatDetection: {
@@ -149,6 +149,34 @@ export default async function RootLayout({
             })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}");
           `}
       </Script>
+      <Script
+        id="schema-org"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'המעיין הנובע',
+            alternateName: 'המעיין הנובע - חיפוש מעיינות בישראל',
+            url: env.baseUrl,
+            description: 'מחפשים מקום לטבול? לשכשך רגליים? עדכונים שוטפים על מאות מעיינות, מאגרי מים ונחלים בסידור שמותאם למיקום שלכם!',
+            inLanguage: 'he',
+            publisher: {
+              '@type': 'Organization',
+              name: 'המעיין הנובע',
+              url: env.baseUrl,
+            },
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: {
+                '@type': 'EntryPoint',
+                urlTemplate: `${env.baseUrl}/?search={search_term_string}`,
+              },
+              'query-input': 'required name=search_term_string',
+            },
+          }),
+        }}
+      />
       <body className={notoSansHebrew.className}>
         <PanelContextProvider>
           {children}
