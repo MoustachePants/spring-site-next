@@ -6,7 +6,7 @@ import { PanelContextProvider } from '@/context/PanelContext';
 import Script from 'next/script';
 import { env } from '@/lib/env.config';
 
-const notoSansHebrew = Noto_Sans_Hebrew({ 
+const notoSansHebrew = Noto_Sans_Hebrew({
   subsets: ['hebrew'],
   display: 'swap',
   preload: true,
@@ -159,7 +159,8 @@ export default async function RootLayout({
             name: 'המעיין הנובע',
             alternateName: 'המעיין הנובע - חיפוש מעיינות בישראל',
             url: env.baseUrl,
-            description: 'מחפשים מקום לטבול? לשכשך רגליים? עדכונים שוטפים על מאות מעיינות, מאגרי מים ונחלים בסידור שמותאם למיקום שלכם!',
+            description:
+              'מחפשים מקום לטבול? לשכשך רגליים? עדכונים שוטפים על מאות מעיינות, מאגרי מים ונחלים בסידור שמותאם למיקום שלכם!',
             inLanguage: 'he',
             publisher: {
               '@type': 'Organization',
@@ -176,6 +177,45 @@ export default async function RootLayout({
             },
           }),
         }}
+      />
+      <Script id="equalweb-config" strategy="beforeInteractive">
+        {`
+            window.interdeal = {
+              get sitekey(){ return "866964d9351b060839fd1bfec8545128" },
+              get domains(){
+                return {
+                  "js": "https://cdn.equalweb.com/",
+                  "acc": "https://access.equalweb.com/"
+                }
+              },
+              "Position": "left",
+              "Menulang": "HE",
+              "draggable": true,
+              "btnStyle": {
+                "vPosition": ["50%", "80%"],
+                "margin": ["0", "0"],
+                "scale": ["0.5", "0.5"],
+                "color": {
+                  "main": "#223F43",
+                  "second": "#ffffff"
+                },
+                "icon": {
+                  "outline": false,
+                  "outlineColor": "#ffffff",
+                  "type": 11,
+                  "shape": "circle"
+                }
+              }
+            };
+          `}
+      </Script>
+      <Script
+        src="https://cdn.equalweb.com/core/5.2.8/accessibility.js"
+        strategy="lazyOnload"
+        defer
+        integrity="sha512-ka0NgF7zDksnhoZ5ZCKlm+t0F7KTih5lCfXwuzQDnrwu/EdKZSsJotoJvQPd0cuVmV63s0q2cgoUjeki688PuQ=="
+        crossOrigin="anonymous"
+        data-cfasync="true"
       />
       <body className={notoSansHebrew.className}>
         <PanelContextProvider>
